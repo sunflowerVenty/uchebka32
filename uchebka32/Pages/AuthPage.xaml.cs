@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace uchebka32.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для CheckRunner.xaml
+    /// Логика взаимодействия для AuthPage.xaml
     /// </summary>
-    public partial class CheckRunner : Page
+    public partial class AuthPage : Page
     {
-        public CheckRunner()
+        public AuthPage()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -10,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace uchebka32.Pages
+namespace uchebka32.Window
 {
     /// <summary>
-    /// Логика взаимодействия для CheckRunner.xaml
+    /// Логика взаимодействия для RolePage.xaml
     /// </summary>
-    public partial class CheckRunner : Page
+    public partial class RolePage : Window
     {
-        public CheckRunner()
+        public RolePage()
         {
             InitializeComponent();
         }
-
     }
 }
