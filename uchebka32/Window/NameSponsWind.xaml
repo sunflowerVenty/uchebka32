@@ -1,0 +1,30 @@
+﻿<Window x:Class="uchebka32.Window.NameSponsWind"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:uchebka32.Window"
+        mc:Ignorable="d"
+        Title="NameSponsWind" Height="300" Width="450">
+    <Grid Background="White">
+        <StackPanel VerticalAlignment="Top" Margin="20">
+            <TextBlock Text="Наименование спонсора" FontWeight="Medium" FontSize="20" Style="{StaticResource TextPage}"/>
+            <Border CornerRadius="10" 
+                    Margin="10"
+                    Height="100" 
+                    Width="100">
+                <Border.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Info.png"/>
+                </Border.Background>
+            </Border>
+            <TextBlock FontSize="13" 
+                       Style="{StaticResource TextPage}"
+                       TextAlignment="Left" 
+                       Margin="21, 0" 
+                       TextWrapping="Wrap">
+                       <Run Text="Здесь указывается описание благотворительной организации. "/>
+                       <LineBreak/>
+                       <Run Text="Должна быть обеспечена возможность просмотра большого количества информации в данном окне"/></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

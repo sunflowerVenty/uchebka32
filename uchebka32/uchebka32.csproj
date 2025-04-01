@@ -58,8 +58,17 @@
     <Compile Include="Pages\RegRunner.xaml.cs">
       <DependentUpon>RegRunner.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window\RolePage.xaml.cs">
-      <DependentUpon>RolePage.xaml</DependentUpon>
+    <Compile Include="Pages\RegSpons.xaml.cs">
+      <DependentUpon>RegSpons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegRunner2.xaml.cs">
+      <DependentUpon>RegRunner2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\NameSponsWind.xaml.cs">
+      <DependentUpon>NameSponsWind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\RoleWind.xaml.cs">
+      <DependentUpon>RoleWind.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\AuthPage.xaml">
       <SubType>Designer</SubType>
@@ -70,6 +79,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RegRunner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RegSpons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\RegRunner2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,7 +112,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window\RolePage.xaml">
+    <Page Include="Window\NameSponsWind.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window\RoleWind.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Info.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,94 +31,97 @@
                        Style="{StaticResource TextPage}" 
                        Margin="70, 0"/>
             </StackPanel>
+
             <StackPanel Orientation="Horizontal">
-                <StackPanel Margin="0" HorizontalAlignment="Left">
-                <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
-                    <TextBlock Text="Email:" FontSize="35" 
-           Style="{StaticResource TextPage}" 
-           Margin="10, 0"/>
-                    <TextBox Text="Email" Width="400" Margin="10, 0"></TextBox>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
-                    <TextBlock Text="Пароль:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
-                    <TextBox Text="Пароль" Width="400" Margin="10, 0"></TextBox>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
-                    <TextBlock Text="Повторите пароль:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
-                    <TextBox Text="Повторите пароль" Width="400" Margin="10, 0"></TextBox>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
-                    <TextBlock Text="Имя:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
-                    <TextBox Text="Имя" Width="400" Margin="10, 0"></TextBox>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
-                    <TextBlock Text="Фамилия:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
-                    <TextBox Text="Фамилия" Width="400" Margin="10, 0"></TextBox>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
-                    <TextBlock Text="Пол:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
-                    <ComboBox Text="Выберите пол" Background="White" Width="400" Height="60" Margin="10, 0"/>
-                </StackPanel>
-
-
-            </StackPanel>
-                <StackPanel Margin="0" HorizontalAlignment="Left">
+                <StackPanel Margin="50, 0" HorizontalAlignment="Left">
                     <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                         <TextBlock Text="Email:" FontSize="35" 
-           Style="{StaticResource TextPage}" 
-           Margin="10, 0"/>
+               Style="{StaticResource TextPage}" 
+               Margin="10, 0"/>
                         <TextBox Text="Email" Width="400" Margin="10, 0"></TextBox>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                         <TextBlock Text="Пароль:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
+    Style="{StaticResource TextPage}" 
+    Margin="10, 0"/>
                         <TextBox Text="Пароль" Width="400" Margin="10, 0"></TextBox>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                         <TextBlock Text="Повторите пароль:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
+    Style="{StaticResource TextPage}" 
+    Margin="10, 0"/>
                         <TextBox Text="Повторите пароль" Width="400" Margin="10, 0"></TextBox>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                         <TextBlock Text="Имя:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
+    Style="{StaticResource TextPage}" 
+    Margin="10, 0"/>
                         <TextBox Text="Имя" Width="400" Margin="10, 0"></TextBox>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                         <TextBlock Text="Фамилия:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
+    Style="{StaticResource TextPage}" 
+    Margin="10, 0"/>
                         <TextBox Text="Фамилия" Width="400" Margin="10, 0"></TextBox>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                         <TextBlock Text="Пол:" FontSize="35" 
-Style="{StaticResource TextPage}" 
-Margin="10, 0"/>
+    Style="{StaticResource TextPage}" 
+    Margin="10, 0"/>
                         <ComboBox Text="Выберите пол" Background="White" Width="400" Height="60" Margin="10, 0"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="120, 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <StackPanel HorizontalAlignment="Right" Background="LightGray">
+                        <Image Height="250" Width="210"></Image>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" 
+                                Margin="100 0, 0, 20">
+                        <TextBlock Text="Фото файл:" 
+                                   FontSize="30" 
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="35, 0"
+                                   HorizontalAlignment="Left"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Text="Photo_logo.jpg" 
+                                     Width="400" 
+                                     Height="50"
+                                     Margin="10, 0"></TextBox>
+                            <Button Content="Просмотр" 
+                                    Margin="0"
+                                    Height="50"
+                                    Width="210" 
+                                    FontSize="24"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Height="80" Orientation="Horizontal">
+                        <TextBlock Text="Дата рождения:" 
+                                   FontSize="30" 
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="10, 0"/>
+                        <DatePicker Width="400"
+                                    Height="80"
+                                    FontSize="25"
+                                    Margin="10, 0" 
+                                    Foreground="White"></DatePicker>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
+                        <TextBlock Text="Страна:" 
+                                   FontSize="30" 
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="10, 0"/>
+                        <ComboBox Background="White" Width="400" Height="50" Margin="10, 0"/>
                     </StackPanel>
 
 
                 </StackPanel>
             </StackPanel>
-            
+
             <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal">
                 <Button Content="Login" Height="50" Width="140" FontSize="24" Margin="20"/>
                 <Button Content="Cancel" Height="50" Width="140" FontSize="24" Margin="20"/>
             </StackPanel>
-            
+
         </StackPanel>
     </Grid>
 </Page>

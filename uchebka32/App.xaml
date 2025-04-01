@@ -36,7 +36,6 @@
         </Style>
 
         <Style TargetType="Grid">
-            <Setter Property="Background" Value="Black"/>
             <Setter Property="Grid.ColumnSpan" Value="5"/>
         </Style>
 

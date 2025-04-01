@@ -12,7 +12,7 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
-        <Grid>
+        <Grid Background="Black">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0" Orientation="Horizontal">
                 <Button Content="Назад" Width="140"/>
                 <TextBlock Text="MARATHON SKILLS 2016" Margin="40, 0" FontSize="24" FontWeight="Bold" Style="{StaticResource TextHeader}"/>
@@ -21,7 +21,7 @@
         
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Background="Black">
             <StackPanel>
                 <TextBlock Text="18 часов" FontSize="20" Style="{StaticResource TextHeader}"/>
             </StackPanel>
