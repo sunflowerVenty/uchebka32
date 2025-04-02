@@ -18,9 +18,9 @@ namespace uchebka32.Pages
     /// <summary>
     /// Логика взаимодействия для Information.xaml
     /// </summary>
-    public partial class Information : Page
+    public partial class DeteilsInfo : Page
     {
-        public Information()
+        public DeteilsInfo()
         {
             InitializeComponent();
         }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace uchebka32.Window
+namespace uchebka32.Windows
 {
     /// <summary>
     /// Логика взаимодействия для ContactOrgWind.xaml

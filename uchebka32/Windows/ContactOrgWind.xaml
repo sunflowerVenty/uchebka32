@@ -1,9 +1,9 @@
-﻿<Window x:Class="uchebka32.Window.ContactOrgWind"
+﻿<Window x:Class="uchebka32.Windows.ContactOrgWind"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:uchebka32.Window"
+        xmlns:local="clr-namespace:uchebka32.Windows"
         mc:Ignorable="d"
         Title="ContactOrgWind" Height="300" Width="450">
     <Grid Background="White">

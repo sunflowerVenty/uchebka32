@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace uchebka32.Window
+namespace uchebka32.Windows
 {
     /// <summary>
     /// Логика взаимодействия для RolePage.xaml
     /// </summary>
-    public partial class RoleWind : Window
+    public partial class NameSponsWind : Window
     {
-        public RoleWind()
+        public NameSponsWind()
         {
             InitializeComponent();
         }

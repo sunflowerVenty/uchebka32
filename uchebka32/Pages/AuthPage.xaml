@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top">
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="220, 50">
-                <TextBlock Text="Регистрация бегуна" FontWeight="Medium" Style="{StaticResource TextPage}" Margin="10"/>
+                <TextBlock Text="Регистрация бегуна" FontWeight="Medium" Style="{StaticResource Text}" Margin="10"/>
                 <TextBlock Text="Пожалуйста, заполните всю информацию, чтобы зарегистрироваться в качестве бегуна" 
                        FontSize="35" 
                        TextWrapping="Wrap"

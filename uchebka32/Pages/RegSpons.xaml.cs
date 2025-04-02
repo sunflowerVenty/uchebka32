@@ -18,9 +18,9 @@ namespace uchebka32.Pages
     /// <summary>
     /// Логика взаимодействия для RegRunner2Page.xaml
     /// </summary>
-    public partial class RegRunner2Page : Page
+    public partial class RegSpons : Page
     {
-        public RegRunner2Page()
+        public RegSpons()
         {
             InitializeComponent();
         }

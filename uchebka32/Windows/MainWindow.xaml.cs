@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using uchebka32.Pages;
 
-namespace uchebka32
+namespace uchebka32.Windows
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

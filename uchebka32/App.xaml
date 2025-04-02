@@ -4,8 +4,18 @@
              xmlns:local="clr-namespace:uchebka32"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <SolidColorBrush x:Key="White" Color="White" />
+        <SolidColorBrush x:Key="HeaderColor" Color="Black" />
+        <SolidColorBrush x:Key="FooterColor" Color="Black" />
+        <SolidColorBrush x:Key="BaseTextColor" Color="Black" />
+        <SolidColorBrush x:Key="TextBoxColor" Color="LightGray"/>
+        <SolidColorBrush x:Key="HeaderTextColor" Color="#333333" />
+        <SolidColorBrush x:Key="BgPanelColor" Color="LightGray" />
+        <SolidColorBrush x:Key="AccentColor" Color="Blue" />
+        <SolidColorBrush x:Key="BtnColor" Color="LightGreen" />
+        
         <Style TargetType="TextBlock" x:Key="BaseText">
-            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="Foreground" Value="{StaticResource BaseTextColor}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
@@ -14,17 +24,17 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="60"/>
         </Style>
         
         <Style TargetType="TextBlock" x:Key="TextPage">
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Foreground" Value="{StaticResource BaseTextColor}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="60"/>
         </Style>
 
         <Style TargetType="TextBox">
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBoxColor}"/>
             <Setter Property="Height" Value="70"/>
             <Setter Property="Width" Value="500"/>
             <Setter Property="FontSize" Value="60"/>
@@ -54,15 +64,15 @@
             <Setter  Property="Margin" Value="0, 10"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="black"/>
+            <Setter Property="Foreground" Value="{StaticResource BaseTextColor}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border 
                             Background="{TemplateBinding Background}" 
                             CornerRadius="10"
-                            BorderThickness="2" 
-                            BorderBrush="#dddddd">
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource BtnColor}">
                             <ContentPresenter 
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Center"/>

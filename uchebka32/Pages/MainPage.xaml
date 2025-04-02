@@ -21,7 +21,7 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
-        <Grid >
+        <Grid Background="Black">
             <StackPanel>
                 <TextBlock Text="MARATHON SKILLS 2016" FontSize="48" FontWeight="Bold" Style="{StaticResource TextHeader}" Margin="10"/>
                 <TextBlock Text="Москва, Россия" FontSize="28" Style="{StaticResource TextHeader}" Foreground="Gray"/>

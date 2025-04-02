@@ -19,22 +19,35 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top" Margin="220, 50">
-            <Image Source="/Images/marshrut.png"/>  
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
+                    VerticalAlignment="Top" 
+                    Orientation="Horizontal"
+                    Margin="220, 50">
+            <Image Source="/Images/marshrut.png" Height="800"/>
 
-            <TextBlock Text="Спасибо за вашу спонсорскую поддержку!" 
+            <StackPanel>
+                <TextBlock Text="Checkpoint 1" 
                            FontWeight="Medium" 
-                           Style="{StaticResource TextPage}" 
+                           Style="{StaticResource TextHeader}" 
+                           Foreground="Black"
+                           FontSize="35"
                            Margin="10"/>
-
-            <TextBlock FontSize="35" 
+                <TextBlock FontSize="35" 
+                           Text="Особенности:"
                        TextWrapping="Wrap"
-                       TextAlignment="Center"
+                       Style="{StaticResource TextPage}" 
+                       Margin="100, 40"/>
+                <TextBlock FontSize="35" 
+                       TextWrapping="Wrap"
                        Style="{StaticResource TextPage}" 
                        Margin="100, 40">
-                       <Run Text="Спасибо за поддержку бегуна в Marathon Skills 2016!"/>
-                       <LineBreak/>
-                       <Run Text="Ваше пожертвование пойдет в его благотворительную организацию"/></TextBlock>
+                        Стенд питья<LineBreak/>
+                       - Энергетические батончики<LineBreak/>
+                       - Туалет<LineBreak/>
+                       - Медицинский пункт
+                </TextBlock>
+            </StackPanel>
+            
         </StackPanel>
     </Grid>
 </Page>
