@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace uchebka32.Window
+namespace uchebka32.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для RolePage.xaml
+    /// Логика взаимодействия для Maps.xaml
     /// </summary>
-    public partial class RoleWind : Window
+    public partial class Maps : Page
     {
-        public RoleWind()
+        public Maps()
         {
             InitializeComponent();
         }

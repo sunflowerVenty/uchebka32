@@ -55,6 +55,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\confirRegRunner.xaml.cs">
+      <DependentUpon>confirRegRunner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DeteilsInfo.xaml.cs">
+      <DependentUpon>DeteilsInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InfoMarafon.xaml.cs">
+      <DependentUpon>InfoMarafon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Maps.xaml.cs">
+      <DependentUpon>Maps.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenuRunner.xaml.cs">
+      <DependentUpon>MenuRunner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RegRunner.xaml.cs">
       <DependentUpon>RegRunner.xaml</DependentUpon>
     </Compile>
@@ -63,6 +78,12 @@
     </Compile>
     <Compile Include="Pages\RegRunner2.xaml.cs">
       <DependentUpon>RegRunner2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\thankSpons.xaml.cs">
+      <DependentUpon>thankSpons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\ContactOrgWind.xaml.cs">
+      <DependentUpon>ContactOrgWind.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window\NameSponsWind.xaml.cs">
       <DependentUpon>NameSponsWind.xaml</DependentUpon>
@@ -78,6 +99,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\confirRegRunner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DeteilsInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InfoMarafon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Maps.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenuRunner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\RegRunner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,6 +128,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\RegRunner2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\thankSpons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\ContactOrgWind.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

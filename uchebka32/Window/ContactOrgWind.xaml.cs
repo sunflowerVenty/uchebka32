@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace uchebka32.Window
 {
     /// <summary>
-    /// Логика взаимодействия для RolePage.xaml
+    /// Логика взаимодействия для ContactOrgWind.xaml
     /// </summary>
-    public partial class RoleWind : Window
+    public partial class ContactOrgWind : Window
     {
-        public RoleWind()
+        public ContactOrgWind()
         {
             InitializeComponent();
         }

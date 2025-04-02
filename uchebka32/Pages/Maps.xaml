@@ -1,0 +1,40 @@
+﻿<Page x:Class="uchebka32.Pages.Maps"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:uchebka32.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="RegSpons">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top" Margin="220, 50">
+            <Image Source="/Images/marshrut.png"/>  
+
+            <TextBlock Text="Спасибо за вашу спонсорскую поддержку!" 
+                           FontWeight="Medium" 
+                           Style="{StaticResource TextPage}" 
+                           Margin="10"/>
+
+            <TextBlock FontSize="35" 
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Style="{StaticResource TextPage}" 
+                       Margin="100, 40">
+                       <Run Text="Спасибо за поддержку бегуна в Marathon Skills 2016!"/>
+                       <LineBreak/>
+                       <Run Text="Ваше пожертвование пойдет в его благотворительную организацию"/></TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>
