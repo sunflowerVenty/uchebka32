@@ -23,7 +23,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top" Margin="220, 50">
             <TextBlock Text="Спонсор бегуна" 
                            FontWeight="Medium" 
-                           Style="{StaticResource TextPage}" 
+                           Style="{StaticResource TextHeader}" 
                            Margin="10"/>
             <TextBlock Text="Пожалуйста выберите бегуна, которого вы отели бы спонсировать и сумму, которую вы хотели бы спонсировать. Спасибо за вашу поддержку бегунов и их благотворительных учреждений."                   
                        FontSize="35" 

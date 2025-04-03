@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:uchebka32.Windows"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
-    <Grid Background="White">
+    <Grid Background="{StaticResource BgColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="6*"/>
@@ -14,19 +14,23 @@
         </Grid.RowDefinitions>
         <Grid Background="Black">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0" Orientation="Horizontal">
-                <Button Content="Назад" Width="140"/>
-                <TextBlock Text="MARATHON SKILLS 2016" Margin="40, 0" FontSize="24" FontWeight="Bold" Style="{StaticResource TextHeader}"/>
+                <Button Content="Назад" Width="140" MaxHeight="50"/>
+                <TextBlock Text="MARATHON SKILLS 2016" 
+                           Margin="40, 0" 
+                           FontSize="24" 
+                           Foreground="{StaticResource White}"
+                           FontWeight="Bold" 
+                           Style="{StaticResource TextHeader}"/>
             </StackPanel>
         </Grid>
         
-        
-
         <Grid Grid.Row="2" Background="Black">
             <StackPanel>
                 <TextBlock Text="18 часов" FontSize="20" Style="{StaticResource TextHeader}"/>
             </StackPanel>
         </Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+        <Frame x:Name="StartFrame" NavigationUIVisibility="Hidden" Grid.RowSpan="2"/>
     </Grid>
     
 </Window>

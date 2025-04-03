@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using uchebka32.Windows;
 
 namespace uchebka32.Pages
 {
@@ -20,9 +21,36 @@ namespace uchebka32.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        public MainPage()
+        Frame frame;
+        public MainPage(Frame _frame)
         {
             InitializeComponent();
+            frame = _frame;
+
+        }
+
+        private void RunnerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            frame.NavigationService.Navigate(new CheckRunner());
+        }
+
+        private void SponsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            frame.NavigationService.Navigate(new RegSpons());
+        }
+
+        private void InfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            frame.NavigationService.Navigate(new DeteilsInfo());
+        }
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            frame.NavigationService.Navigate(new AuthPage());
         }
     }
 }

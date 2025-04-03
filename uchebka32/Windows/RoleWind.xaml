@@ -10,9 +10,9 @@
         <StackPanel>
             <TextBlock Text="ТОЛЬКО ДЛЯ ТЕСТИРОВАНИЯ!" FontWeight="Bold" FontSize="20" Foreground="Orange" FontStyle="Italic" Style="{StaticResource TextPage}"/>
             <TextBlock Text="Под каким пользователем вы хотите войти в систему?" FontSize="13" Style="{StaticResource TextPage}" TextAlignment="Center" Margin="100, 17. 100, 25" TextWrapping="Wrap"/>
-            <Button Content="Бегун" Height="30" Width="140" FontSize="12" Margin="5"/>
-            <Button Content="Координатор" Height="30" Width="140" FontSize="12" Margin="5"/>
-            <Button Content="Администратор" Height="30" Width="140" FontSize="12" Margin="5"/>
+            <Button Content="Бегун" Height="30" Width="140" FontSize="12" Margin="5" Name="RunnerBtn" Click="RunnerBtn_Click"/>
+            <Button Content="Координатор" Height="30" Width="140" FontSize="12" Margin="5" Name="KoorBtn" Click="KoorBtn_Click"/>
+            <Button Content="Администратор" Height="30" Width="140" FontSize="12" Margin="5" Name="AdminBtn" Click="AdminBtn_Click"/>
         </StackPanel>
     </Grid>
 </Window>

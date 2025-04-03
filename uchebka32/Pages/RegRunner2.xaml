@@ -23,7 +23,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top" Margin="220, 50">
             <TextBlock Text="Регистрация на марафон" 
                            FontWeight="Medium" 
-                           Style="{StaticResource TextPage}" 
+                           Style="{StaticResource TextHeader}" 
                            Margin="10"/>
             <TextBlock Text="Пожалуйста заполните всю информацию, чтобы зарегистрироваться на Skills Marathon 2016 проводимом в Москве. Russia. С вами свяжутся после регистрации для уточнения оплаты и другой информации." 
                    FontSize="35" 

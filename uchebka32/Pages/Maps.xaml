@@ -19,35 +19,140 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
-                    VerticalAlignment="Top" 
-                    Orientation="Horizontal"
-                    Margin="220, 50">
-            <Image Source="/Images/marshrut.png" Height="800"/>
+        <Viewbox Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Stretch">
+                <Grid Margin="50, 30" 
+                  MaxHeight="760" 
+                  MaxWidth="798" 
+                  MinHeight="428" 
+                  MinWidth="449">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
 
-            <StackPanel>
+                <Image Source="/Images/marshrut.png" 
+                       Grid.RowSpan="8" Grid.ColumnSpan="6"
+                       Stretch="Uniform" 
+                       MaxHeight="755" MaxWidth="850"
+                       />
+                
+                <Image Source="/marsh1.png" 
+                       Grid.Row="0" Grid.Column="3" 
+                       HorizontalAlignment="Center" VerticalAlignment="Top" 
+                       MaxHeight="75" MaxWidth="72" />
+
+                <Image Source="/marsh7.png" 
+                       Grid.Row="5" Grid.Column="0" 
+                       HorizontalAlignment="Center" VerticalAlignment="Top" 
+                       MaxHeight="75" MaxWidth="72" />
+
+                <Image Source="/marsh6.png" 
+                       Grid.Row="6" Grid.Column="1" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="75" MaxWidth="72" 
+                       />
+
+                <Image Source="/marsh5.png" 
+                       Grid.Row="7" Grid.Column="3" 
+                       HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                       MaxHeight="75" MaxWidth="72" />
+
+                <Image Source="/marsh4.png" 
+                       Grid.Row="6" Grid.Column="5" 
+                       HorizontalAlignment="Right" VerticalAlignment="Center" 
+                       MaxHeight="75" MaxWidth="72" />
+
+                <Image Source="/marsh3.png" 
+                       Grid.Row="4" Grid.Column="4" 
+                       HorizontalAlignment="Center" VerticalAlignment="Top" 
+                       MaxHeight="75" MaxWidth="72" />
+
+                <Image Source="/marsh2.png" 
+                       Grid.Row="2" Grid.Column="4" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       MaxHeight="75" MaxWidth="72" />
+
+                <Image Source="/marsh8.png" 
+                       Grid.Row="2" Grid.Column="0" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       MaxHeight="75" MaxWidth="72" />
+
+                <Image Source="/marshFinish.png" 
+                       Grid.Row="0" Grid.Column="1" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       MaxHeight="100"/>
+</Grid>
+            
+            <Grid Background="{StaticResource BgPanelColor}" MaxHeight="550" MaxWidth="450"
+                  Margin="50, 30, 0, 0"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="40" MaxWidth="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition MinWidth="40" MaxWidth="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="40" MaxHeight="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition MinHeight="300"/>
+                    <RowDefinition MinHeight="40" MaxHeight="50"/>
+                </Grid.RowDefinitions>
                 <TextBlock Text="Checkpoint 1" 
-                           FontWeight="Medium" 
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Left"
+                           FontWeight="Bold" 
                            Style="{StaticResource TextHeader}" 
                            Foreground="Black"
-                           FontSize="35"
-                           Margin="10"/>
+                           FontSize="40"/>
                 <TextBlock FontSize="35" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
                            Text="Особенности:"
-                       TextWrapping="Wrap"
-                       Style="{StaticResource TextPage}" 
-                       Margin="100, 40"/>
+                           Grid.Column="1"
+                           Grid.Row="2"
+                           TextWrapping="Wrap"
+                           Margin="0, 20"
+                           Style="{StaticResource TextPage}"/>
                 <TextBlock FontSize="35" 
-                       TextWrapping="Wrap"
-                       Style="{StaticResource TextPage}" 
-                       Margin="100, 40">
-                        Стенд питья<LineBreak/>
-                       - Энергетические батончики<LineBreak/>
-                       - Туалет<LineBreak/>
-                       - Медицинский пункт
+                           Grid.Column="1"
+                           Grid.Row="3"
+                           MaxWidth="500"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"
+                           TextWrapping="Wrap"
+                           Style="{StaticResource TextPage}">
+                       -  Стенд питья<LineBreak/>
+                       -  Энергетические батончики<LineBreak/>
+                       -  Туалет<LineBreak/>
+                       -  Медицинский пункт
                 </TextBlock>
-            </StackPanel>
-            
+                <StackPanel Background="{StaticResource BgPanelColor}">
+
+                </StackPanel>
+            </Grid>
+
+
         </StackPanel>
+        </Viewbox>
+        
     </Grid>
 </Page>

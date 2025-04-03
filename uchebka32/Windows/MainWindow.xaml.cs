@@ -13,7 +13,7 @@ namespace uchebka32.Windows
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new MainPage());
+            StartFrame.NavigationService.Navigate(new MainPage(MainFrame));
         }
     }
 }

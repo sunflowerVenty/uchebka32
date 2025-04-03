@@ -12,17 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using uchebka32.Windows;
 
 namespace uchebka32.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AuthPage.xaml
+    /// Логика взаимодействия для RegRunner.xaml
     /// </summary>
     public partial class AuthPage : Page
     {
+        public string Role;
         public AuthPage()
         {
             InitializeComponent();
+            RoleWind roleWind = new RoleWind();
+            bool? result = roleWind.ShowDialog();
+
+            if(result == true)
+            {
+                Role = roleWind.role;
+            }
         }
     }
 }

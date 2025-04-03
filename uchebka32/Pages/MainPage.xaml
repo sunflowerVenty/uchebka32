@@ -8,7 +8,7 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="MainPage">
 
-    <Grid Background="White">
+    <Grid Background="{StaticResource BgColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="*"/>
@@ -23,17 +23,21 @@
         </Grid.RowDefinitions>
         <Grid Background="Black">
             <StackPanel>
-                <TextBlock Text="MARATHON SKILLS 2016" FontSize="48" FontWeight="Bold" Style="{StaticResource TextHeader}" Margin="10"/>
+                <TextBlock Text="MARATHON SKILLS 2016" 
+                           Foreground="{StaticResource White}"
+                           FontSize="48" 
+                           FontWeight="Bold" 
+                           Style="{StaticResource TextHeader}" Margin="10"/>
                 <TextBlock Text="Москва, Россия" FontSize="28" Style="{StaticResource TextHeader}" Foreground="Gray"/>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch">
-            <Button Content="Я хочу стать бегуном"/>
-            <Button Content="Я хочу стать спонсором бегуна"/>
-            <Button Content="Я хочу узнать больше о событии"/>
+            <Button Content="Я хочу стать бегуном" Name="RunnerBtn" Click="RunnerBtn_Click"/>
+            <Button Content="Я хочу стать спонсором бегуна" Name="SponsBtn" Click="SponsBtn_Click"/>
+            <Button Content="Я хочу узнать больше о событии" Name="InfoBtn" Click="InfoBtn_Click"/>
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Content="Login" Height="50" Width="140" FontSize="24"/>
+            <Button Content="Login" Name="LoginBtn" Height="50" Width="140" FontSize="24" Click="LoginBtn_Click"/>
         </StackPanel>
     </Grid>
 </Page>

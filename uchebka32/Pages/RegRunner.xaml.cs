@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace uchebka32.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для RegRunner.xaml
+    /// Логика взаимодействия для AuthPage.xaml
     /// </summary>
     public partial class RegRunner : Page
     {

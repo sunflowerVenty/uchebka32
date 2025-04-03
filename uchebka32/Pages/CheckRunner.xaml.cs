@@ -25,5 +25,19 @@ namespace uchebka32.Pages
             InitializeComponent();
         }
 
+        private void OldRunnerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthPage());
+        }
+
+        private void NewRunnerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegRunner());
+        }
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            NavigationService.Navigate(new MenuRunner());
+        }
     }
 }

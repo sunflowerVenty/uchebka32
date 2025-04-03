@@ -8,7 +8,7 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="CheckRunner">
 
-    <Grid Background="White">
+    <Grid Background="{StaticResource BgColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="*"/>
@@ -22,11 +22,11 @@
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch">
-            <Button Content="Я участвовал ранее"/>
-            <Button Content="Я новый участник"/>
+            <Button x:Name="OldRunnerBtn" Content="Я участвовал ранее" Click="OldRunnerBtn_Click"/>
+            <Button x:Name="NewRunnerBtn" Content="Я новый участник" Click="NewRunnerBtn_Click"/>
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Content="Login" Height="50" Width="140" FontSize="24"/>
+            <Button Content="Login" Height="50" Width="140" FontSize="24" Name="LoginBtn" Click="LoginBtn_Click"/>
         </StackPanel>
     </Grid>
 </Page>
