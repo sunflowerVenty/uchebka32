@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using uchebka32.Windows;
+using uchebka32.Database;
 
 namespace uchebka32.Pages
 {
@@ -25,12 +26,40 @@ namespace uchebka32.Pages
         public AuthPage()
         {
             InitializeComponent();
-            RoleWind roleWind = new RoleWind();
-            bool? result = roleWind.ShowDialog();
+        }
 
-            if(result == true)
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
             {
-                Role = roleWind.role;
+                if(string.IsNullOrEmpty(EmailBox.Text))
+                {
+                    MessageBox.Show("Пожалуйста, введите email!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (string.IsNullOrEmpty(PassBox.Text))
+                {
+                    MessageBox.Show("Пожалуйста, введите пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    var us = ConnnectionDB.buEntities.User.Where(email => email.Email == EmailBox.Text).FirstOrDefault();
+                    if (us != null)
+                    {
+                        if (us.Password == PassBox.Text)
+                        {
+                            ConnnectionDB.user = us;
+                        }
+                    }
+                    else if (!ConnnectionDB.user)
+                        {
+
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }

@@ -167,9 +167,6 @@
     <Compile Include="Windows\NameSponsWind.xaml.cs">
       <DependentUpon>NameSponsWind.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\RoleWind.xaml.cs">
-      <DependentUpon>RoleWind.xaml</DependentUpon>
-    </Compile>
     <Page Include="Pages\RegRunner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,10 +240,6 @@
     <Page Include="Windows\NameSponsWind.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\RoleWind.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

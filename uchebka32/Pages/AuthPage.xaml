@@ -42,25 +42,27 @@
                                FontSize="35" 
                                Style="{StaticResource TextPage}" 
                                Margin="50, 0"/> 
-                    <TextBox Text="Enter your email address"></TextBox>
+                    <TextBox Name="EmailBox" Text="Enter your email address"></TextBox>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <TextBlock Text="Password:" 
                                FontSize="35" 
                                Style="{StaticResource TextPage}" 
                                Margin="50, 0"/>
-                    <TextBox Text="Enter your password"></TextBox>
+                    <TextBox Name="PassBox" Text="Enter your password"></TextBox>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="3" 
                         Grid.Row="1" 
                         Orientation="Horizontal">
                 <Button Content="Login" 
+                        Name="LoginBtn"
                         Height="50" 
                         Width="140" 
                         FontSize="24" 
-                        Margin="20"/>
+                        Margin="20" Click="LoginBtn_Click"/>
                 <Button Content="Cancel" 
+                        Name="CancelBtn"
                         Height="50" 
                         Width="140" 
                         FontSize="24" 

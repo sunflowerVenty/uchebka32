@@ -9,5 +9,6 @@ namespace uchebka32.Database
     internal class ConnnectionDB
     {
         public static BegunUchebkaEntities buEntities = new BegunUchebkaEntities();
+        public static User user;
     }
 }
