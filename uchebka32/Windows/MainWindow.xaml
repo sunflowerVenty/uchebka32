@@ -26,7 +26,10 @@
         
         <Grid Grid.Row="2" Background="Black">
             <StackPanel>
-                <TextBlock Text="18 часов" FontSize="20" Style="{StaticResource TextHeader}"/>
+                <TextBlock Name="TimerText" 
+                           FontSize="20" 
+                           Style="{StaticResource TextHeader}"
+                           Foreground="{StaticResource White}"/>
             </StackPanel>
         </Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>

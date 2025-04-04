@@ -48,13 +48,17 @@ namespace uchebka32.Pages
                         if (us.Password == PassBox.Text)
                         {
                             ConnnectionDB.user = us;
+                            if (us.RoleId == "R") NavigationService.Navigate(new MenuRunner());
+                            else if (us.RoleId == "C") { } /*NavigationService.Navigate();*/
+                            else if (us.RoleId == "A") { } /*NavigationService.Navigate();*/
                         }
                     }
-                    else if (!ConnnectionDB.user)
-                        {
-
+                    else if (ConnnectionDB.user == null)
+                    {
+                        MessageBox.Show("Неверные имя пользователя или пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); 
                     }
                     
+
                 }
             }
             catch (Exception ex)

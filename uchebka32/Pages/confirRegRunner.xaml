@@ -24,7 +24,7 @@
                        FontWeight="Medium" 
                        TextWrapping="Wrap"
                        TextAlignment="Center"
-                       Style="{StaticResource TextPage}" 
+                       Style="{StaticResource TextHeader}" 
                        Margin="250, 0"/>
 
             <TextBlock FontSize="35" 

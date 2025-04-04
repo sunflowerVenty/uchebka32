@@ -143,6 +143,9 @@
     <Compile Include="Pages\InfoMarafon.xaml.cs">
       <DependentUpon>InfoMarafon.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ListCharity.xaml.cs">
+      <DependentUpon>ListCharity.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Maps.xaml.cs">
       <DependentUpon>Maps.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
     <Compile Include="Windows\NameSponsWind.xaml.cs">
       <DependentUpon>NameSponsWind.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\ListCharity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\RegRunner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -309,7 +316,9 @@
   <ItemGroup>
     <Resource Include="Images\marshFinish.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\Charity\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Database\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

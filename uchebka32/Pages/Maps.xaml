@@ -52,48 +52,48 @@
                        Stretch="Uniform" 
                        MaxHeight="755" MaxWidth="850"
                        />
-                
-                <Image Source="/marsh1.png" 
+
+                    <Image Source="/Images/marsh1.png" 
                        Grid.Row="0" Grid.Column="3" 
                        HorizontalAlignment="Center" VerticalAlignment="Top" 
                        MaxHeight="75" MaxWidth="72" />
 
-                <Image Source="/marsh7.png" 
+                    <Image Source="/Images/marsh7.png" 
                        Grid.Row="5" Grid.Column="0" 
                        HorizontalAlignment="Center" VerticalAlignment="Top" 
                        MaxHeight="75" MaxWidth="72" />
 
-                <Image Source="/marsh6.png" 
+                    <Image Source="/Images/marsh6.png" 
                        Grid.Row="6" Grid.Column="1" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="75" MaxWidth="72" 
                        />
 
-                <Image Source="/marsh5.png" 
+                    <Image Source="/Images/marsh5.png" 
                        Grid.Row="7" Grid.Column="3" 
                        HorizontalAlignment="Center" VerticalAlignment="Bottom" 
                        MaxHeight="75" MaxWidth="72" />
 
-                <Image Source="/marsh4.png" 
+                    <Image Source="/Images/marsh4.png" 
                        Grid.Row="6" Grid.Column="5" 
                        HorizontalAlignment="Right" VerticalAlignment="Center" 
                        MaxHeight="75" MaxWidth="72" />
 
-                <Image Source="/marsh3.png" 
+                    <Image Source="/Images/marsh3.png" 
                        Grid.Row="4" Grid.Column="4" 
                        HorizontalAlignment="Center" VerticalAlignment="Top" 
                        MaxHeight="75" MaxWidth="72" />
 
-                <Image Source="/marsh2.png" 
+                    <Image Source="/Images/marsh2.png" 
                        Grid.Row="2" Grid.Column="4" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" 
                        MaxHeight="75" MaxWidth="72" />
 
-                <Image Source="/marsh8.png" 
+                    <Image Source="/Images/marsh8.png" 
                        Grid.Row="2" Grid.Column="0" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" 
                        MaxHeight="75" MaxWidth="72" />
 
-                <Image Source="/marshFinish.png" 
+                    <Image Source="/Images/marshFinish.png" 
                        Grid.Row="0" Grid.Column="1" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" 
                        MaxHeight="100"/>

@@ -22,7 +22,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top" Margin="220, 50">
             <TextBlock Text="Спасибо за вашу спонсорскую поддержку!" 
                            FontWeight="Medium" 
-                           Style="{StaticResource TextPage}" 
+                           Style="{StaticResource TextHeader}" 
                            Margin="10"/>
             
             <TextBlock FontSize="35" 
