@@ -34,15 +34,12 @@
                         Width="600">
                 <Button Content="Marathon Skills 2016"
                         Height="120"
-                        FontSize="35"
                         Margin="0, 20"/>
                 <Button Content="Предыдущие результаты"
                         Height="120"
-                        FontSize="35"
                         Margin="0, 20"/>
                 <Button Content="BMI калькулятор"
                         Height="120"
-                        FontSize="35"
                         Margin="0, 20"/>
             </StackPanel>
             <StackPanel VerticalAlignment="Top"
@@ -50,11 +47,10 @@
                         Width="600">
                 <Button Content="Насколько долгий марафон"
                         Height="120"
-                        FontSize="35"
                         Margin="0, 20"/>
                 <Button Height="120"
-                        FontSize="35"
-                        Margin="0, 20">
+                        Name="CharityBtn"
+                        Margin="0, 20" Click="CharityBtn_Click">
                     <TextBlock TextAlignment="Center">
                         <Run Text="Список благотворительных"/>
                         <LineBreak/>
@@ -63,7 +59,6 @@
                 </Button>
                 <Button Content="BMR калькулятор"
                         Height="120"
-                        FontSize="35"
                         Margin="0, 20"/>
             </StackPanel>
         </StackPanel>

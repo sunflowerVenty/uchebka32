@@ -25,13 +25,14 @@
             <Setter Property="Foreground" Value="{StaticResource HeaderColor}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="60"/>
+            <Setter Property="FontSize" Value="40"/>
         </Style>
         
         <Style TargetType="TextBlock" x:Key="TextPage">
             <Setter Property="Foreground" Value="{StaticResource BaseTextColor}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="25"/>
         </Style>
 
         <Style TargetType="TextBox">
@@ -59,7 +60,7 @@
         <Style TargetType="Button">
             <Setter Property="Background" Value="#dddddd"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontSize" Value="30"/>
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Height" Value="80"/>
             <Setter  Property="Margin" Value="0, 10"/>

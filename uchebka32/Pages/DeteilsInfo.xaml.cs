@@ -25,5 +25,9 @@ namespace uchebka32.Pages
             InitializeComponent();
         }
 
+        private void CharityBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ListCharity());
+        }
     }
 }

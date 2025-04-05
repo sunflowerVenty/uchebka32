@@ -11,7 +11,7 @@ namespace uchebka32.Database
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Charity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,12 +19,19 @@ namespace uchebka32.Database
         {
             this.Registration = new HashSet<Registration>();
         }
-    
+
         public int CharityId { get; set; }
         public string CharityName { get; set; }
         public string CharityDescription { get; set; }
         public string CharityLogo { get; set; }
-    
+        //public string CharityLogoFull
+        //{
+        //    get
+        //    {
+        //        return $"/Images/Charity/ + {CharityLogo}";
+        //    }
+        //}
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Registration> Registration { get; set; }
     }

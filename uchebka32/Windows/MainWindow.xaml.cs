@@ -21,7 +21,7 @@ namespace uchebka32.Windows
             _targetDate = new DateTime(2025, 12, 31, 23, 59, 59);
 
             _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(1); 
+            _timer.Interval = TimeSpan.FromSeconds(1);
             _timer.Tick += Timer_Tick;
             _timer.Start();
 
@@ -40,6 +40,11 @@ namespace uchebka32.Windows
                 _timer.Stop();
                 TimerText.Text = "Марафон начался!";
             }
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.NavigationService.GoBack();
         }
     }
 }

@@ -14,7 +14,11 @@
         </Grid.RowDefinitions>
         <Grid Background="Black">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0" Orientation="Horizontal">
-                <Button Content="Назад" Width="140" MaxHeight="50"/>
+                <Button Content="Назад" 
+                        Name="BackBtn"
+                        Click="BackBtn_Click"
+                        Width="140" 
+                        MaxHeight="50"/>
                 <TextBlock Text="MARATHON SKILLS 2016" 
                            Margin="40, 0" 
                            FontSize="24" 
