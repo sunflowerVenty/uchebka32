@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace uchebka32.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AuthPage.xaml
+    /// Логика взаимодействия для MenuKoor.xaml
     /// </summary>
-    public partial class RegRunner : Page
+    public partial class MenuKoor : Page
     {
-        public RegRunner()
+        public MenuKoor()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using uchebka32.Windows;
 
 namespace uchebka32.Pages
 {
@@ -23,6 +24,12 @@ namespace uchebka32.Pages
         public MenuRunner()
         {
             InitializeComponent();
+        }
+
+        private void Contacts_Click(object sender, RoutedEventArgs e)
+        {
+            ContactOrgWind contactOrgWind = new ContactOrgWind();
+            contactOrgWind.Show();
         }
     }
 }

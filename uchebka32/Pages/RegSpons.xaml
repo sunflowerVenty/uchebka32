@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="RegSpons">
-
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
@@ -20,175 +19,221 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top" Margin="220, 20, 220, 50">
-            <TextBlock Text="Спонсор бегуна" 
-                           FontWeight="Medium" 
-                           Style="{StaticResource TextHeader}" 
-                           Margin="10"/>
-            <TextBlock Text="Пожалуйста выберите бегуна, которого вы отели бы спонсировать и сумму, которую вы хотели бы спонсировать. Спасибо за вашу поддержку бегунов и их благотворительных учреждений."                   
-                       FontSize="35" 
-                       TextWrapping="Wrap"
-                       TextAlignment="Center"
-                       Style="{StaticResource TextPage}" 
-                       Margin="70, 0"/>
-        </StackPanel>
+        <Viewbox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Top" Margin="220, 50">
+                    <TextBlock Text="Спонсор бегуна" 
+                               FontWeight="Medium" 
+                               Style="{StaticResource TextHeader}" 
+                               Margin="10"/>
+                    <TextBlock Text="Пожалуйста выберите бегуна, которого вы отели бы спонсировать и сумму, которую вы хотели бы спонсировать. Спасибо за вашу поддержку бегунов и их благотворительных учреждений."
+                               FontSize="35" 
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Style="{StaticResource TextPage}" 
+                               Margin="70, 0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Grid.Row="1" Grid.Column="1" 
+                                VerticalAlignment="Top">
+                        <TextBlock Text="Информация о Спонсоре" 
+                               FontWeight="Medium" 
+                               FontSize="35"
+                               Style="{StaticResource TextPage}" 
+                               Margin="20"/>
+                        <Grid Height="500" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
-        
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,330,0,0" VerticalAlignment="Top">
-            <TextBlock Text="Информация о Спонсоре"                      FontWeight="Medium" 
-                       FontSize="35"
-                       Style="{StaticResource TextPage}" 
-                       Margin="20"/>
-            <Grid Height="500" HorizontalAlignment="Left">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Text="Ваше имя:" FontSize="35"
-                                       HorizontalAlignment="Right"
-                                       Style="{StaticResource TextPage}" 
-                                       Margin="10, 0"/>
-                <TextBlock Text="Бегун:" FontSize="35" 
-                                       HorizontalAlignment="Right"
+                            <TextBlock Text="Ваше имя:" 
+                                   FontSize="35"
+                                   HorizontalAlignment="Right"
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="10, 0"/>
+                            <TextBlock Text="Бегун:" 
+                                   FontSize="35" 
+                                   HorizontalAlignment="Right"
                                    Grid.Row="1"
-                                    Style="{StaticResource TextPage}" 
-                                    Margin="10, 0"/>
-                <TextBlock Text="Карта:" FontSize="35" 
-                                       HorizontalAlignment="Right"
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="10, 0"/>
+                            <TextBlock Text="Карта:" 
+                                   FontSize="35" 
+                                   HorizontalAlignment="Right"
                                    Grid.Row="2"
-                                    Style="{StaticResource TextPage}" 
-                                    Margin="10, 0"/>
-                <TextBlock Text="Номер карты#:" FontSize="35" 
-                                       HorizontalAlignment="Right"
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="10, 0"/>
+                            <TextBlock Text="Номер карты#:" 
+                                   FontSize="35" 
+                                   HorizontalAlignment="Right"
                                    Grid.Row="3"
-                                    Style="{StaticResource TextPage}" 
-                                    Margin="10, 0"/>
-                <TextBlock Text="Срок действия:" FontSize="35" 
-                                       HorizontalAlignment="Right"
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="10, 0"/>
+                            <TextBlock Text="Срок действия:" 
+                                   FontSize="35" 
+                                   HorizontalAlignment="Right"
                                    Grid.Row="4"
                                    Style="{StaticResource TextPage}" 
                                    Margin="10, 0"/>
-                <TextBlock Text="CVC:" FontSize="35" 
-                                       HorizontalAlignment="Right"
+                            <TextBlock Text="CVC:" 
+                                   FontSize="35" 
+                                   HorizontalAlignment="Right"
                                    Grid.Row="5"
                                    Style="{StaticResource TextPage}" 
                                    Margin="10, 0"/>
-                <TextBox Text="Ваше имя"
+
+                            <TextBox x:Name="NameTextBox"
                                  Grid.Column="1"
                                  Grid.Row="0"
                                  Width="400" 
-                                 Margin="10, 0"></TextBox>
-                <ComboBox Text="Иван Прудов- 204 (Russia)" 
-                                 Grid.Column="1"
-                                 Grid.Row="1"
+                                 Margin="10, 0"
+                                 GotFocus="TextBox_GotFocus"
+                                 LostFocus="TextBox_LostFocus"
+                                 Foreground="Gray"/>
+
+                            <ComboBox x:Name="RunnerComboBox"
+                                  Grid.Column="1"
+                                  Grid.Row="1"
                                   Width="400" 
-                                  Margin="10, 0"></ComboBox>
-                <TextBox Text="Владелец карты" 
+                                  Margin="10, 0"/>
+
+                            <TextBox x:Name="CardHolderTextBox"
                                  Grid.Column="1"
                                  Grid.Row="2"
                                  Width="400" 
-                                 Margin="10, 0"></TextBox>
-                <TextBox Text="1234 1234 1234 1234" 
+                                 Margin="10, 0"
+                                 GotFocus="TextBox_GotFocus"
+                                 LostFocus="TextBox_LostFocus"
+                                 Foreground="Gray"/>
+
+                            <TextBox x:Name="CardNumberTextBox"
                                  Grid.Column="1"
                                  Grid.Row="3"
                                  Width="400" 
-                                 Margin="10, 0"></TextBox>
-                <StackPanel Grid.Column="1"
-                                    Grid.Row="4"
-                                    Orientation="Horizontal"
-                                    HorizontalAlignment="Left">
-                    <TextBox Text="01" 
-                                 Grid.Column="1"
-                                 Grid.Row="4"
-                                 Width="70" 
-                                 Margin="10, 0"></TextBox>
-                    <TextBox Text="2017" 
-                                 Grid.Column="1"
-                                 Grid.Row="4"
-                                 Width="100" 
-                                 Margin="10, 0"></TextBox>
-                </StackPanel>
+                                 Margin="10, 0"
+                                 GotFocus="TextBox_GotFocus"
+                                 LostFocus="TextBox_LostFocus"
+                                 Foreground="Gray"/>
 
-                <TextBox Text="123"
+                            <StackPanel Grid.Column="1"
+                                   Grid.Row="4"
+                                   Orientation="Horizontal"
+                                   HorizontalAlignment="Left">
+                                <TextBox x:Name="ExpiryMonthTextBox"
+                                    Width="70" 
+                                    Margin="10, 0"
+                                    GotFocus="TextBox_GotFocus"
+                                    LostFocus="TextBox_LostFocus"
+                                    Foreground="Gray"/>
+                                <TextBox x:Name="ExpiryYearTextBox"
+                                    Width="100" 
+                                    Margin="10, 0"
+                                    GotFocus="TextBox_GotFocus"
+                                    LostFocus="TextBox_LostFocus"
+                                    Foreground="Gray"/>
+                            </StackPanel>
+
+                            <TextBox x:Name="CVCTextBox"
                                  Grid.Column="1"
                                  Grid.Row="5" 
                                  Width="100" 
                                  Margin="10, 0"
-                                 HorizontalAlignment="Left"></TextBox>
-            </Grid>
-        </StackPanel>
+                                 HorizontalAlignment="Left"
+                                 GotFocus="TextBox_GotFocus"
+                                 LostFocus="TextBox_LostFocus"
+                                 Foreground="Gray"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="2">
+                        <StackPanel VerticalAlignment="Top">
+                            <TextBlock Text="Благотворительность" 
+                                   FontWeight="Medium" 
+                                   FontSize="35"
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="20"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="CharityNameTextBlock"
+                                      Text="Фонд Кошек"
+                                      FontSize="30"
+                                      Style="{StaticResource TextPage}" 
+                                      Margin="30, 0"/>
+                                <Image Source="/Images/Info.png"
+                                   Grid.Column="2"
+                                   Width="50"
+                                   Height="50"
+                                   MouseDown="CharityInfo_Click"
+                                   Cursor="Hand"/>
+                            </StackPanel>
+                        </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,330,0,0">
-            <StackPanel VerticalAlignment="Top">
-                <TextBlock Text="Благотворительность"                      FontWeight="Medium" 
-                           FontSize="35"
-                           Style="{StaticResource TextPage}" 
-                           Margin="20"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Фонд Кошек"
-                           FontSize="30"
-                           Style="{StaticResource TextPage}" 
-                           Margin="30, 0"/>
-                    <Image Source="/Images/Info.png"
-                           Grid.Column="2"
-                           Width="50"
-                           Height="50"/>
+                        <StackPanel VerticalAlignment="Top">
+                            <TextBlock Text="Сумма пожертвования" 
+                                   FontWeight="Medium" 
+                                   FontSize="35"
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="20"/>
+                            <TextBlock x:Name="DonationTextBlock"
+                                   Text="$0"
+                                   FontSize="100"
+                                   Style="{StaticResource TextPage}" 
+                                   Margin="30, 0"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="––"
+                                    Height="50" 
+                                    Width="50" 
+                                    FontWeight="Bold"
+                                    FontSize="18" 
+                                    Margin="20"
+                                    Click="DecreaseDonation_Click"/>
+                                <TextBox x:Name="DonationTextBox"
+                                      Text="0"
+                                      HorizontalContentAlignment="Center"
+                                      Width="130"
+                                      Height="45"
+                                      Margin="10, 0"
+                                      TextChanged="DonationTextBox_TextChanged"
+                                      PreviewTextInput="DonationTextBox_PreviewTextInput"
+                                      GotFocus="TextBox_GotFocus"
+                                      LostFocus="TextBox_LostFocus"
+                                      Foreground="Gray"/>
+                                <Button Content="+"
+                                    Height="50" 
+                                    Width="50" 
+                                    FontWeight="Bold"
+                                    FontSize="25" 
+                                    Margin="20"
+                                    Click="IncreaseDonation_Click"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" 
+                                   Margin="0, 50"
+                                   Orientation="Horizontal">
+                                <Button Content="Регистрация" 
+                                    Height="50" 
+                                    Width="200" 
+                                    FontSize="28" 
+                                    Margin="20"
+                                    Click="RegisterButton_Click"/>
+
+                                <Button Content="Отмена" 
+                                    Height="50" 
+                                    Width="140" 
+                                    FontSize="28" 
+                                    Margin="20"
+                                    Click="CancelButton_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
-
-            <StackPanel VerticalAlignment="Top">
-                <TextBlock Text="Сумма пожертвования"                      FontWeight="Medium" 
-                           FontSize="35"
-                           Style="{StaticResource TextPage}" 
-                           Margin="20"/>
-                <TextBlock Text="$0"
-                               FontSize="100"
-                               Style="{StaticResource TextPage}" 
-                               Margin="30, 0"/>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="––"
-                            Height="50" 
-                            Width="50" 
-                            FontWeight="Bold"
-                            FontSize="18" 
-                            Margin="20"/>
-                    <TextBox Text="0"
-                             HorizontalContentAlignment="Center"
-                             Width="130"
-                             Height="45"
-                             Margin="10, 0"></TextBox>
-                    <Button Content="+"
-                            Height="50" 
-                            Width="50" 
-                            FontWeight="Bold"
-                            FontSize="25" 
-                            Margin="20"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Left" 
-                            Margin="0, 50"
-                            Orientation="Horizontal">
-                    <Button Content="Регистрация" 
-            Height="50" 
-            Width="200" 
-            FontSize="28" 
-            Margin="20"/>
-
-                    <Button Content="Отмена" 
-            Height="50" 
-            Width="140" 
-            FontSize="28" 
-            Margin="20"/>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
+        </Viewbox>
     </Grid>
-</Page> 
+</Page>

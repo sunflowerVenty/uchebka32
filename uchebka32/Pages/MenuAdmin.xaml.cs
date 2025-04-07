@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace uchebka32.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AuthPage.xaml
+    /// Логика взаимодействия для MenuAdmin.xaml
     /// </summary>
-    public partial class RegRunner : Page
+    public partial class MenuAdmin : Page
     {
-        public RegRunner()
+        public MenuAdmin()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -22,7 +22,7 @@ namespace uchebka32.Pages
         public Organization(string logoPath, string name, string description)
         {
             _logoPath = logoPath;
-            Logo = new BitmapImage(new Uri($"C:/Users/202214/source/repos/uchebka32/Images/Charity/{_logoPath}", UriKind.Absolute));
+            Logo = new BitmapImage(new Uri($"C:/Users/202214/Source/Repos/uchebka32/uchebka32/Images/Charity/{_logoPath}", UriKind.Absolute));
             Name = name;
             Description = description;
         }

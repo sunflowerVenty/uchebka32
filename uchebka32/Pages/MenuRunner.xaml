@@ -39,8 +39,9 @@
                         Height="120"
                         FontSize="35"/>
                 <Button Content="Контакты"
+                        Name="Contacts"
                         Height="120"
-                        FontSize="35"/>
+                        FontSize="35" Click="Contacts_Click"/>
             </StackPanel>
             <StackPanel VerticalAlignment="Top"
                         Margin="30, 0"

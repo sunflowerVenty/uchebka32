@@ -149,6 +149,12 @@
     <Compile Include="Pages\Maps.xaml.cs">
       <DependentUpon>Maps.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MenuAdmin.xaml.cs">
+      <DependentUpon>MenuAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenuKoor.xaml.cs">
+      <DependentUpon>MenuKoor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MenuRunner.xaml.cs">
       <DependentUpon>MenuRunner.xaml</DependentUpon>
     </Compile>
@@ -171,6 +177,14 @@
       <DependentUpon>NameSponsWind.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\ListCharity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenuAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenuKoor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,7 +20,7 @@
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3"  VerticalAlignment="Top" VerticalScrollBarVisibility="Visible">
-            <StackPanel Grid.Column="1">
+            <StackPanel>
                 <StackPanel Margin="220, 20, 220, 50">
                     <TextBlock Text="Список благотворительных организаций" 
                            FontWeight="Medium" 
@@ -35,6 +35,7 @@
 
                 <ListBox ItemsSource="{Binding Organizations}" 
                          Grid.Column="1"
+                         Margin="100, 0"
                          VirtualizingStackPanel.IsVirtualizing="True">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
