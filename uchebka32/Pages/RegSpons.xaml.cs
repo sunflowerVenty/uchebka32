@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -402,6 +403,75 @@ namespace uchebka32.Pages
                               "Ошибка",
                               MessageBoxButton.OK,
                               MessageBoxImage.Error);
+            }
+        }
+
+        private void NameTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            // Разрешаем только буквы
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^[a-zA-Zа-яА-Я\s]+$"))
+            {
+                e.Handled = true; // Блокируем ввод
+            }
+        }
+
+        private void CardNumberTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            // Разрешаем только цифры
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^\d+$"))
+            {
+                e.Handled = true; // Блокируем ввод
+            }
+        }
+
+        private void CardNumberTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Удаляем все пробелы для обработки
+            string rawText = textBox.Text.Replace(" ", "");
+
+            // Форматируем текст в формат 9999 9999 9999 9999
+            StringBuilder formattedText = new StringBuilder();
+            for (int i = 0; i < rawText.Length; i++)
+            {
+                if (i > 0 && i % 4 == 0)
+                {
+                    formattedText.Insert(0, " "); // Добавляем пробел каждые 4 символа
+                }
+                formattedText.Insert(0, rawText[rawText.Length - 1 - i]);
+            }
+
+            // Обновляем текст в TextBox
+            textBox.Text = formattedText.ToString();
+            textBox.CaretIndex = textBox.Text.Length; // Перемещаем курсор в конец
+        }
+
+        private void ExpiryMonthTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            // Разрешаем только цифры
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^\d+$"))
+            {
+                e.Handled = true; // Блокируем ввод
+            }
+        }
+
+        private void ExpiryYearTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            // Разрешаем только цифры
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^\d+$"))
+            {
+                e.Handled = true; // Блокируем ввод
+            }
+        }
+
+        private void CVCTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            // Разрешаем только цифры
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^\d+$"))
+            {
+                e.Handled = true; // Блокируем ввод
             }
         }
     }

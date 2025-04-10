@@ -93,6 +93,7 @@
                                      Margin="10, 0"
                                      GotFocus="TextBox_GotFocus"
                                      LostFocus="TextBox_LostFocus"
+                                     PreviewTextInput="NameTextBox_PreviewTextInput"
                                      Foreground="Gray"/>
 
                             <ComboBox x:Name="RunnerComboBox"
@@ -110,6 +111,8 @@
                                      Margin="10, 0"
                                      GotFocus="TextBox_GotFocus"
                                      LostFocus="TextBox_LostFocus"
+                                     PreviewTextInput="CardNumberTextBox_PreviewTextInput"
+                                     TextChanged="CardNumberTextBox_TextChanged"
                                      Foreground="Gray"/>
 
                             <TextBox x:Name="CardNumberTextBox"
@@ -118,20 +121,23 @@
                                      Height="50"
                                      Width="400" 
                                      Margin="10, 0"
-                                     GotFocus="TextBox_GotFocus"
+                                     GotFocus  ="TextBox_GotFocus"
                                      LostFocus="TextBox_LostFocus"
+                                     PreviewTextInput="CardNumberTextBox_PreviewTextInput"
+                                     TextChanged="CardNumberTextBox_TextChanged"
                                      Foreground="Gray"/>
 
                             <StackPanel Grid.Column="1"
-                                   Grid.Row="4"
-                                   Orientation="Horizontal"
-                                   HorizontalAlignment="Left">
+                                        Grid.Row="4"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Left">
                                 <TextBox x:Name="ExpiryMonthTextBox"
                                          Height="50"
                                          Width="70" 
                                          Margin="10, 0"
                                          GotFocus="TextBox_GotFocus"
                                          LostFocus="TextBox_LostFocus"
+                                         PreviewTextInput="ExpiryMonthTextBox_PreviewTextInput"
                                          Foreground="Gray"/>
                                 <TextBox x:Name="ExpiryYearTextBox"
                                          Width="100" 
@@ -139,6 +145,7 @@
                                          Margin="10, 0"
                                          GotFocus="TextBox_GotFocus"
                                          LostFocus="TextBox_LostFocus"
+                                         PreviewTextInput="ExpiryYearTextBox_PreviewTextInput"
                                          Foreground="Gray"/>
                             </StackPanel>
 
@@ -151,6 +158,7 @@
                                      HorizontalAlignment="Left"
                                      GotFocus="TextBox_GotFocus"
                                      LostFocus="TextBox_LostFocus"
+                                     PreviewTextInput="CVCTextBox_PreviewTextInput"
                                      Foreground="Gray"/>
                         </Grid>
                     </StackPanel>
