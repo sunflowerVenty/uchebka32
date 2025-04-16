@@ -134,6 +134,9 @@
     <Compile Include="Database\Volunteer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BlagOrg.xaml.cs">
+      <DependentUpon>EditCharity</DependentUpon>
+    </Compile>
     <Compile Include="Pages\confirRegRunner.xaml.cs">
       <DependentUpon>confirRegRunner.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
     <Compile Include="Windows\NameSponsWind.xaml.cs">
       <DependentUpon>NameSponsWind.xaml</DependentUpon>
     </Compile>
+    <None Include="Pages\EditCharity">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <Page Include="Pages\ListCharity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -304,31 +311,31 @@
     <Resource Include="Images\Info.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marsh1.png" />
+    <Resource Include="Images\Maps\marsh1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marsh7.png" />
+    <Resource Include="Images\Maps\marsh7.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marsh6.png" />
+    <Resource Include="Images\Maps\marsh6.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marsh5.png" />
+    <Resource Include="Images\Maps\marsh5.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marsh4.png" />
+    <Resource Include="Images\Maps\marsh4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marsh3.png" />
+    <Resource Include="Images\Maps\marsh3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marsh2.png" />
+    <Resource Include="Images\Maps\marsh2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marsh8.png" />
+    <Resource Include="Images\Maps\marsh8.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marshFinish.png" />
+    <Resource Include="Images\Maps\marshFinish.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\Charity\" />
@@ -344,6 +351,106 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Maps\marshrut.png" />
+    <Resource Include="Images\cross-icon.png" />
+    <Resource Include="Images\flags\flag_andorra.png" />
+    <Resource Include="Images\flags\flag_argentina.png" />
+    <Resource Include="Images\flags\flag_australia.png" />
+    <Resource Include="Images\flags\flag_austria.png" />
+    <Resource Include="Images\flags\flag_belgium.png" />
+    <Resource Include="Images\flags\flag_botswana.png" />
+    <Resource Include="Images\flags\flag_brazil.png" />
+    <Resource Include="Images\flags\flag_bulgaria.png" />
+    <Resource Include="Images\flags\flag_cameroon.png" />
+    <Resource Include="Images\flags\flag_canada.png" />
+    <Resource Include="Images\flags\flag_central_african_republic.png" />
+    <Resource Include="Images\flags\flag_chile.png" />
+    <Resource Include="Images\flags\flag_china.png" />
+    <Resource Include="Images\flags\flag_chinese_taipei.png" />
+    <Resource Include="Images\flags\flag_colombia.png" />
+    <Resource Include="Images\flags\flag_croatia.png" />
+    <Resource Include="Images\flags\flag_czech_republic.png" />
+    <Resource Include="Images\flags\flag_denmark.png" />
+    <Resource Include="Images\flags\flag_dominican_republic.png" />
+    <Resource Include="Images\flags\flag_ecuador.png" />
+    <Resource Include="Images\flags\flag_egypt.png" />
+    <Resource Include="Images\flags\flag_el_salvador.png" />
+    <Resource Include="Images\flags\flag_equatorial_guinea.png" />
+    <Resource Include="Images\flags\flag_estonia.png" />
+    <Resource Include="Images\flags\flag_finland.png" />
+    <Resource Include="Images\flags\flag_france.png" />
+    <Resource Include="Images\flags\flag_germany.png" />
+    <Resource Include="Images\flags\flag_greece.png" />
+    <Resource Include="Images\flags\flag_guatemala.png" />
+    <Resource Include="Images\flags\flag_guinea-bissau.png" />
+    <Resource Include="Images\flags\flag_guinea.png" />
+    <Resource Include="Images\flags\flag_honduras.png" />
+    <Resource Include="Images\flags\flag_hong_kong.png" />
+    <Resource Include="Images\flags\flag_hungary.png" />
+    <Resource Include="Images\flags\flag_india.png" />
+    <Resource Include="Images\flags\flag_indonesia.png" />
+    <Resource Include="Images\flags\flag_ireland.png" />
+    <Resource Include="Images\flags\flag_israel.png" />
+    <Resource Include="Images\flags\flag_italy.png" />
+    <Resource Include="Images\flags\flag_ivory_coast.png" />
+    <Resource Include="Images\flags\flag_jamaica.png" />
+    <Resource Include="Images\flags\flag_japan.png" />
+    <Resource Include="Images\flags\flag_jordan.png" />
+    <Resource Include="Images\flags\flag_kenya.png" />
+    <Resource Include="Images\flags\flag_latvia.png" />
+    <Resource Include="Images\flags\flag_liechtenstein.png" />
+    <Resource Include="Images\flags\flag_lithuania.png" />
+    <Resource Include="Images\flags\flag_luxembourg.png" />
+    <Resource Include="Images\flags\flag_macau.png" />
+    <Resource Include="Images\flags\flag_macedonia.png" />
+    <Resource Include="Images\flags\flag_madagascar.png" />
+    <Resource Include="Images\flags\flag_malaysia.png" />
+    <Resource Include="Images\flags\flag_mali.png" />
+    <Resource Include="Images\flags\flag_malta.png" />
+    <Resource Include="Images\flags\flag_mauritius.png" />
+    <Resource Include="Images\flags\flag_mexico.png" />
+    <Resource Include="Images\flags\flag_moldova.png" />
+    <Resource Include="Images\flags\flag_monaco.png" />
+    <Resource Include="Images\flags\flag_montenegro.png" />
+    <Resource Include="Images\flags\flag_netherlands.png" />
+    <Resource Include="Images\flags\flag_new_zealand.png" />
+    <Resource Include="Images\flags\flag_nicaragua.png" />
+    <Resource Include="Images\flags\flag_niger.png" />
+    <Resource Include="Images\flags\flag_norway.png" />
+    <Resource Include="Images\flags\flag_panama.png" />
+    <Resource Include="Images\flags\flag_paraguay.png" />
+    <Resource Include="Images\flags\flag_peru.png" />
+    <Resource Include="Images\flags\flag_philippines.png" />
+    <Resource Include="Images\flags\flag_poland.png" />
+    <Resource Include="Images\flags\flag_portugal.png" />
+    <Resource Include="Images\flags\flag_puerto_rico.png" />
+    <Resource Include="Images\flags\flag_qatar.png" />
+    <Resource Include="Images\flags\flag_romania.png" />
+    <Resource Include="Images\flags\flag_russia.png" />
+    <Resource Include="Images\flags\flag_saudi_arabia.png" />
+    <Resource Include="Images\flags\flag_senegal.png" />
+    <Resource Include="Images\flags\flag_singapore.png" />
+    <Resource Include="Images\flags\flag_slovakia.png" />
+    <Resource Include="Images\flags\flag_south_africa.png" />
+    <Resource Include="Images\flags\flag_south_korea.png" />
+    <Resource Include="Images\flags\flag_spain.png" />
+    <Resource Include="Images\flags\flag_sweden.png" />
+    <Resource Include="Images\flags\flag_switzerland.png" />
+    <Resource Include="Images\flags\flag_thailand.png" />
+    <Resource Include="Images\flags\flag_turkey.png" />
+    <Resource Include="Images\flags\flag_united_arab_emirates.png" />
+    <Resource Include="Images\flags\flag_united_kingdom.png" />
+    <Resource Include="Images\flags\flag_uruguay.png" />
+    <Resource Include="Images\flags\flag_usa.png" />
+    <Resource Include="Images\flags\flag_vatican.png" />
+    <Resource Include="Images\flags\flag_venezuela.png" />
+    <Resource Include="Images\flags\flag_vietnam.png" />
+    <Resource Include="Images\Maps\map-icons\map-icon-drinks.png" />
+    <Resource Include="Images\Maps\map-icons\map-icon-energy-bars.png" />
+    <Resource Include="Images\Maps\map-icons\map-icon-information.png" />
+    <Resource Include="Images\Maps\map-icons\map-icon-medical.png" />
+    <Resource Include="Images\Maps\map-icons\map-icon-toilets.png" />
+    <Resource Include="Images\Maps\icon-start.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

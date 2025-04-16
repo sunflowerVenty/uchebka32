@@ -75,16 +75,33 @@ namespace uchebka32.Pages
             }
         }
 
+        private void CardNumberTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            string text = textBox.Text.Replace(" ", "");
+
+            if (text.Length > 16) text = text.Substring(0, 16);
+
+            string formatted = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (i > 0 && i % 4 == 0) formatted += " ";
+                formatted += text[i];
+            }
+
+            textBox.Text = formatted;
+            textBox.CaretIndex = formatted.Length;
+        }
+
         private void LoadRunners()
         {
             try
             {
-                // Упрощаем запрос и добавляем логирование
                 var runners = (from r in ConnnectionDB.buEntities.Runner
                                join u in ConnnectionDB.buEntities.User on r.Email equals u.Email
                                join reg in ConnnectionDB.buEntities.Registration on r.RunnerId equals reg.RunnerId
                                join re in ConnnectionDB.buEntities.RegistrationEvent on reg.RegistrationId equals re.RegistrationId
-                               where reg.RegistrationStatusId == 2 // Registered
+                               where reg.RegistrationStatusId == 2
                                select new
                                {
                                    u.FirstName,
@@ -93,7 +110,6 @@ namespace uchebka32.Pages
                                    r.CountryCode
                                }).ToList();
 
-                // Логируем количество найденных бегунов
                 Console.WriteLine($"Найдено бегунов: {runners.Count}");
 
                 if (runners.Any())
@@ -101,7 +117,6 @@ namespace uchebka32.Pages
                     RunnerComboBox.ItemsSource = runners.Select(r =>
                         $"{r.FirstName} {r.LastName} - {r.BibNumber} ({r.CountryCode})").ToList();
 
-                    // Логируем первый элемент для проверки
                     if (RunnerComboBox.Items.Count > 0)
                         Console.WriteLine($"Первый бегун: {RunnerComboBox.Items[0]}");
                 }
@@ -120,7 +135,6 @@ namespace uchebka32.Pages
                               MessageBoxButton.OK,
                               MessageBoxImage.Error);
 
-                // Для отладки:
                 Console.WriteLine($"Ошибка: {ex}");
                 if (ex.InnerException != null)
                     Console.WriteLine($"Inner exception: {ex.InnerException}");
@@ -191,7 +205,6 @@ namespace uchebka32.Pages
 
         private bool ValidateCardData()
         {
-            // Валидация номера карты (16 цифр)
             string cardNumber = CardNumberTextBox.Text.Replace(" ", "");
             if (cardNumber.Length != 16 || !cardNumber.All(char.IsDigit))
             {
@@ -202,7 +215,6 @@ namespace uchebka32.Pages
                 return false;
             }
 
-            // Валидация срока действия
             if (!int.TryParse(ExpiryMonthTextBox.Text, out int month) ||
                 !int.TryParse(ExpiryYearTextBox.Text, out int year) ||
                 month < 1 || month > 12)
@@ -225,7 +237,6 @@ namespace uchebka32.Pages
                 return false;
             }
 
-            // Валидация CVC
             if (CVCTextBox.Text.Length != 3 || !CVCTextBox.Text.All(char.IsDigit))
             {
                 MessageBox.Show("CVC код должен содержать 3 цифры",
@@ -242,7 +253,6 @@ namespace uchebka32.Pages
         {
             try
             {
-                // Проверка заполнения обязательных полей
                 if (string.IsNullOrWhiteSpace(NameTextBox.Text) || NameTextBox.Foreground == Brushes.Gray)
                 {
                     MessageBox.Show("Пожалуйста, введите ваше имя",
@@ -284,24 +294,20 @@ namespace uchebka32.Pages
                     return;
                 }
 
-                // Получаем BibNumber из выбранного бегуна
                 string selectedRunner = RunnerComboBox.SelectedItem.ToString();
                 int bibNumber = int.Parse(selectedRunner.Split('-')[1].Trim().Split(' ')[0]);
 
-                // Находим регистрацию по BibNumber
                 var registration = (from re in ConnnectionDB.buEntities.RegistrationEvent
                                     where re.BibNumber == bibNumber
                                     select re.Registration).FirstOrDefault();
 
                 if (registration != null)
                 {
-                    // Создаем новую запись о спонсорстве
                     var sponsorship = new Sponsorship
                     {
                         SponsorName = NameTextBox.Text,
                         RegistrationId = registration.RegistrationId,
-                        Amount = donationAmount,
-                        // Дата будет автоматически установлена как текущая
+                        Amount = donationAmount
                     };
 
                     ConnnectionDB.buEntities.Sponsorship.Add(sponsorship);
@@ -312,7 +318,6 @@ namespace uchebka32.Pages
                                   MessageBoxButton.OK,
                                   MessageBoxImage.Information);
 
-                    // Очищаем форму после успешной регистрации
                     ClearForm();
                 }
                 else
@@ -408,70 +413,41 @@ namespace uchebka32.Pages
 
         private void NameTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            // Разрешаем только буквы
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^[a-zA-Zа-яА-Я\s]+$"))
             {
-                e.Handled = true; // Блокируем ввод
+                e.Handled = true;
             }
         }
 
         private void CardNumberTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            // Разрешаем только цифры
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^\d+$"))
             {
-                e.Handled = true; // Блокируем ввод
+                e.Handled = true;
             }
-        }
-
-        private void CardNumberTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            var textBox = sender as TextBox;
-            if (textBox == null) return;
-
-            // Удаляем все пробелы для обработки
-            string rawText = textBox.Text.Replace(" ", "");
-
-            // Форматируем текст в формат 9999 9999 9999 9999
-            StringBuilder formattedText = new StringBuilder();
-            for (int i = 0; i < rawText.Length; i++)
-            {
-                if (i > 0 && i % 4 == 0)
-                {
-                    formattedText.Insert(0, " "); // Добавляем пробел каждые 4 символа
-                }
-                formattedText.Insert(0, rawText[rawText.Length - 1 - i]);
-            }
-
-            // Обновляем текст в TextBox
-            textBox.Text = formattedText.ToString();
-            textBox.CaretIndex = textBox.Text.Length; // Перемещаем курсор в конец
         }
 
         private void ExpiryMonthTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            // Разрешаем только цифры
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^\d+$"))
             {
-                e.Handled = true; // Блокируем ввод
+                e.Handled = true;
             }
         }
 
         private void ExpiryYearTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            // Разрешаем только цифры
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^\d+$"))
             {
-                e.Handled = true; // Блокируем ввод
+                e.Handled = true;
             }
         }
 
         private void CVCTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            // Разрешаем только цифры
             if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^\d+$"))
             {
-                e.Handled = true; // Блокируем ввод
+                e.Handled = true;
             }
         }
     }

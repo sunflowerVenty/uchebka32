@@ -47,74 +47,144 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
 
-                <Image Source="/Images/marshrut.png" 
+                <Image Source="/Images/Maps/marshrut.png" 
                        Grid.RowSpan="8" Grid.ColumnSpan="6"
                        Stretch="Uniform" 
-                       MaxHeight="755" MaxWidth="850"
-                       />
+                       MaxHeight="755" MaxWidth="850"/>
 
-                    <Image Source="/Images/marsh1.png" 
-                       Grid.Row="0" Grid.Column="3" 
-                       HorizontalAlignment="Center" VerticalAlignment="Top" 
-                       MaxHeight="75" MaxWidth="72" />
+                    <Button Style="{StaticResource BtnMaps}"
+                            Name="Check1"
+                            Click="Check1_Click"
+                            Grid.Row="0" Grid.Column="3" 
+                            HorizontalAlignment="Center" VerticalAlignment="Top" 
+                            MaxHeight="75" MaxWidth="72">
+                        <Image Source="/Images/Maps/marsh1.png"/>
+                    </Button>
 
-                    <Image Source="/Images/marsh7.png" 
-                       Grid.Row="5" Grid.Column="0" 
-                       HorizontalAlignment="Center" VerticalAlignment="Top" 
-                       MaxHeight="75" MaxWidth="72" />
+                    <Button Style="{StaticResource BtnMaps}"
+                            Name="Start1"
+                            Click="Start1_Click"
+                            Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="1"
+                            HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Image Source="/Images/Maps/icon-start.png"/>
+                    </Button>
+                    
+                    <Button Style="{StaticResource BtnMaps}" 
+                           Name="Check7"
+                           Click="Check7_Click"
+                           Grid.Row="5" Grid.Column="0" 
+                           HorizontalAlignment="Center" VerticalAlignment="Top" 
+                           MaxHeight="75" MaxWidth="72" >
+                        <Image Source="/Images/Maps/marsh7.png"/>
+                    </Button>
+                    
+                    <Button Style="{StaticResource BtnMaps}"
+                           Name="Check6"
+                           Click="Check6_Click"
+                           Grid.Row="6" Grid.Column="1" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           MaxHeight="75" MaxWidth="72">
+                        <Image Source="/Images/Maps/marsh6.png" />
+                    </Button>
+                    
+                    <Button Style="{StaticResource BtnMaps}"
+                            Click="Check5_Click"
+                           Name="Check5"
+                           Grid.Row="7" Grid.Column="3" 
+                           HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                           MaxHeight="75" MaxWidth="72" >
+                        <Image Source="/Images/Maps/marsh5.png" />
+                    </Button>
 
-                    <Image Source="/Images/marsh6.png" 
-                       Grid.Row="6" Grid.Column="1" 
-                       HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="75" MaxWidth="72" 
-                       />
+                    <Button Style="{StaticResource BtnMaps}"
+                            Click="Start2_Click"
+                           Name="Start2"
+                           Grid.Row="7" Grid.Column="4"
+                           HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Image Source="/Images/Maps/icon-start.png" />
+                    </Button>
 
-                    <Image Source="/Images/marsh5.png" 
-                       Grid.Row="7" Grid.Column="3" 
-                       HorizontalAlignment="Center" VerticalAlignment="Bottom" 
-                       MaxHeight="75" MaxWidth="72" />
+                    <Button Style="{StaticResource BtnMaps}"
+                            Click="Check4_Click"
+                           Name="Check4"
+                           Grid.Row="6" Grid.Column="5" 
+                           HorizontalAlignment="Right" VerticalAlignment="Center" 
+                           MaxHeight="75" MaxWidth="72" >
+                        <Image Source="/Images/Maps/marsh4.png" />
+                    </Button>
 
-                    <Image Source="/Images/marsh4.png" 
-                       Grid.Row="6" Grid.Column="5" 
-                       HorizontalAlignment="Right" VerticalAlignment="Center" 
-                       MaxHeight="75" MaxWidth="72" />
+                    <Button Style="{StaticResource BtnMaps}"
+                            Click="Check3_Click"
+                           Name="Check3"
+                           Grid.Row="4" Grid.Column="4" 
+                           HorizontalAlignment="Center" VerticalAlignment="Top" 
+                           MaxHeight="75" MaxWidth="72" >
+                        <Image Source="/Images/Maps/marsh3.png" />
+                    </Button>
 
-                    <Image Source="/Images/marsh3.png" 
-                       Grid.Row="4" Grid.Column="4" 
-                       HorizontalAlignment="Center" VerticalAlignment="Top" 
-                       MaxHeight="75" MaxWidth="72" />
+                    <Button Style="{StaticResource BtnMaps}"
+                           Name="Check2"
+                            Click="Check2_Click"
+                           Grid.Row="2" Grid.Column="4" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           MaxHeight="75" MaxWidth="72" >
+                        <Image Source="/Images/Maps/marsh2.png" />
+                    </Button>
 
-                    <Image Source="/Images/marsh2.png" 
-                       Grid.Row="2" Grid.Column="4" 
-                       HorizontalAlignment="Center" VerticalAlignment="Center" 
-                       MaxHeight="75" MaxWidth="72" />
+                    <Button Style="{StaticResource BtnMaps}"
+                           Name="Check8"
+                            Click="Check8_Click"
+                           Grid.Row="2" Grid.Column="0" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           MaxHeight="75" MaxWidth="72" >
+                        <Image Source="/Images/Maps/marsh8.png" />
+                    </Button>
 
-                    <Image Source="/Images/marsh8.png" 
-                       Grid.Row="2" Grid.Column="0" 
-                       HorizontalAlignment="Center" VerticalAlignment="Center" 
-                       MaxHeight="75" MaxWidth="72" />
+                    <Button Style="{StaticResource BtnMaps}"
+                           Name="Start3"
+                            Click="Start3_Click"
+                           Grid.Row="3" Grid.Column="0"
+                           HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Image Source="/Images/Maps/icon-start.png" />
+                    </Button>
 
-                    <Image Source="/Images/marshFinish.png" 
-                       Grid.Row="0" Grid.Column="1" 
-                       HorizontalAlignment="Center" VerticalAlignment="Center" 
-                       MaxHeight="100"/>
-</Grid>
-            
-            <Grid Background="{StaticResource BgPanelColor}" MaxHeight="550" MaxWidth="450"
-                  Margin="50, 30, 0, 0"
-                  VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition MinWidth="40" MaxWidth="50"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition MinWidth="40" MaxWidth="50"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition MinHeight="40" MaxHeight="50"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition MinHeight="300"/>
-                    <RowDefinition MinHeight="40" MaxHeight="50"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="Checkpoint 1" 
+                    <Button Style="{StaticResource BtnMaps}"
+                           Name="Finish"
+                            Click="Finish_Click"
+                           Grid.Row="0" Grid.Column="1" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           MaxHeight="100">
+                        <Image Source="/Images/Maps/marshFinish.png" />
+                    </Button>
+                </Grid>
+
+                <Grid Background="{StaticResource BgPanelColor}" 
+                      MaxWidth="450"
+                      Name="InfoGrid"
+                      Margin="100, 30, 0, 0"
+                      VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MinWidth="30" MaxWidth="50"/>
+                        <ColumnDefinition Width="310"/>
+                        <ColumnDefinition MinWidth="30" MaxWidth="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="20" MaxHeight="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="*" MinHeight="300"/> 
+                        <RowDefinition MinHeight="30" MaxHeight="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="2" 
+                            Name="KrestBtn"
+                            Click="KrestBtn_Click"
+                            Style="{StaticResource BtnMaps}"
+                            Margin="5">
+                        <Image Source="/Images/cross-icon.png"/>
+                    </Button>
+                    
+                    <TextBlock x:Name="NameText"
                            Grid.Column="1"
                            Grid.Row="1"
                            VerticalAlignment="Bottom"
@@ -122,36 +192,60 @@
                            FontWeight="Bold" 
                            Style="{StaticResource TextHeader}" 
                            Foreground="Black"
-                           FontSize="40"/>
-                <TextBlock FontSize="35" 
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Left"
-                           Text="Особенности:"
-                           Grid.Column="1"
-                           Grid.Row="2"
-                           TextWrapping="Wrap"
-                           Margin="0, 20"
-                           Style="{StaticResource TextPage}"/>
-                <TextBlock FontSize="35" 
-                           Grid.Column="1"
-                           Grid.Row="3"
-                           MaxWidth="500"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Left"
-                           TextWrapping="Wrap"
-                           Style="{StaticResource TextPage}">
-                       -  Стенд питья<LineBreak/>
-                       -  Энергетические батончики<LineBreak/>
-                       -  Туалет<LineBreak/>
-                       -  Медицинский пункт
-                </TextBlock>
-                <StackPanel Background="{StaticResource BgPanelColor}">
+                           FontSize="30"/>
 
-                </StackPanel>
-            </Grid>
+                    <TextBlock FontSize="25" 
+                               Grid.Column="1"
+                               Grid.Row="2"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Margin="0, 20"
+                               Name="StartText"
+                               TextWrapping="Wrap"
+                               Style="{StaticResource TextPage}"/>
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="2"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="0, 20">
+                        <TextBlock FontSize="28" 
+                                   Text="Landmark:"
+                                   Name="Landmark"
+                                   FontWeight="Bold" 
+                                   HorizontalAlignment="Left"
+                                   TextWrapping="Wrap"
+                                   Style="{StaticResource TextPage}"/>
+                        <TextBlock FontSize="25" 
+                                   Name="LandmarkText"
+                                   HorizontalAlignment="Left"
+                                   TextWrapping="Wrap"
+                                   Style="{StaticResource TextPage}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="3"
+                                MaxWidth="500"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left">
+                        <TextBlock FontSize="25" 
+                                   Grid.Column="1"
+                                   Text="Services Provided:"
+                                   Name="ServicesPr"
+                                   FontWeight="Bold" 
+                                   Grid.Row="3"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   TextWrapping="Wrap"
+                                   Style="{StaticResource TextPage}"/>
 
-
-        </StackPanel>
+                        <StackPanel HorizontalAlignment="Left"
+                                    x:Name="PanelServises">
+                            
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    
+                </Grid>
+            </StackPanel>
         </Viewbox>
         
     </Grid>
