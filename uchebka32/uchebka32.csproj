@@ -134,14 +134,17 @@
     <Compile Include="Database\Volunteer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\BlagOrg.xaml.cs">
-      <DependentUpon>EditCharity</DependentUpon>
+    <Compile Include="Pages\AddEditCharity.xaml.cs">
+      <DependentUpon>AddEditCharity.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\confirRegRunner.xaml.cs">
       <DependentUpon>confirRegRunner.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DeteilsInfo.xaml.cs">
       <DependentUpon>DeteilsInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditCharity.xaml.cs">
+      <DependentUpon>EditCharity.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\InfoMarafon.xaml.cs">
       <DependentUpon>InfoMarafon.xaml</DependentUpon>
@@ -179,10 +182,14 @@
     <Compile Include="Windows\NameSponsWind.xaml.cs">
       <DependentUpon>NameSponsWind.xaml</DependentUpon>
     </Compile>
-    <None Include="Pages\EditCharity">
+    <Page Include="Pages\AddEditCharity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </None>
+    </Page>
+    <Page Include="Pages\EditCharity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ListCharity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -337,9 +344,7 @@
   <ItemGroup>
     <Resource Include="Images\Maps\marshFinish.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Charity\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -351,6 +356,20 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Charity\arise-logo.png" />
+    <Resource Include="Images\Charity\aves-do-brazil-logo.png" />
+    <Resource Include="Images\Charity\clara-santos-oliveira-institute-logo.png" />
+    <Resource Include="Images\Charity\conquer-cancer-brazil.png" />
+    <Resource Include="Images\Charity\diabetes-brazil-logo.png" />
+    <Resource Include="Images\Charity\heart-health-sao-paulo-logo.png" />
+    <Resource Include="Images\Charity\human-rights-centre-logo.png" />
+    <Resource Include="Images\Charity\oxfam-international-logo.png" />
+    <Resource Include="Images\Charity\querstadtein-logo.png" />
+    <Resource Include="Images\Charity\save-the-children-fund-logo.png" />
+    <Resource Include="Images\Charity\stay-pumped-logo.png" />
+    <Resource Include="Images\Charity\the-red-cross-logo.png" />
+    <Resource Include="Images\Charity\upbeat-logo.png" />
+    <Resource Include="Images\Charity\wwsm-rescue-logo.png" />
     <Resource Include="Images\Maps\marshrut.png" />
     <Resource Include="Images\cross-icon.png" />
     <Resource Include="Images\flags\flag_andorra.png" />

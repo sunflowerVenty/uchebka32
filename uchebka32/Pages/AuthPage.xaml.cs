@@ -69,7 +69,7 @@ namespace uchebka32.Pages
 
         private void DopBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Maps());
+            NavigationService.Navigate(new EditCharity());
         }
     }
 }

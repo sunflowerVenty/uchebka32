@@ -24,13 +24,6 @@ namespace uchebka32.Database
         public string CharityName { get; set; }
         public string CharityDescription { get; set; }
         public string CharityLogo { get; set; }
-        //public string CharityLogoFull
-        //{
-        //    get
-        //    {
-        //        return $"/Images/Charity/ + {CharityLogo}";
-        //    }
-        //}
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Registration> Registration { get; set; }
