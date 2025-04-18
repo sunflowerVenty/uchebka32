@@ -32,11 +32,6 @@ namespace uchebka32.Pages
             LogoPathTextBox.Text = charity.CharityLogo;
             NameTextBox.Text = charity.CharityName;
             DescriptionTextBox.Text = charity.CharityDescription;
-
-            if (!string.IsNullOrEmpty(LogoPathTextBox.Text))
-            {
-                CurrentLogoImage.Source = new BitmapImage(new Uri("/Images/Charity/" + LogoPathTextBox.Text, UriKind.RelativeOrAbsolute));
-            }
         }
 
         private void BrowseLogo_Click(object sender, RoutedEventArgs e)
@@ -57,9 +52,13 @@ namespace uchebka32.Pages
                     string fileName = System.IO.Path.GetFileName(sourcePath);
                     string destPath = System.IO.Path.Combine(targetFolder, fileName);
                     File.Copy(sourcePath, destPath, overwrite: true);
-
+                    
                     LogoPathTextBox.Text = fileName;
 
+                    if (!string.IsNullOrEmpty(LogoPathTextBox.Text))
+                    {
+                        CurrentLogoImage.Source = new BitmapImage(new Uri("/Images/Charity/" + LogoPathTextBox.Text, UriKind.RelativeOrAbsolute));
+                    }
                 }
                 catch (Exception ex)
                 {

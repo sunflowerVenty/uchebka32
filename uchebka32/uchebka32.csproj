@@ -176,6 +176,9 @@
     <Compile Include="Pages\thankSpons.xaml.cs">
       <DependentUpon>thankSpons.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Volonteers.xaml.cs">
+      <DependentUpon>Volonteers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ContactOrgWind.xaml.cs">
       <DependentUpon>ContactOrgWind.xaml</DependentUpon>
     </Compile>
@@ -243,6 +246,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\thankSpons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Volonteers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
