@@ -52,7 +52,10 @@
                         <TextBlock Text="Наименование:" Margin="0,0,0,5"/>
                         <TextBox Margin="0,10,0,20" 
                                  x:Name="NameTextBox"
-                                 Text="{Binding CharityName, UpdateSourceTrigger=PropertyChanged}" Height="31" Width="255"/>
+                                 FontSize="15"
+                                 Foreground="{StaticResource BaseTextColor}"
+                                 Height="31" 
+                                 Width="255"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left">
                         <TextBlock Grid.Row="1" 
@@ -61,8 +64,10 @@
                         <TextBox Grid.Row="1" 
                                  Margin="0,10,0,20" 
                                  x:Name="DescriptionTextBox" 
-                                 Text="{Binding CharityDescription, UpdateSourceTrigger=PropertyChanged}"
                                  TextWrapping="Wrap" 
+                                 FontSize="15"
+                                 VerticalContentAlignment="Top"
+                                 Foreground="{StaticResource BaseTextColor}"
                                  AcceptsReturn="True" 
                                  Height="149" 
                                  VerticalScrollBarVisibility="Auto" Width="327"/>
@@ -91,9 +96,9 @@
                             <TextBox x:Name="LogoPathTextBox" 
                                      Width="207" 
                                      Height="26"
+                                     FontSize="15"
                                      Margin="0, 10"
-                                     IsReadOnly="True"
-                                     Text="{Binding CharityLogo, UpdateSourceTrigger=PropertyChanged}" />
+                                     IsReadOnly="True"/>
                             <Button Content="Просмотр..." 
                                 Margin="10,0,0,0"
                                 Width="90"
@@ -106,8 +111,7 @@
                         <TextBlock Text="Текущий логотип:" Margin="0,0,0,5"/>
                         <Image x:Name="CurrentLogoImage" 
                                Height="150" 
-                               Stretch="Uniform"
-                               Source="{Binding CurrentLogoPath}"/>
+                               Stretch="Uniform"/>
                     </StackPanel>
                 </StackPanel>
 

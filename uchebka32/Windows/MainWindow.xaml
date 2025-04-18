@@ -12,7 +12,7 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
-        <Grid Background="Black">
+        <Grid Background="{StaticResource HeaderColor}">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0" Orientation="Horizontal">
                 <Button Content="Назад" 
                         Name="BackBtn"
@@ -27,8 +27,8 @@
                            Style="{StaticResource TextHeader}"/>
             </StackPanel>
         </Grid>
-        
-        <Grid Grid.Row="2" Background="Black">
+
+        <Grid Grid.Row="2" Background="{StaticResource FooterColor}">
             <StackPanel>
                 <TextBlock Name="TimerText" 
                            FontSize="20" 

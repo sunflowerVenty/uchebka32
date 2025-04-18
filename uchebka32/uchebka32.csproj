@@ -146,6 +146,9 @@
     <Compile Include="Pages\EditCharity.xaml.cs">
       <DependentUpon>EditCharity.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ImportVolunteersPage.xaml.cs">
+      <DependentUpon>ImportVolunteersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\InfoMarafon.xaml.cs">
       <DependentUpon>InfoMarafon.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,9 @@
     </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MySponsor.xaml.cs">
+      <DependentUpon>MySponsor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegSpons.xaml.cs">
       <DependentUpon>RegSpons.xaml</DependentUpon>
@@ -193,6 +199,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ImportVolunteersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ListCharity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MenuKoor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MySponsor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

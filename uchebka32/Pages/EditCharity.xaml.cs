@@ -35,9 +35,14 @@ namespace uchebka32.Pages
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button && button.Tag is Charity selectedCharity)
+            Button button = (Button)sender;
+
+            dynamic i = button.Tag;
+            int Id = i.CharityId;
+            Charity charity = ConnnectionDB.buEntities.Charity.FirstOrDefault(a => a.CharityId == Id);
+            if (charity != null)
             {
-                NavigationService.Navigate(new AddEditCharity(selectedCharity));
+                NavigationService.Navigate(new AddEditCharity(charity));
             }
         }
 

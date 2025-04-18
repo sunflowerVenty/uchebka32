@@ -21,7 +21,7 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
-        <Grid Background="Black">
+        <Grid Background="{StaticResource HeaderColor}">
             <StackPanel>
                 <TextBlock Text="MARATHON SKILLS 2016" 
                            Foreground="{StaticResource White}"

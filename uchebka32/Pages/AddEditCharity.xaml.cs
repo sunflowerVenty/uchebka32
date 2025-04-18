@@ -30,6 +30,7 @@ namespace uchebka32.Pages
             InitializeComponent();
 
             LogoPathTextBox.Text = charity.CharityLogo;
+            CurrentLogoImage.Source = new BitmapImage(new Uri("/Images/Charity/" + charity.CharityLogo, UriKind.RelativeOrAbsolute));
             NameTextBox.Text = charity.CharityName;
             DescriptionTextBox.Text = charity.CharityDescription;
         }
@@ -48,17 +49,56 @@ namespace uchebka32.Pages
                     string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
                     string targetFolder = System.IO.Path.Combine(projectFolder, "Images", "Charity");
 
-                    string sourcePath = openFileDialog.FileName;
-                    string fileName = System.IO.Path.GetFileName(sourcePath);
-                    string destPath = System.IO.Path.Combine(targetFolder, fileName);
-                    File.Copy(sourcePath, destPath, overwrite: true);
-                    
-                    LogoPathTextBox.Text = fileName;
-
-                    if (!string.IsNullOrEmpty(LogoPathTextBox.Text))
+                    try
                     {
-                        CurrentLogoImage.Source = new BitmapImage(new Uri("/Images/Charity/" + LogoPathTextBox.Text, UriKind.RelativeOrAbsolute));
+                        // 1. Проверяем существование исходного файла
+                        if (!File.Exists(openFileDialog.FileName))
+                        {
+                            MessageBox.Show("Исходный файл не найден!");
+                            return;
+                        }
+
+                        // 2. Создаем целевую папку, если её нет
+                        if (!Directory.Exists(targetFolder))
+                        {
+                            Directory.CreateDirectory(targetFolder);
+                        }
+
+                        // 3. Генерируем уникальное имя файла (на случай, если файл уже существует)
+                        string fileName = System.IO.Path.GetFileName(openFileDialog.FileName);
+                        string destPath = System.IO.Path.Combine(targetFolder, fileName);
+
+                        // 4. Если файл уже существует, добавляем к имени временную метку
+                        if (File.Exists(destPath))
+                        {
+                            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+                            string fileNameWithoutExt = System.IO.Path.GetFileNameWithoutExtension(fileName);
+                            string fileExt = System.IO.Path.GetExtension(fileName);
+                            destPath = System.IO.Path.Combine(targetFolder, $"{fileNameWithoutExt}_{timestamp}{fileExt}");
+                        }
+                        LogoPathTextBox.Text = fileName;
+
+                        // 5. Копируем файл
+                        File.Copy(openFileDialog.FileName, destPath, overwrite: true);
+
+                        if (!string.IsNullOrEmpty(LogoPathTextBox.Text))
+                        {
+                            CurrentLogoImage.Source = new BitmapImage(new Uri(destPath, UriKind.RelativeOrAbsolute));
+                        }
                     }
+                    catch (UnauthorizedAccessException)
+                    {
+                        MessageBox.Show("Ошибка: Нет прав для записи в целевую папку");
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show($"Ошибка ввода-вывода: {ex.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Неожиданная ошибка: {ex.Message}");
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -85,6 +125,8 @@ namespace uchebka32.Pages
             charity.CharityLogo = LogoPathTextBox.Text;
             ConnnectionDB.buEntities.Charity.Add(charity);
             ConnnectionDB.buEntities.SaveChanges();
+
+            NavigationService.GoBack();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

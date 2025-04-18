@@ -5,14 +5,14 @@
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
         <SolidColorBrush x:Key="White" Color="White" />
-        <SolidColorBrush x:Key="HeaderColor" Color="Black" />
-        <SolidColorBrush x:Key="FooterColor" Color="Black" />
+        <SolidColorBrush x:Key="HeaderColor" Color="#241d70" />
+        <SolidColorBrush x:Key="FooterColor" Color="#00903e" />
         <SolidColorBrush x:Key="BaseTextColor" Color="Black" />
         <SolidColorBrush x:Key="TextBoxColor" Color="LightGray"/>
         <SolidColorBrush x:Key="HeaderTextColor" Color="#333333" />
         <SolidColorBrush x:Key="BgPanelColor" Color="LightGray" />
-        <SolidColorBrush x:Key="AccentColor" Color="Blue" />
-        <SolidColorBrush x:Key="BtnColor" Color="LightGreen" />
+        <SolidColorBrush x:Key="AccentColor" Color="#241d70" />
+        <SolidColorBrush x:Key="BtnColor" Color="#fdc100" />
         <SolidColorBrush x:Key="BgColor" Color="White" />
         
         <Style TargetType="TextBlock" x:Key="BaseText">
@@ -58,7 +58,7 @@
         </Style>
 
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#dddddd"/>
+            <Setter Property="Background" Value="{StaticResource BtnColor}"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="Padding" Value="10"/>
@@ -74,7 +74,7 @@
                             Background="{TemplateBinding Background}" 
                             CornerRadius="10"
                             BorderThickness="2"
-                            BorderBrush="{StaticResource BtnColor}">
+                            BorderBrush="{x:Null}">
                             <ContentPresenter 
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Center"/>

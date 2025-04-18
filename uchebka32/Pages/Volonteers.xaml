@@ -9,11 +9,11 @@
       Title="EditCharity">
 
 
-    <Grid Background="White">
+    <Grid Background="{StaticResource BgColor}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.05*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"/>
@@ -42,9 +42,10 @@
              HorizontalAlignment="Stretch">
                     <StackPanel>
                         <TextBlock Text="Управление волонтерами" 
-                                   FontSize="45" 
-                                   HorizontalAlignment="Center" 
-                                   Margin="0,10"/>
+                                   VerticalAlignment="Top"
+                                   FontWeight="Medium" 
+                                   Style="{StaticResource TextHeader}" 
+                                   Margin="40"/>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Stretch">
                             <StackPanel>
@@ -59,7 +60,8 @@
                                                HorizontalAlignment="Center"
                                                Margin="10, 0"/>
                                     <StackPanel>
-                                        <ComboBox Width="237"
+                                        <ComboBox Name="SortComboBox" 
+                                            Width="237"
                                                   Height="37"
                                                   Margin="0,0,10,0" 
                                                   SelectedIndex="0"
@@ -69,7 +71,9 @@
                                             <ComboBoxItem>Стране</ComboBoxItem>
                                             <ComboBoxItem>Полу</ComboBoxItem>
                                         </ComboBox>
-                                        <Button Content="Обновить"
+                                        <Button x:Name="Refresh"
+                                                Click="Refresh_Click"
+                                                Content="Обновить"
                                                 Margin="0, 20"
                                                 HorizontalAlignment="Left"
                                                 Width="173" 
@@ -86,6 +90,8 @@
                                            Margin="0,20"/>
                                 <Button Content="Загрузка волонтеров"
                                         Margin="0, 20"
+                                        Name="LoadBtn"
+                                        Click="LoadBtn_Click"
                                         HorizontalAlignment="Left"
                                         Width="283" 
                                         Height="49"
@@ -99,8 +105,9 @@
                                        FontSize="20"
                                        HorizontalAlignment="Center"
                                        Margin="0,0,0,10"/>
-                            <TextBlock Grid.Row="3"
-                                       Text="123" 
+                            <TextBlock x:Name="VolunteerCountText"
+                                       Grid.Row="3"
+                                       Text="" 
                                        FontSize="20"
                                        HorizontalAlignment="Center"
                                        Margin="10,0"/>
@@ -113,23 +120,15 @@
                      Grid.Column="1"
                      VerticalAlignment="Top"
                      HorizontalAlignment="Center">
-                    <DataGrid x:Name="CompaniesDataGrid" 
+                    <DataGrid x:Name="VolunteersDataGrid" 
                           Margin="0, 10, 0, 0"
                           AutoGenerateColumns="False" 
                           CanUserAddRows="False" 
                           IsReadOnly="True" 
                           SelectionMode="Single">
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Логотип" Width="350">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Image Source="{Binding LogoPath}" Width="300" Stretch="Uniform"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-                            <DataGridTextColumn Header="Наименование" 
-                                            Binding="{Binding CharityName}"
+                            <DataGridTextColumn Header="Фамилия" 
+                                            Binding="{Binding LastName}"
                                             Width="250"
                                             FontSize="20">
                                 <DataGridTextColumn.ElementStyle>
@@ -141,32 +140,44 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn Header="Описание"
-                                            Binding="{Binding CharityDescription}" 
-                                            Width="800" 
+                            <DataGridTextColumn Header="Имя" 
+                                            Binding="{Binding FirstName}"
+                                            Width="250"
                                             FontSize="20">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
                                         <Setter Property="TextWrapping" Value="Wrap"/>
                                         <Setter Property="HorizontalAlignment" Value="Center"/>
                                         <Setter Property="VerticalAlignment" Value="Center"/>
-                                        <Setter Property="Margin" Value="10"/>
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTemplateColumn Header="Действия" Width="100">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Content="Edit" 
-                                            Margin="10"
-                                            Height="55"
-                                            Click="EditButton_Click" 
-                                            Tag="{Binding}"
-                                            Padding="5,2" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Страна" 
+                                            Binding="{Binding CountryName}"
+                                            Width="250"
+                                            FontSize="20">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Header="Пол" 
+                                            Binding="{Binding Gender}"
+                                            Width="250"
+                                            FontSize="20">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Viewbox>

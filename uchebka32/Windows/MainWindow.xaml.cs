@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Navigation;
 using System.Windows.Threading;
 using uchebka32.Pages;
 
@@ -16,6 +17,9 @@ namespace uchebka32.Windows
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigated += MainFrame_Navigated;
+            UpdateBackButtonVisibility();
+
             StartFrame.NavigationService.Navigate(new MainPage(MainFrame));
 
             _targetDate = new DateTime(2025, 12, 31, 23, 59, 59);
@@ -26,6 +30,25 @@ namespace uchebka32.Windows
             _timer.Start();
 
         }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            UpdateBackButtonVisibility();
+        }
+
+        private void UpdateBackButtonVisibility()
+        {
+            BackBtn.Visibility = MainFrame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack)
+            {
+                MainFrame.GoBack();
+            }
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             TimeSpan remainingTime = _targetDate - DateTime.Now;
@@ -40,11 +63,6 @@ namespace uchebka32.Windows
                 _timer.Stop();
                 TimerText.Text = "Марафон начался!";
             }
-        }
-
-        private void BackBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.NavigationService.GoBack();
         }
     }
 }
