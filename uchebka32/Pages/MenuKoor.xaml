@@ -36,14 +36,14 @@
                             Width="600">
                 <Button Content="Бегуны"
                         Height="120"
-                        Margin="0, 20"/>
+                        Margin="0, 20" Click="RunnersButton_Click"/>
             </StackPanel>
             <StackPanel VerticalAlignment="Top"
                     Margin="30, 0"
                     Width="600">
                 <Button Content="Спонсоры"
                     Height="120"
-                    Margin="0, 20"/>
+                    Margin="0, 20" Click="SponsorsButton_Click"/>
             </StackPanel>
         </StackPanel>
         </StackPanel>

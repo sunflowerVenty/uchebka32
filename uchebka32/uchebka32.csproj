@@ -137,6 +137,12 @@
     <Compile Include="Pages\AddEditCharity.xaml.cs">
       <DependentUpon>AddEditCharity.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BMICalculator.xaml.cs">
+      <DependentUpon>BMICalculator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BMRCalculator.xaml.cs">
+      <DependentUpon>BMRCalculator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\confirRegRunner.xaml.cs">
       <DependentUpon>confirRegRunner.xaml</DependentUpon>
     </Compile>
@@ -151,6 +157,12 @@
     </Compile>
     <Compile Include="Pages\InfoMarafon.xaml.cs">
       <DependentUpon>InfoMarafon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InventoryArrival.xaml.cs">
+      <DependentUpon>InventoryArrival.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InventoryManagement.xaml.cs">
+      <DependentUpon>InventoryManagement.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ListCharity.xaml.cs">
       <DependentUpon>ListCharity.xaml</DependentUpon>
@@ -195,11 +207,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\BMICalculator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BMRCalculator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EditCharity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ImportVolunteersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InventoryArrival.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InventoryManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -377,6 +405,12 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\bmi-healthy-icon.png" />
+    <Resource Include="Images\bmi-obese-icon.png" />
+    <Resource Include="Images\bmi-overweight-icon.png" />
+    <Resource Include="Images\bmi-underweight-icon.png" />
+    <Resource Include="Images\female-icon.png" />
+    <Resource Include="Images\male-icon.png" />
     <Resource Include="Images\Charity\arise-logo.png" />
     <Resource Include="Images\Charity\aves-do-brazil-logo.png" />
     <Resource Include="Images\Charity\clara-santos-oliveira-institute-logo.png" />

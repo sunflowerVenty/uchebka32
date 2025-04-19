@@ -24,5 +24,16 @@ namespace uchebka32.Pages
         {
             InitializeComponent();
         }
+
+        private void RunnersButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new RunnersManagement());
+        }
+
+        private void SponsorsButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new SponsorsOverview());
+        }
+
     }
 }

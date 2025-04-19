@@ -35,10 +35,12 @@
                         Margin="30, 0"
                         Width="600">
                     <Button Content="Пользователи"
+                            Click="UserButton_Click"
                             Height="120"
                             Margin="0, 20"/>
                     <Button Content="Благотворительные организации"
                             Height="120"
+                            Click="CharitiesButton_Click"
                             Margin="0, 20"/>
                 </StackPanel>
                 <StackPanel VerticalAlignment="Top"
@@ -46,9 +48,11 @@
                 Width="600">
                     <Button Content="Волонтеры"
                             Height="120"
+                            Click="VolunteersButton_Click"
                             Margin="0, 20"/>
                     <Button Content="Инвентарь"
                             Height="120"
+                            Click="InventoryButton_Click"
                             Margin="0, 20"/>
                 </StackPanel>
             </StackPanel>

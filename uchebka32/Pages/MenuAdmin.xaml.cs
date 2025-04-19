@@ -24,5 +24,25 @@ namespace uchebka32.Pages
         {
             InitializeComponent();
         }
+
+        private void UsersButton_Click(object sender, RoutedEventArgs e)
+        {
+            //    NavigationService?.Navigate(new UsersManagementPage());
+        }
+
+        private void VolunteersButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new Volonteers());
+        }
+
+        private void CharitiesButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new EditCharity());
+        }
+
+        private void InventoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new InventoryManagementPage());
+        }
     }
 }
