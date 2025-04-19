@@ -35,7 +35,7 @@
                         Margin="30, 0"
                         Width="600">
                     <Button Content="Пользователи"
-                            Click="UserButton_Click"
+                            Click="Button_Click"
                             Height="120"
                             Margin="0, 20"/>
                     <Button Content="Благотворительные организации"

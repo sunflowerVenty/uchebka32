@@ -131,5 +131,10 @@ namespace uchebka32.Pages
                 return 250 + ((Math.Min(bmi, 40) - 30) / 10) * 100;
             }
         }
+
+        private void Cancel_btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

@@ -126,8 +126,7 @@
                                        Margin="10, 0"/>
                             <DatePicker x:Name="dpBirthDate"
                                         Width="400" Height="70" 
-                                        FontSize="40" Margin="10, 0" 
-                                        SelectedDateChanged="BirthDatePicker_SelectedDateChanged"/>
+                                        FontSize="40" Margin="10, 0" /> 
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Страна:" 

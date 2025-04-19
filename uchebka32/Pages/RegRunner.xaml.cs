@@ -17,24 +17,19 @@ namespace uchebka32.Pages
         public RegRunner()
         {
             InitializeComponent();
-            LoadData();
+            LoadGenders();
         }
 
-        private void LoadData()
+
+        private void LoadGenders()
         {
-            try
-            {
-                using (var db = new MarafonUchebkaEntities())
-                {
-                    cmbGender.ItemsSource = db.Gender.ToList();
-                    cmbCountry.ItemsSource = db.Country.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка загрузки данных: {ex.Message}");
-            }
+            foreach (var item in ConnnectionDB.buEntities.Gender.ToList())
+                cmbGender.Items.Add(item.Gender1.ToString());
+
+            foreach (var item in ConnnectionDB.buEntities.Country.ToList())
+                cmbCountry.Items.Add(item.CountryName.ToString());
         }
+        
 
         private string _photoFilePath;
 

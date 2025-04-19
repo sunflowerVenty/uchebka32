@@ -23,8 +23,10 @@ namespace uchebka32.Pages
     public partial class AuthPage : Page
     {
         public string Role;
-        public AuthPage()
+        public Frame Frame1;
+        public AuthPage(Frame frame)
         {
+            Frame1 = frame;
             InitializeComponent();
         }
 
@@ -65,6 +67,11 @@ namespace uchebka32.Pages
             {
 
             }
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage(Frame1));
         }
     }
 }

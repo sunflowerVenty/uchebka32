@@ -36,7 +36,7 @@
         </Style>
 
         <Style TargetType="TextBox">
-            <Setter Property="Foreground" Value="{StaticResource TextBoxColor}"/>
+            <Setter Property="Foreground" Value="{StaticResource BaseTextColor}"/>
             <Setter Property="Height" Value="70"/>
             <Setter Property="Width" Value="500"/>
             <Setter Property="FontSize" Value="60"/>

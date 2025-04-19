@@ -121,10 +121,9 @@
                     <ColumnDefinition Width="Auto" MinWidth="271"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-
-                <!-- Фильтр по статусу -->
-                <StackPanel Grid.Column="0" Margin="0,0,20,0">
-                    <TextBlock Text="Статус:" Style="{StaticResource FilterText}"/>
+                <StackPanel>
+                    <StackPanel Grid.Column="0" Margin="5">
+                    <TextBlock Text="Статус:" Style="{StaticResource FilterText}" Margin="5"/>
                     <ComboBox x:Name="cmbStatus" Width="180" 
               DisplayMemberPath="RegistrationStatus1"
               SelectedValuePath="RegistrationStatusId"
@@ -132,8 +131,8 @@
                 </StackPanel>
 
                 <!-- Фильтр по дистанции -->
-                <StackPanel Grid.Column="0" Margin="0,53,20,0">
-                    <TextBlock Text="Дистанция:" Style="{StaticResource FilterText}" Height="17"/>
+                <StackPanel Grid.Column="0" Margin="5">
+                    <TextBlock Text="Дистанция:" Style="{StaticResource FilterText}" Margin="5" Height="17"/>
                     <ComboBox x:Name="cmbDistance" Width="180" 
               DisplayMemberPath="EventTypeName"
               SelectedValuePath="EventTypeId"
@@ -141,19 +140,22 @@
                 </StackPanel>
 
                 <!-- Сортировка -->
-                <StackPanel Grid.Column="0" Margin="0,104,20,0">
+                <StackPanel Grid.Column="0" Margin="5">
                     <TextBlock Text="Сортировать:" Style="{StaticResource FilterText}" Height="18"/>
                     <ComboBox x:Name="cmbSortBy" Width="179" 
               DisplayMemberPath="DisplayName"
               SelectedValuePath="SortField"
               SelectedValue="{Binding SelectedSortField, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
+                </StackPanel>
+                <!-- Фильтр по статусу -->
+                
 
                 <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" Width="271">
                     <Button x:Name="btnExportCSV" Content="Детальная информация (CSV)" 
-Style="{StaticResource ExportButton}" Click="btnExportCSV_Click" Height="44"/>
+Style="{StaticResource ExportButton}" Click="btnExportCSV_Click" Height="44" Margin="40,0,-33,0" Width="Auto"/>
                     <Button x:Name="btnExportEmails" Content="E-mail список" 
-Style="{StaticResource ExportButton}" Click="btnExportEmails_Click" Height="43" Margin="0,10,10,0" />
+Style="{StaticResource ExportButton}" Click="btnExportEmails_Click" Height="43" Margin="40,10,-33,0" Width="Auto" />
                 </StackPanel>
 
             </Grid>

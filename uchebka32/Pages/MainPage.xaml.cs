@@ -32,7 +32,7 @@ namespace uchebka32.Pages
         private void RunnerBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
-            frame.NavigationService.Navigate(new CheckRunner());
+            frame.NavigationService.Navigate(new CheckRunner(frame));
         }
 
         private void SponsBtn_Click(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace uchebka32.Pages
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
-            frame.NavigationService.Navigate(new AuthPage());
+            frame.NavigationService.Navigate(new AuthPage(frame));
         }
     }
 }

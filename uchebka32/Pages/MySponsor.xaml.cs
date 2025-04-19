@@ -28,6 +28,7 @@ namespace uchebka32.Pages
             InitializeComponent();
             _dbContext = new MarafonUchebkaEntities();
             _runnerId = runnerId;
+            LoadSponsorshipData();
         }
 
         private void LoadSponsorshipData()
@@ -82,7 +83,7 @@ namespace uchebka32.Pages
             MainStackPanel.Children.Add(messageText);
         }
 
-        private void DisplayCharityInfo(uchebka32.Database.Charity charity)
+        private void DisplayCharityInfo(Charity charity)
         {
             CharityNameTextBlock.Text = charity.CharityName;
             CharityDescriptionTextBlock.Text = string.IsNullOrWhiteSpace(charity.CharityDescription)
@@ -91,9 +92,9 @@ namespace uchebka32.Pages
 
             string logoFileName = string.IsNullOrEmpty(charity.CharityLogo)
                 ? "default_logo.png"
-                : charity.CharityLogo;
+                : "/Images/Charity/" + charity.CharityLogo;
 
-            string imagePath = $"pack://application:,,,/Images/{logoFileName}";
+            string imagePath = $"pack://application:,,,{logoFileName}";
 
             try
             {
@@ -112,18 +113,18 @@ namespace uchebka32.Pages
                 // Применяем clip для круглой формы
                 var ellipseGeometry = new EllipseGeometry
                 {
-                    Center = new Point(LogoGrid.Width / 2, LogoGrid.Height / 2),
-                    RadiusX = LogoGrid.Width / 2,
-                    RadiusY = LogoGrid.Height / 2
+                    Center = new Point(LogoGrid.Width, LogoGrid.Height),
+                    RadiusX = LogoGrid.Width,
+                    RadiusY = LogoGrid.Height 
                 };
 
                 LogoGrid.Clip = ellipseGeometry;
-                LogoImageBrush.ImageSource = imageBrush.ImageSource;
+                LogoEllipse.Source = imageBrush.ImageSource;
             }
             catch
             {
                 // Фолбэк, если изображение не найдено
-                LogoImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/default_logo.png", UriKind.Absolute));
+                LogoEllipse.Source = new BitmapImage(new Uri($"pack://application:,,,{logoFileName}", UriKind.Absolute));
             }
         }
 
@@ -139,7 +140,7 @@ namespace uchebka32.Pages
                 {
                     Text = "У вас пока нет спонсоров.",
                     FontSize = 14,
-                    Foreground = Brushes.LightGray,
+                    Foreground = Brushes.Black,
                     Margin = new Thickness(0, 10, 0, 0),
                     HorizontalAlignment = HorizontalAlignment.Center
                 };
@@ -155,7 +156,7 @@ namespace uchebka32.Pages
                 var sponsorNameText = new TextBlock
                 {
                     Text = sponsorship.SponsorName,
-                    Foreground = Brushes.LightGray
+                    Foreground = Brushes.Black
                 };
 
                 var amountText = new TextBlock

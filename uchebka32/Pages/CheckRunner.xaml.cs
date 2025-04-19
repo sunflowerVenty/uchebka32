@@ -20,14 +20,16 @@ namespace uchebka32.Pages
     /// </summary>
     public partial class CheckRunner : Page
     {
-        public CheckRunner()
+        public Frame Frame1;
+        public CheckRunner(Frame frame)
         {
+            Frame1 = frame;
             InitializeComponent();
         }
 
         private void OldRunnerBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AuthPage());
+            NavigationService.Navigate(new AuthPage(Frame1));
         }
 
         private void NewRunnerBtn_Click(object sender, RoutedEventArgs e)

@@ -67,39 +67,7 @@
             <!-- Футер -->
         </Grid.RowDefinitions>
 
-        <!-- Шапка -->
-        <Border Grid.Row="0" Background="#241D70" Padding="10">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="btnBack" 
-                        Style="{StaticResource MainButton}"
-                        Click="btnBack_Click"
-                        Content="Назад"
-                        HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="5,5,0,10" Width="75"/>
-                <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock Text="MARATHON SKILLS 2025" 
-                               FontSize="24" 
-                               FontWeight="Bold" 
-                               Foreground="White" 
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,5"/>
-                    <TextBlock Text="Управление бегуном" 
-                               FontSize="16" 
-                               Foreground="White"
-                               HorizontalAlignment="Center"/>
-                </StackPanel>
-                <Button x:Name="btnLogout" 
-                        Grid.Column="1"
-                        Style="{StaticResource MainButton}"
-                        Click="btnLogout_Click"
-                        Content="Logout"
-                        HorizontalAlignment="Left" Margin="468,5,0,10" Width="81"/>
-            </Grid>
-        </Border>
+       
 
         <!-- Основное содержимое -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
@@ -197,15 +165,5 @@
             </StackPanel>
         </ScrollViewer>
 
-        <!-- Футер -->
-        <Border Grid.Row="2" Background="#FDC100" Padding="10">
-            <TextBlock x:Name="CountdownTextBlock"
-                       Text="18 дней 8 часов и 17 минут до старта марафона!" 
-                       FontSize="14" 
-                       FontWeight="Bold"
-                       Foreground="#FF795548"
-                       HorizontalAlignment="Center"
-                       TextWrapping="Wrap"/>
-        </Border>
     </Grid>
 </Page>
