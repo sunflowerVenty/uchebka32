@@ -13,10 +13,10 @@ namespace uchebka32.Database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BegunUchebkaEntities : DbContext
+    public partial class MarafonUchebkaEntities : DbContext
     {
-        public BegunUchebkaEntities()
-            : base("name=BegunUchebkaEntities")
+        public MarafonUchebkaEntities()
+            : base("name=MarafonUchebkaEntities")
         {
         }
     
@@ -30,6 +30,7 @@ namespace uchebka32.Database
         public virtual DbSet<Event> Event { get; set; }
         public virtual DbSet<EventType> EventType { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<Marathon> Marathon { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<RaceKitOption> RaceKitOption { get; set; }

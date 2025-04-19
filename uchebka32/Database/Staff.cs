@@ -27,7 +27,6 @@ namespace uchebka32.Database
         public System.DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
         public short PositionId { get; set; }
-        public string Comments { get; set; }
     
         public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

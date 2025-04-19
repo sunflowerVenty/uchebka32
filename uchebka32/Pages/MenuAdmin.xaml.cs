@@ -27,7 +27,7 @@ namespace uchebka32.Pages
 
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
-            //    NavigationService?.Navigate(new UsersManagementPage());
+            //NavigationService?.Navigate(new UsersManagement());
         }
 
         private void VolunteersButton_Click(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace uchebka32.Pages
 
         private void InventoryButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new InventoryManagementPage());
+            NavigationService?.Navigate(new InventoryManagement());
         }
     }
 }

@@ -44,54 +44,42 @@
                             <TextBlock Text="Email:" FontSize="35" 
                                        Style="{StaticResource TextPage}" 
                                        Margin="10, 0"/>
-                            <TextBox Text="Email" x:Name="EmailTextBox" 
-                                     Width="400" Margin="10, 0" 
-                                     GotFocus="TextBox_GotFocus"
-                                     LostFocus="TextBox_LostFocus"/>
+                            <TextBox Text="Email" x:Name="txtEmail"
+                                     Width="400" Margin="10, 0"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Пароль:" FontSize="35" 
                                         Style="{StaticResource TextPage}" 
                                         Margin="10, 0"/>
-                            <TextBox Text="Пароль" x:Name="PasswordTextBox"
-                                     GotFocus="TextBox_GotFocus"
-                                     LostFocus="TextBox_LostFocus"
+                            <TextBox Text="Пароль"  x:Name="txtPassword"
                                      Width="400" Margin="10, 0"></TextBox>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Повторите пароль:" FontSize="35" 
                                        Style="{StaticResource TextPage}" 
                                        Margin="10, 0"/>
-                            <TextBox Text="Повторите пароль" 
-                                     x:Name="ConfirmPasswordTextBox"
-                                     GotFocus="TextBox_GotFocus"
-                                     LostFocus="TextBox_LostFocus"
+                            <TextBox Text="Повторите пароль" x:Name="txtConfirmPassword"
                                      Width="400" Margin="10, 0"></TextBox>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Имя:" FontSize="35" 
                                         Style="{StaticResource TextPage}" 
                                         Margin="10, 0"/>
-                            <TextBox Text="Имя" x:Name="FirstNameTextBox" 
-                                     GotFocus="TextBox_GotFocus"
-                                     LostFocus="TextBox_LostFocus"
+                            <TextBox Text="Имя" x:Name="txtFirstName"
                                      Width="400" Margin="10, 0"></TextBox>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Фамилия:" FontSize="35" 
                                         Style="{StaticResource TextPage}" 
                                         Margin="10, 0"/>
-                            <TextBox Text="Фамилия" 
-                                     x:Name="LastNameTextBox" 
-                                     GotFocus="TextBox_GotFocus"
-                                     LostFocus="TextBox_LostFocus"
+                            <TextBox Text="Фамилия" x:Name="txtLastName" 
                                      Width="400" Margin="10, 0"></TextBox>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Пол:" FontSize="35" 
                                        Style="{StaticResource TextPage}" 
                                        Margin="10, 0"/>
-                            <ComboBox x:Name="GenderComboBox"
+                            <ComboBox x:Name="cmbGender"
                                       Width="400" Height="70" 
                                       FontSize="28"
                                       Margin="10, 0"/>
@@ -101,7 +89,7 @@
                         <StackPanel x:Name="BgPhotoPanel" 
                                     HorizontalAlignment="Right" 
                                     Background="LightGray">
-                            <Image x:Name="RunnerPhotoImage"
+                            <Image x:Name="imgRunnerPhoto"
                                    Height="250" Width="250"></Image>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" 
@@ -122,7 +110,13 @@
                                         Height="50"
                                         Width="210" 
                                         FontSize="24"
-                                        Click="BrowsePhoto_Click"/>
+                                        Click="BtnSelectPhoto_Click"/>
+                                <Button Content="Удалить" 
+                                        Margin="0"
+                                        Height="50"
+                                        Width="148" 
+                                        FontSize="24"
+                                        Click="BtnClearPhoto_Click" />
                             </StackPanel>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="80" Orientation="Horizontal">
@@ -130,7 +124,7 @@
                                        FontSize="30" 
                                        Style="{StaticResource TextPage}" 
                                        Margin="10, 0"/>
-                            <DatePicker x:Name="BirthDatePicker" 
+                            <DatePicker x:Name="dpBirthDate"
                                         Width="400" Height="70" 
                                         FontSize="40" Margin="10, 0" 
                                         SelectedDateChanged="BirthDatePicker_SelectedDateChanged"/>
@@ -140,7 +134,7 @@
                                        FontSize="30" 
                                        Style="{StaticResource TextPage}" 
                                        Margin="10, 0"/>
-                            <ComboBox x:Name="CountryComboBox" 
+                            <ComboBox x:Name="cmbCountry" 
                                       Width="400" Height="70" 
                                       FontSize="28"
                                       Margin="10, 0"/>
@@ -150,8 +144,8 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" Margin="50">
-                    <Button Content="Регистрация" Height="70" Width="230" FontSize="28" Margin="20" Click="RegisterButton_Click"/>
-                    <Button Content="Отмена" Height="70" Width="190" FontSize="28" Margin="20" Click="CancelButton_Click"/>
+                    <Button Content="Регистрация" Height="70" Width="230" FontSize="28" Margin="20" Click="BtnRegister_Click"/>
+                    <Button Content="Отмена" Height="70" Width="190" FontSize="28" Margin="20" Click="BtnCancel_Click"/>
                 </StackPanel>
 
             </StackPanel>

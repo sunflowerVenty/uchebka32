@@ -67,12 +67,6 @@
                         Width="140" 
                         FontSize="24" 
                         Margin="20"/>
-                <Button Content="Dop" 
-        Name="DopBtn"
-        Height="50" 
-        Width="140" 
-        FontSize="24" 
-        Margin="20" Click="DopBtn_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

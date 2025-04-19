@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище BegunUchebkaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище MarafonUchebkaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Charity">
           <Key>
             <PropertyRef Name="CharityId" />
@@ -47,6 +47,14 @@
           </Key>
           <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="RaceKitOptionId" Type="nchar" MaxLength="1" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
         <EntityType Name="Marathon">
           <Key>
             <PropertyRef Name="MarathonId" />
@@ -61,10 +69,10 @@
           <Key>
             <PropertyRef Name="PositionId" />
           </Key>
-          <Property Name="PositionId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionId" Type="smallint" Nullable="false" />
           <Property Name="PositionName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PositionDescription" Type="varchar" MaxLength="1000" />
-          <Property Name="PayPeroid" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PayPeriod" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Payrate" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="RaceKitOption">
@@ -121,6 +129,7 @@
           <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="DateOfBirth" Type="datetime" />
           <Property Name="CountryCode" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="PhotoPath" Type="image" />
         </EntityType>
         <EntityType Name="Sponsorship">
           <Key>
@@ -135,20 +144,19 @@
           <Key>
             <PropertyRef Name="StaffId" />
           </Key>
-          <Property Name="StaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
           <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="PositionId" Type="smallint" Nullable="false" />
-          <Property Name="Comments" Type="varchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="Timesheet">
           <Key>
             <PropertyRef Name="TimesheetId" />
           </Key>
-          <Property Name="TimesheetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimesheetId" Type="int" Nullable="false" />
           <Property Name="StaffId" Type="int" Nullable="false" />
           <Property Name="StartDateTime" Type="datetime" />
           <Property Name="EndDateTime" Type="datetime" />
@@ -174,7 +182,7 @@
           <Property Name="CountryCode" Type="nchar" MaxLength="3" Nullable="false" />
           <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Event__EventType__44FF419A">
+        <Association Name="FK__Event__EventType__46E78A0C">
           <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
@@ -186,7 +194,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Event__MarathonI__45F365D3">
+        <Association Name="FK__Event__MarathonI__47DBAE45">
           <End Role="Marathon" Type="Self.Marathon" Multiplicity="1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
@@ -198,7 +206,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Marathon__Countr__46E78A0C">
+        <Association Name="FK__Marathon__Countr__49C3F6B7">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
           <End Role="Marathon" Type="Self.Marathon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -210,7 +218,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Chari__47DBAE45">
+        <Association Name="FK__Registrat__Chari__4AB81AF0">
           <End Role="Charity" Type="Self.Charity" Multiplicity="1" />
           <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -222,7 +230,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Event__4BAC3F29">
+        <Association Name="FK__Registrat__Event__4E88ABD4">
           <End Role="Event" Type="Self.Event" Multiplicity="1" />
           <End Role="RegistrationEvent" Type="Self.RegistrationEvent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -234,7 +242,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__RaceK__48CFD27E">
+        <Association Name="FK__Registrat__RaceK__4BAC3F29">
           <End Role="RaceKitOption" Type="Self.RaceKitOption" Multiplicity="1" />
           <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -246,7 +254,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Regis__49C3F6B7">
+        <Association Name="FK__Registrat__Regis__4CA06362">
           <End Role="RegistrationStatus" Type="Self.RegistrationStatus" Multiplicity="1" />
           <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -258,7 +266,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Regis__4CA06362">
+        <Association Name="FK__Registrat__Regis__4F7CD00D">
           <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
           <End Role="RegistrationEvent" Type="Self.RegistrationEvent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -270,7 +278,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Runne__4AB81AF0">
+        <Association Name="FK__Registrat__Runne__4D94879B">
           <End Role="Runner" Type="Self.Runner" Multiplicity="1" />
           <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -282,7 +290,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Runner__CountryC__4D94879B">
+        <Association Name="FK__Runner__CountryC__5070F446">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
           <End Role="Runner" Type="Self.Runner" Multiplicity="*" />
           <ReferentialConstraint>
@@ -294,7 +302,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Runner__Email__4E88ABD4">
+        <Association Name="FK__Runner__Email__5165187F">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Runner" Type="Self.Runner" Multiplicity="*" />
           <ReferentialConstraint>
@@ -306,7 +314,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Runner__Gender__4F7CD00D">
+        <Association Name="FK__Runner__Gender__52593CB8">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Runner" Type="Self.Runner" Multiplicity="*" />
           <ReferentialConstraint>
@@ -318,7 +326,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sponsorsh__Regis__5070F446">
+        <Association Name="FK__Sponsorsh__Regis__534D60F1">
           <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
           <End Role="Sponsorship" Type="Self.Sponsorship" Multiplicity="*" />
           <ReferentialConstraint>
@@ -330,7 +338,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User__RoleId__534D60F1">
+        <Association Name="FK__User__RoleId__5629CD9C">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -342,7 +350,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Volunteer__Count__5441852A">
+        <Association Name="FK__Volunteer__Count__571DF1D5">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
           <End Role="Volunteer" Type="Self.Volunteer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -354,7 +362,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Volunteer__Gende__5535A963">
+        <Association Name="FK__Volunteer__Gende__5812160E">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Volunteer" Type="Self.Volunteer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -363,6 +371,18 @@
             </Principal>
             <Dependent Role="Volunteer">
               <PropertyRef Name="Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_RaceKitOption">
+          <End Role="RaceKitOption" Type="Self.RaceKitOption" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaceKitOption">
+              <PropertyRef Name="RaceKitOptionId" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="RaceKitOptionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -390,12 +410,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище BegunUchebkaModelContainer">
+        <EntityContainer Name="Хранилище MarafonUchebkaModelContainer">
           <EntitySet Name="Charity" EntityType="Self.Charity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Marathon" EntityType="Self.Marathon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RaceKitOption" EntityType="Self.RaceKitOption" Schema="dbo" store:Type="Tables" />
@@ -409,69 +430,73 @@
           <EntitySet Name="Timesheet" EntityType="Self.Timesheet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Volunteer" EntityType="Self.Volunteer" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Event__EventType__44FF419A" Association="Self.FK__Event__EventType__44FF419A">
+          <AssociationSet Name="FK__Event__EventType__46E78A0C" Association="Self.FK__Event__EventType__46E78A0C">
             <End Role="EventType" EntitySet="EventType" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="FK__Event__MarathonI__45F365D3" Association="Self.FK__Event__MarathonI__45F365D3">
+          <AssociationSet Name="FK__Event__MarathonI__47DBAE45" Association="Self.FK__Event__MarathonI__47DBAE45">
             <End Role="Marathon" EntitySet="Marathon" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="FK__Marathon__Countr__46E78A0C" Association="Self.FK__Marathon__Countr__46E78A0C">
+          <AssociationSet Name="FK__Marathon__Countr__49C3F6B7" Association="Self.FK__Marathon__Countr__49C3F6B7">
             <End Role="Country" EntitySet="Country" />
             <End Role="Marathon" EntitySet="Marathon" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Chari__47DBAE45" Association="Self.FK__Registrat__Chari__47DBAE45">
+          <AssociationSet Name="FK__Registrat__Chari__4AB81AF0" Association="Self.FK__Registrat__Chari__4AB81AF0">
             <End Role="Charity" EntitySet="Charity" />
             <End Role="Registration" EntitySet="Registration" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Event__4BAC3F29" Association="Self.FK__Registrat__Event__4BAC3F29">
+          <AssociationSet Name="FK__Registrat__Event__4E88ABD4" Association="Self.FK__Registrat__Event__4E88ABD4">
             <End Role="Event" EntitySet="Event" />
             <End Role="RegistrationEvent" EntitySet="RegistrationEvent" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__RaceK__48CFD27E" Association="Self.FK__Registrat__RaceK__48CFD27E">
+          <AssociationSet Name="FK__Registrat__RaceK__4BAC3F29" Association="Self.FK__Registrat__RaceK__4BAC3F29">
             <End Role="RaceKitOption" EntitySet="RaceKitOption" />
             <End Role="Registration" EntitySet="Registration" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Regis__49C3F6B7" Association="Self.FK__Registrat__Regis__49C3F6B7">
+          <AssociationSet Name="FK__Registrat__Regis__4CA06362" Association="Self.FK__Registrat__Regis__4CA06362">
             <End Role="RegistrationStatus" EntitySet="RegistrationStatus" />
             <End Role="Registration" EntitySet="Registration" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Regis__4CA06362" Association="Self.FK__Registrat__Regis__4CA06362">
+          <AssociationSet Name="FK__Registrat__Regis__4F7CD00D" Association="Self.FK__Registrat__Regis__4F7CD00D">
             <End Role="Registration" EntitySet="Registration" />
             <End Role="RegistrationEvent" EntitySet="RegistrationEvent" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Runne__4AB81AF0" Association="Self.FK__Registrat__Runne__4AB81AF0">
+          <AssociationSet Name="FK__Registrat__Runne__4D94879B" Association="Self.FK__Registrat__Runne__4D94879B">
             <End Role="Runner" EntitySet="Runner" />
             <End Role="Registration" EntitySet="Registration" />
           </AssociationSet>
-          <AssociationSet Name="FK__Runner__CountryC__4D94879B" Association="Self.FK__Runner__CountryC__4D94879B">
+          <AssociationSet Name="FK__Runner__CountryC__5070F446" Association="Self.FK__Runner__CountryC__5070F446">
             <End Role="Country" EntitySet="Country" />
             <End Role="Runner" EntitySet="Runner" />
           </AssociationSet>
-          <AssociationSet Name="FK__Runner__Email__4E88ABD4" Association="Self.FK__Runner__Email__4E88ABD4">
+          <AssociationSet Name="FK__Runner__Email__5165187F" Association="Self.FK__Runner__Email__5165187F">
             <End Role="User" EntitySet="User" />
             <End Role="Runner" EntitySet="Runner" />
           </AssociationSet>
-          <AssociationSet Name="FK__Runner__Gender__4F7CD00D" Association="Self.FK__Runner__Gender__4F7CD00D">
+          <AssociationSet Name="FK__Runner__Gender__52593CB8" Association="Self.FK__Runner__Gender__52593CB8">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Runner" EntitySet="Runner" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sponsorsh__Regis__5070F446" Association="Self.FK__Sponsorsh__Regis__5070F446">
+          <AssociationSet Name="FK__Sponsorsh__Regis__534D60F1" Association="Self.FK__Sponsorsh__Regis__534D60F1">
             <End Role="Registration" EntitySet="Registration" />
             <End Role="Sponsorship" EntitySet="Sponsorship" />
           </AssociationSet>
-          <AssociationSet Name="FK__User__RoleId__534D60F1" Association="Self.FK__User__RoleId__534D60F1">
+          <AssociationSet Name="FK__User__RoleId__5629CD9C" Association="Self.FK__User__RoleId__5629CD9C">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK__Volunteer__Count__5441852A" Association="Self.FK__Volunteer__Count__5441852A">
+          <AssociationSet Name="FK__Volunteer__Count__571DF1D5" Association="Self.FK__Volunteer__Count__571DF1D5">
             <End Role="Country" EntitySet="Country" />
             <End Role="Volunteer" EntitySet="Volunteer" />
           </AssociationSet>
-          <AssociationSet Name="FK__Volunteer__Gende__5535A963" Association="Self.FK__Volunteer__Gende__5535A963">
+          <AssociationSet Name="FK__Volunteer__Gende__5812160E" Association="Self.FK__Volunteer__Gende__5812160E">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Volunteer" EntitySet="Volunteer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_RaceKitOption" Association="Self.FK_Inventory_RaceKitOption">
+            <End Role="RaceKitOption" EntitySet="RaceKitOption" />
+            <End Role="Inventory" EntitySet="Inventory" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
             <End Role="Position" EntitySet="Position" />
@@ -486,7 +511,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BegunUchebkaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MarafonUchebkaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Charity">
           <Key>
             <PropertyRef Name="CharityId" />
@@ -495,7 +520,7 @@
           <Property Name="CharityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CharityDescription" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="CharityLogo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Chari__47DBAE45" FromRole="Charity" ToRole="Registration" />
+          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Chari__4AB81AF0" FromRole="Charity" ToRole="Registration" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -504,9 +529,9 @@
           <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CountryFlag" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Marathon" Relationship="Self.FK__Marathon__Countr__46E78A0C" FromRole="Country" ToRole="Marathon" />
-          <NavigationProperty Name="Runner" Relationship="Self.FK__Runner__CountryC__4D94879B" FromRole="Country" ToRole="Runner" />
-          <NavigationProperty Name="Volunteer" Relationship="Self.FK__Volunteer__Count__5441852A" FromRole="Country" ToRole="Volunteer" />
+          <NavigationProperty Name="Marathon" Relationship="Self.FK__Marathon__Countr__49C3F6B7" FromRole="Country" ToRole="Marathon" />
+          <NavigationProperty Name="Runner" Relationship="Self.FK__Runner__CountryC__5070F446" FromRole="Country" ToRole="Runner" />
+          <NavigationProperty Name="Volunteer" Relationship="Self.FK__Volunteer__Count__571DF1D5" FromRole="Country" ToRole="Volunteer" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -519,9 +544,9 @@
           <Property Name="StartDateTime" Type="DateTime" Precision="3" />
           <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="MaxParticipants" Type="Int16" />
-          <NavigationProperty Name="EventType" Relationship="Self.FK__Event__EventType__44FF419A" FromRole="Event" ToRole="EventType" />
-          <NavigationProperty Name="Marathon" Relationship="Self.FK__Event__MarathonI__45F365D3" FromRole="Event" ToRole="Marathon" />
-          <NavigationProperty Name="RegistrationEvent" Relationship="Self.FK__Registrat__Event__4BAC3F29" FromRole="Event" ToRole="RegistrationEvent" />
+          <NavigationProperty Name="EventType" Relationship="Self.FK__Event__EventType__46E78A0C" FromRole="Event" ToRole="EventType" />
+          <NavigationProperty Name="Marathon" Relationship="Self.FK__Event__MarathonI__47DBAE45" FromRole="Event" ToRole="Marathon" />
+          <NavigationProperty Name="RegistrationEvent" Relationship="Self.FK__Registrat__Event__4E88ABD4" FromRole="Event" ToRole="RegistrationEvent" />
         </EntityType>
         <EntityType Name="EventType">
           <Key>
@@ -529,15 +554,24 @@
           </Key>
           <Property Name="EventTypeId" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="EventTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Event" Relationship="Self.FK__Event__EventType__44FF419A" FromRole="EventType" ToRole="Event" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Event__EventType__46E78A0C" FromRole="EventType" ToRole="Event" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="Gender1" />
           </Key>
           <Property Name="Gender1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Runner" Relationship="Self.FK__Runner__Gender__4F7CD00D" FromRole="Gender" ToRole="Runner" />
-          <NavigationProperty Name="Volunteer" Relationship="Self.FK__Volunteer__Gende__5535A963" FromRole="Gender" ToRole="Volunteer" />
+          <NavigationProperty Name="Runner" Relationship="Self.FK__Runner__Gender__52593CB8" FromRole="Gender" ToRole="Runner" />
+          <NavigationProperty Name="Volunteer" Relationship="Self.FK__Volunteer__Gende__5812160E" FromRole="Gender" ToRole="Volunteer" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="RaceKitOptionId" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="RaceKitOption" Relationship="Self.FK_Inventory_RaceKitOption" FromRole="Inventory" ToRole="RaceKitOption" />
         </EntityType>
         <EntityType Name="Marathon">
           <Key>
@@ -548,17 +582,17 @@
           <Property Name="CityName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="YearHeld" Type="Int16" />
-          <NavigationProperty Name="Country" Relationship="Self.FK__Marathon__Countr__46E78A0C" FromRole="Marathon" ToRole="Country" />
-          <NavigationProperty Name="Event" Relationship="Self.FK__Event__MarathonI__45F365D3" FromRole="Marathon" ToRole="Event" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Marathon__Countr__49C3F6B7" FromRole="Marathon" ToRole="Country" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Event__MarathonI__47DBAE45" FromRole="Marathon" ToRole="Event" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="PositionId" />
           </Key>
-          <Property Name="PositionId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionId" Type="Int16" Nullable="false" />
           <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PositionDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="PayPeroid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayPeriod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Payrate" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Position" FromRole="Position" ToRole="Staff" />
         </EntityType>
@@ -569,7 +603,8 @@
           <Property Name="RaceKitOptionId" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="RaceKitOption1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__RaceK__48CFD27E" FromRole="RaceKitOption" ToRole="Registration" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Inventory_RaceKitOption" FromRole="RaceKitOption" ToRole="Inventory" />
+          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__RaceK__4BAC3F29" FromRole="RaceKitOption" ToRole="Registration" />
         </EntityType>
         <EntityType Name="Registration">
           <Key>
@@ -583,12 +618,12 @@
           <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="CharityId" Type="Int32" Nullable="false" />
           <Property Name="SponsorshipTarget" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Charity" Relationship="Self.FK__Registrat__Chari__47DBAE45" FromRole="Registration" ToRole="Charity" />
-          <NavigationProperty Name="RaceKitOption" Relationship="Self.FK__Registrat__RaceK__48CFD27E" FromRole="Registration" ToRole="RaceKitOption" />
-          <NavigationProperty Name="RegistrationStatus" Relationship="Self.FK__Registrat__Regis__49C3F6B7" FromRole="Registration" ToRole="RegistrationStatus" />
-          <NavigationProperty Name="RegistrationEvent" Relationship="Self.FK__Registrat__Regis__4CA06362" FromRole="Registration" ToRole="RegistrationEvent" />
-          <NavigationProperty Name="Runner" Relationship="Self.FK__Registrat__Runne__4AB81AF0" FromRole="Registration" ToRole="Runner" />
-          <NavigationProperty Name="Sponsorship" Relationship="Self.FK__Sponsorsh__Regis__5070F446" FromRole="Registration" ToRole="Sponsorship" />
+          <NavigationProperty Name="Charity" Relationship="Self.FK__Registrat__Chari__4AB81AF0" FromRole="Registration" ToRole="Charity" />
+          <NavigationProperty Name="RaceKitOption" Relationship="Self.FK__Registrat__RaceK__4BAC3F29" FromRole="Registration" ToRole="RaceKitOption" />
+          <NavigationProperty Name="RegistrationStatus" Relationship="Self.FK__Registrat__Regis__4CA06362" FromRole="Registration" ToRole="RegistrationStatus" />
+          <NavigationProperty Name="RegistrationEvent" Relationship="Self.FK__Registrat__Regis__4F7CD00D" FromRole="Registration" ToRole="RegistrationEvent" />
+          <NavigationProperty Name="Runner" Relationship="Self.FK__Registrat__Runne__4D94879B" FromRole="Registration" ToRole="Runner" />
+          <NavigationProperty Name="Sponsorship" Relationship="Self.FK__Sponsorsh__Regis__534D60F1" FromRole="Registration" ToRole="Sponsorship" />
         </EntityType>
         <EntityType Name="RegistrationEvent">
           <Key>
@@ -599,8 +634,8 @@
           <Property Name="EventId" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="BibNumber" Type="Int16" />
           <Property Name="RaceTime" Type="Int32" />
-          <NavigationProperty Name="Event" Relationship="Self.FK__Registrat__Event__4BAC3F29" FromRole="RegistrationEvent" ToRole="Event" />
-          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Regis__4CA06362" FromRole="RegistrationEvent" ToRole="Registration" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Registrat__Event__4E88ABD4" FromRole="RegistrationEvent" ToRole="Event" />
+          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Regis__4F7CD00D" FromRole="RegistrationEvent" ToRole="Registration" />
         </EntityType>
         <EntityType Name="RegistrationStatus">
           <Key>
@@ -608,7 +643,7 @@
           </Key>
           <Property Name="RegistrationStatusId" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RegistrationStatus1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Regis__49C3F6B7" FromRole="RegistrationStatus" ToRole="Registration" />
+          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Regis__4CA06362" FromRole="RegistrationStatus" ToRole="Registration" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -616,7 +651,7 @@
           </Key>
           <Property Name="RoleId" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK__User__RoleId__534D60F1" FromRole="Role" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK__User__RoleId__5629CD9C" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Runner">
           <Key>
@@ -627,10 +662,11 @@
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
           <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Country" Relationship="Self.FK__Runner__CountryC__4D94879B" FromRole="Runner" ToRole="Country" />
-          <NavigationProperty Name="Gender1" Relationship="Self.FK__Runner__Gender__4F7CD00D" FromRole="Runner" ToRole="Gender" />
-          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Runne__4AB81AF0" FromRole="Runner" ToRole="Registration" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Runner__Email__4E88ABD4" FromRole="Runner" ToRole="User" />
+          <Property Name="PhotoPath" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Runner__CountryC__5070F446" FromRole="Runner" ToRole="Country" />
+          <NavigationProperty Name="Gender1" Relationship="Self.FK__Runner__Gender__52593CB8" FromRole="Runner" ToRole="Gender" />
+          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Runne__4D94879B" FromRole="Runner" ToRole="Registration" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Runner__Email__5165187F" FromRole="Runner" ToRole="User" />
         </EntityType>
         <EntityType Name="Sponsorship">
           <Key>
@@ -640,20 +676,19 @@
           <Property Name="SponsorName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RegistrationId" Type="Int32" Nullable="false" />
           <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="Registration" Relationship="Self.FK__Sponsorsh__Regis__5070F446" FromRole="Sponsorship" ToRole="Registration" />
+          <NavigationProperty Name="Registration" Relationship="Self.FK__Sponsorsh__Regis__534D60F1" FromRole="Sponsorship" ToRole="Registration" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
             <PropertyRef Name="StaffId" />
           </Key>
-          <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PositionId" Type="Int16" Nullable="false" />
-          <Property Name="Comments" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
           <NavigationProperty Name="Timesheet" Relationship="Self.FK_Timesheet_Staff" FromRole="Staff" ToRole="Timesheet" />
         </EntityType>
@@ -661,7 +696,7 @@
           <Key>
             <PropertyRef Name="TimesheetId" />
           </Key>
-          <Property Name="TimesheetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimesheetId" Type="Int32" Nullable="false" />
           <Property Name="StaffId" Type="Int32" Nullable="false" />
           <Property Name="StartDateTime" Type="DateTime" Precision="3" />
           <Property Name="EndDateTime" Type="DateTime" Precision="3" />
@@ -677,8 +712,8 @@
           <Property Name="FirstName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="RoleId" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Role" Relationship="Self.FK__User__RoleId__534D60F1" FromRole="User" ToRole="Role" />
-          <NavigationProperty Name="Runner" Relationship="Self.FK__Runner__Email__4E88ABD4" FromRole="User" ToRole="Runner" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__User__RoleId__5629CD9C" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Runner" Relationship="Self.FK__Runner__Email__5165187F" FromRole="User" ToRole="Runner" />
         </EntityType>
         <EntityType Name="Volunteer">
           <Key>
@@ -689,10 +724,10 @@
           <Property Name="LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Country" Relationship="Self.FK__Volunteer__Count__5441852A" FromRole="Volunteer" ToRole="Country" />
-          <NavigationProperty Name="Gender1" Relationship="Self.FK__Volunteer__Gende__5535A963" FromRole="Volunteer" ToRole="Gender" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Volunteer__Count__571DF1D5" FromRole="Volunteer" ToRole="Country" />
+          <NavigationProperty Name="Gender1" Relationship="Self.FK__Volunteer__Gende__5812160E" FromRole="Volunteer" ToRole="Gender" />
         </EntityType>
-        <Association Name="FK__Registrat__Chari__47DBAE45">
+        <Association Name="FK__Registrat__Chari__4AB81AF0">
           <End Role="Charity" Type="Self.Charity" Multiplicity="1" />
           <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -704,7 +739,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Marathon__Countr__46E78A0C">
+        <Association Name="FK__Marathon__Countr__49C3F6B7">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
           <End Role="Marathon" Type="Self.Marathon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -716,7 +751,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Runner__CountryC__4D94879B">
+        <Association Name="FK__Runner__CountryC__5070F446">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
           <End Role="Runner" Type="Self.Runner" Multiplicity="*" />
           <ReferentialConstraint>
@@ -728,7 +763,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Volunteer__Count__5441852A">
+        <Association Name="FK__Volunteer__Count__571DF1D5">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
           <End Role="Volunteer" Type="Self.Volunteer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -740,7 +775,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Event__EventType__44FF419A">
+        <Association Name="FK__Event__EventType__46E78A0C">
           <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
@@ -752,7 +787,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Event__MarathonI__45F365D3">
+        <Association Name="FK__Event__MarathonI__47DBAE45">
           <End Role="Marathon" Type="Self.Marathon" Multiplicity="1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
@@ -764,7 +799,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Event__4BAC3F29">
+        <Association Name="FK__Registrat__Event__4E88ABD4">
           <End Role="Event" Type="Self.Event" Multiplicity="1" />
           <End Role="RegistrationEvent" Type="Self.RegistrationEvent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -776,7 +811,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Runner__Gender__4F7CD00D">
+        <Association Name="FK__Runner__Gender__52593CB8">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Runner" Type="Self.Runner" Multiplicity="*" />
           <ReferentialConstraint>
@@ -788,7 +823,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Volunteer__Gende__5535A963">
+        <Association Name="FK__Volunteer__Gende__5812160E">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Volunteer" Type="Self.Volunteer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -797,6 +832,18 @@
             </Principal>
             <Dependent Role="Volunteer">
               <PropertyRef Name="Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_RaceKitOption">
+          <End Role="RaceKitOption" Type="Self.RaceKitOption" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaceKitOption">
+              <PropertyRef Name="RaceKitOptionId" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="RaceKitOptionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -812,7 +859,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__RaceK__48CFD27E">
+        <Association Name="FK__Registrat__RaceK__4BAC3F29">
           <End Role="RaceKitOption" Type="Self.RaceKitOption" Multiplicity="1" />
           <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -824,7 +871,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Regis__49C3F6B7">
+        <Association Name="FK__Registrat__Regis__4CA06362">
           <End Role="RegistrationStatus" Type="Self.RegistrationStatus" Multiplicity="1" />
           <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -836,7 +883,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Regis__4CA06362">
+        <Association Name="FK__Registrat__Regis__4F7CD00D">
           <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
           <End Role="RegistrationEvent" Type="Self.RegistrationEvent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -848,7 +895,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Registrat__Runne__4AB81AF0">
+        <Association Name="FK__Registrat__Runne__4D94879B">
           <End Role="Runner" Type="Self.Runner" Multiplicity="1" />
           <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -860,7 +907,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sponsorsh__Regis__5070F446">
+        <Association Name="FK__Sponsorsh__Regis__534D60F1">
           <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
           <End Role="Sponsorship" Type="Self.Sponsorship" Multiplicity="*" />
           <ReferentialConstraint>
@@ -872,7 +919,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User__RoleId__534D60F1">
+        <Association Name="FK__User__RoleId__5629CD9C">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -884,7 +931,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Runner__Email__4E88ABD4">
+        <Association Name="FK__Runner__Email__5165187F">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Runner" Type="Self.Runner" Multiplicity="*" />
           <ReferentialConstraint>
@@ -908,12 +955,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BegunUchebkaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MarafonUchebkaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Charity" EntityType="Self.Charity" />
           <EntitySet Name="Country" EntityType="Self.Country" />
           <EntitySet Name="Event" EntityType="Self.Event" />
           <EntitySet Name="EventType" EntityType="Self.EventType" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" />
           <EntitySet Name="Marathon" EntityType="Self.Marathon" />
           <EntitySet Name="Position" EntityType="Self.Position" />
           <EntitySet Name="RaceKitOption" EntityType="Self.RaceKitOption" />
@@ -927,71 +975,75 @@
           <EntitySet Name="Timesheet" EntityType="Self.Timesheet" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Volunteer" EntityType="Self.Volunteer" />
-          <AssociationSet Name="FK__Registrat__Chari__47DBAE45" Association="Self.FK__Registrat__Chari__47DBAE45">
+          <AssociationSet Name="FK__Registrat__Chari__4AB81AF0" Association="Self.FK__Registrat__Chari__4AB81AF0">
             <End Role="Charity" EntitySet="Charity" />
             <End Role="Registration" EntitySet="Registration" />
           </AssociationSet>
-          <AssociationSet Name="FK__Marathon__Countr__46E78A0C" Association="Self.FK__Marathon__Countr__46E78A0C">
+          <AssociationSet Name="FK__Marathon__Countr__49C3F6B7" Association="Self.FK__Marathon__Countr__49C3F6B7">
             <End Role="Country" EntitySet="Country" />
             <End Role="Marathon" EntitySet="Marathon" />
           </AssociationSet>
-          <AssociationSet Name="FK__Runner__CountryC__4D94879B" Association="Self.FK__Runner__CountryC__4D94879B">
+          <AssociationSet Name="FK__Runner__CountryC__5070F446" Association="Self.FK__Runner__CountryC__5070F446">
             <End Role="Country" EntitySet="Country" />
             <End Role="Runner" EntitySet="Runner" />
           </AssociationSet>
-          <AssociationSet Name="FK__Volunteer__Count__5441852A" Association="Self.FK__Volunteer__Count__5441852A">
+          <AssociationSet Name="FK__Volunteer__Count__571DF1D5" Association="Self.FK__Volunteer__Count__571DF1D5">
             <End Role="Country" EntitySet="Country" />
             <End Role="Volunteer" EntitySet="Volunteer" />
           </AssociationSet>
-          <AssociationSet Name="FK__Event__EventType__44FF419A" Association="Self.FK__Event__EventType__44FF419A">
+          <AssociationSet Name="FK__Event__EventType__46E78A0C" Association="Self.FK__Event__EventType__46E78A0C">
             <End Role="EventType" EntitySet="EventType" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="FK__Event__MarathonI__45F365D3" Association="Self.FK__Event__MarathonI__45F365D3">
+          <AssociationSet Name="FK__Event__MarathonI__47DBAE45" Association="Self.FK__Event__MarathonI__47DBAE45">
             <End Role="Marathon" EntitySet="Marathon" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Event__4BAC3F29" Association="Self.FK__Registrat__Event__4BAC3F29">
+          <AssociationSet Name="FK__Registrat__Event__4E88ABD4" Association="Self.FK__Registrat__Event__4E88ABD4">
             <End Role="Event" EntitySet="Event" />
             <End Role="RegistrationEvent" EntitySet="RegistrationEvent" />
           </AssociationSet>
-          <AssociationSet Name="FK__Runner__Gender__4F7CD00D" Association="Self.FK__Runner__Gender__4F7CD00D">
+          <AssociationSet Name="FK__Runner__Gender__52593CB8" Association="Self.FK__Runner__Gender__52593CB8">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Runner" EntitySet="Runner" />
           </AssociationSet>
-          <AssociationSet Name="FK__Volunteer__Gende__5535A963" Association="Self.FK__Volunteer__Gende__5535A963">
+          <AssociationSet Name="FK__Volunteer__Gende__5812160E" Association="Self.FK__Volunteer__Gende__5812160E">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Volunteer" EntitySet="Volunteer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_RaceKitOption" Association="Self.FK_Inventory_RaceKitOption">
+            <End Role="RaceKitOption" EntitySet="RaceKitOption" />
+            <End Role="Inventory" EntitySet="Inventory" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
             <End Role="Position" EntitySet="Position" />
             <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__RaceK__48CFD27E" Association="Self.FK__Registrat__RaceK__48CFD27E">
+          <AssociationSet Name="FK__Registrat__RaceK__4BAC3F29" Association="Self.FK__Registrat__RaceK__4BAC3F29">
             <End Role="RaceKitOption" EntitySet="RaceKitOption" />
             <End Role="Registration" EntitySet="Registration" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Regis__49C3F6B7" Association="Self.FK__Registrat__Regis__49C3F6B7">
+          <AssociationSet Name="FK__Registrat__Regis__4CA06362" Association="Self.FK__Registrat__Regis__4CA06362">
             <End Role="RegistrationStatus" EntitySet="RegistrationStatus" />
             <End Role="Registration" EntitySet="Registration" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Regis__4CA06362" Association="Self.FK__Registrat__Regis__4CA06362">
+          <AssociationSet Name="FK__Registrat__Regis__4F7CD00D" Association="Self.FK__Registrat__Regis__4F7CD00D">
             <End Role="Registration" EntitySet="Registration" />
             <End Role="RegistrationEvent" EntitySet="RegistrationEvent" />
           </AssociationSet>
-          <AssociationSet Name="FK__Registrat__Runne__4AB81AF0" Association="Self.FK__Registrat__Runne__4AB81AF0">
+          <AssociationSet Name="FK__Registrat__Runne__4D94879B" Association="Self.FK__Registrat__Runne__4D94879B">
             <End Role="Runner" EntitySet="Runner" />
             <End Role="Registration" EntitySet="Registration" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sponsorsh__Regis__5070F446" Association="Self.FK__Sponsorsh__Regis__5070F446">
+          <AssociationSet Name="FK__Sponsorsh__Regis__534D60F1" Association="Self.FK__Sponsorsh__Regis__534D60F1">
             <End Role="Registration" EntitySet="Registration" />
             <End Role="Sponsorship" EntitySet="Sponsorship" />
           </AssociationSet>
-          <AssociationSet Name="FK__User__RoleId__534D60F1" Association="Self.FK__User__RoleId__534D60F1">
+          <AssociationSet Name="FK__User__RoleId__5629CD9C" Association="Self.FK__User__RoleId__5629CD9C">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK__Runner__Email__4E88ABD4" Association="Self.FK__Runner__Email__4E88ABD4">
+          <AssociationSet Name="FK__Runner__Email__5165187F" Association="Self.FK__Runner__Email__5165187F">
             <End Role="User" EntitySet="User" />
             <End Role="Runner" EntitySet="Runner" />
           </AssociationSet>
@@ -1005,9 +1057,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BegunUchebkaModelContainer" CdmEntityContainer="BegunUchebkaEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MarafonUchebkaModelContainer" CdmEntityContainer="MarafonUchebkaEntities">
           <EntitySetMapping Name="Charity">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Charity">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Charity">
               <MappingFragment StoreEntitySet="Charity">
                 <ScalarProperty Name="CharityId" ColumnName="CharityId" />
                 <ScalarProperty Name="CharityName" ColumnName="CharityName" />
@@ -1017,7 +1069,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Country">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Country">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Country">
               <MappingFragment StoreEntitySet="Country">
                 <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
                 <ScalarProperty Name="CountryName" ColumnName="CountryName" />
@@ -1026,7 +1078,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Event">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Event">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Event">
               <MappingFragment StoreEntitySet="Event">
                 <ScalarProperty Name="EventId" ColumnName="EventId" />
                 <ScalarProperty Name="EventName" ColumnName="EventName" />
@@ -1039,7 +1091,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventType">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.EventType">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.EventType">
               <MappingFragment StoreEntitySet="EventType">
                 <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
                 <ScalarProperty Name="EventTypeName" ColumnName="EventTypeName" />
@@ -1047,14 +1099,23 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gender">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Gender">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Gender">
               <MappingFragment StoreEntitySet="Gender">
                 <ScalarProperty Name="Gender1" ColumnName="Gender" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Inventory">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="RaceKitOptionId" ColumnName="RaceKitOptionId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Marathon">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Marathon">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Marathon">
               <MappingFragment StoreEntitySet="Marathon">
                 <ScalarProperty Name="MarathonId" ColumnName="MarathonId" />
                 <ScalarProperty Name="MarathonName" ColumnName="MarathonName" />
@@ -1065,18 +1126,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Position">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Position">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Position">
               <MappingFragment StoreEntitySet="Position">
                 <ScalarProperty Name="PositionId" ColumnName="PositionId" />
                 <ScalarProperty Name="PositionName" ColumnName="PositionName" />
                 <ScalarProperty Name="PositionDescription" ColumnName="PositionDescription" />
-                <ScalarProperty Name="PayPeroid" ColumnName="PayPeroid" />
+                <ScalarProperty Name="PayPeriod" ColumnName="PayPeriod" />
                 <ScalarProperty Name="Payrate" ColumnName="Payrate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RaceKitOption">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.RaceKitOption">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.RaceKitOption">
               <MappingFragment StoreEntitySet="RaceKitOption">
                 <ScalarProperty Name="RaceKitOptionId" ColumnName="RaceKitOptionId" />
                 <ScalarProperty Name="RaceKitOption1" ColumnName="RaceKitOption" />
@@ -1085,7 +1146,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Registration">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Registration">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Registration">
               <MappingFragment StoreEntitySet="Registration">
                 <ScalarProperty Name="RegistrationId" ColumnName="RegistrationId" />
                 <ScalarProperty Name="RunnerId" ColumnName="RunnerId" />
@@ -1099,7 +1160,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RegistrationEvent">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.RegistrationEvent">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.RegistrationEvent">
               <MappingFragment StoreEntitySet="RegistrationEvent">
                 <ScalarProperty Name="RegistrationEventId" ColumnName="RegistrationEventId" />
                 <ScalarProperty Name="RegistrationId" ColumnName="RegistrationId" />
@@ -1110,7 +1171,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RegistrationStatus">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.RegistrationStatus">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.RegistrationStatus">
               <MappingFragment StoreEntitySet="RegistrationStatus">
                 <ScalarProperty Name="RegistrationStatusId" ColumnName="RegistrationStatusId" />
                 <ScalarProperty Name="RegistrationStatus1" ColumnName="RegistrationStatus" />
@@ -1118,7 +1179,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Role">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
@@ -1126,18 +1187,19 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Runner">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Runner">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Runner">
               <MappingFragment StoreEntitySet="Runner">
                 <ScalarProperty Name="RunnerId" ColumnName="RunnerId" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sponsorship">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Sponsorship">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Sponsorship">
               <MappingFragment StoreEntitySet="Sponsorship">
                 <ScalarProperty Name="SponsorshipId" ColumnName="SponsorshipId" />
                 <ScalarProperty Name="SponsorName" ColumnName="SponsorName" />
@@ -1147,7 +1209,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Staff">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Staff">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
                 <ScalarProperty Name="StaffId" ColumnName="StaffId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1156,12 +1218,11 @@
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="PositionId" ColumnName="PositionId" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Timesheet">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Timesheet">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Timesheet">
               <MappingFragment StoreEntitySet="Timesheet">
                 <ScalarProperty Name="TimesheetId" ColumnName="TimesheetId" />
                 <ScalarProperty Name="StaffId" ColumnName="StaffId" />
@@ -1172,7 +1233,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.User">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -1183,7 +1244,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Volunteer">
-            <EntityTypeMapping TypeName="BegunUchebkaModel.Volunteer">
+            <EntityTypeMapping TypeName="MarafonUchebkaModel.Volunteer">
               <MappingFragment StoreEntitySet="Volunteer">
                 <ScalarProperty Name="VolunteerId" ColumnName="VolunteerId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

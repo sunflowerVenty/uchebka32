@@ -80,6 +80,9 @@
     <Compile Include="Database\Gender.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\Inventory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Marathon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -170,6 +173,9 @@
     <Compile Include="Pages\Maps.xaml.cs">
       <DependentUpon>Maps.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MarathonDuration.xaml.cs">
+      <DependentUpon>MarathonDuration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MenuAdmin.xaml.cs">
       <DependentUpon>MenuAdmin.xaml</DependentUpon>
     </Compile>
@@ -182,14 +188,35 @@
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MyRaceResults.xaml.cs">
+      <DependentUpon>MyRaceResults.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MySponsor.xaml.cs">
       <DependentUpon>MySponsor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PreviosPaseResults.xaml.cs">
+      <DependentUpon>PreviosPaseResults.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegSpons.xaml.cs">
       <DependentUpon>RegSpons.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegRunner2.xaml.cs">
       <DependentUpon>RegRunner2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RunnerDetails.xaml.cs">
+      <DependentUpon>RunnerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RunnerEditProfile.xaml.cs">
+      <DependentUpon>RunnerEditProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RunnerRegistrationConfirmation.xaml.cs">
+      <DependentUpon>RunnerRegistrationConfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RunnersManagement.xaml.cs">
+      <DependentUpon>RunnersManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SponsorsOverview.xaml.cs">
+      <DependentUpon>SponsorsOverview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\thankSpons.xaml.cs">
       <DependentUpon>thankSpons.xaml</DependentUpon>
@@ -202,6 +229,9 @@
     </Compile>
     <Compile Include="Windows\NameSponsWind.xaml.cs">
       <DependentUpon>NameSponsWind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\AddEditCharity.xaml">
       <SubType>Designer</SubType>
@@ -235,6 +265,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MarathonDuration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MenuAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,7 +277,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MyRaceResults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MySponsor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PreviosPaseResults.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,6 +329,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\RunnerDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RunnerEditProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RunnerRegistrationConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RunnersManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SponsorsOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\thankSpons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -324,6 +386,10 @@
     <Page Include="Windows\NameSponsWind.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -393,18 +459,36 @@
   <ItemGroup>
     <Resource Include="Images\Maps\marshFinish.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Database\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\airbus-a380.jpg" />
+    <Resource Include="Resources\banco-banespa.jpg" />
+    <Resource Include="Resources\bus.jpg" />
+    <Resource Include="Resources\capybara.jpg" />
+    <Resource Include="Resources\f1-car.jpg" />
+    <Resource Include="Resources\football-field.jpg" />
+    <Resource Include="Resources\horse.png" />
+    <Resource Include="Resources\ibirapuera-park-lake.jpg" />
+    <Resource Include="Resources\jaguar.jpg" />
+    <Resource Include="Resources\marathon-image.jpg" />
+    <Resource Include="Resources\marathon-skills-2016-marathon-map.jpg" />
+    <Resource Include="Resources\pair-of-havaianas.jpg" />
+    <Resource Include="Resources\ronaldinho.jpg" />
+    <Resource Include="Resources\sloth.jpg" />
+    <Resource Include="Resources\slug.jpg" />
+    <Resource Include="Resources\teatro-municipal.jpg" />
+    <Resource Include="Resources\worm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\bmi-healthy-icon.png" />
     <Resource Include="Images\bmi-obese-icon.png" />
     <Resource Include="Images\bmi-overweight-icon.png" />

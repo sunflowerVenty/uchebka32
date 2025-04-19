@@ -14,7 +14,7 @@ namespace uchebka32.Pages
     /// </summary>
     public partial class ImportVolunteersPage : Page
     {
-        private readonly BegunUchebkaEntities _context;
+        private readonly MarafonUchebkaEntities _context;
         private int _totalImported = 0;
         private int _totalUpdated = 0;
         public ImportVolunteersPage()
@@ -83,7 +83,7 @@ namespace uchebka32.Pages
                     throw new Exception("Неверный формат CSV файла. Проверьте заголовки колонок.");
                 }
 
-                using (var context = new BegunUchebkaEntities())
+                using (var context = new MarafonUchebkaEntities())
                 {
                     // Обрабатываем каждую строку
                     for (int i = 1; i < lines.Length; i++)

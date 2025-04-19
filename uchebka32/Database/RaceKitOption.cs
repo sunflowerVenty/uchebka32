@@ -17,6 +17,7 @@ namespace uchebka32.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RaceKitOption()
         {
+            this.Inventory = new HashSet<Inventory>();
             this.Registration = new HashSet<Registration>();
         }
     
@@ -24,6 +25,8 @@ namespace uchebka32.Database
         public string RaceKitOption1 { get; set; }
         public decimal Cost { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Inventory> Inventory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Registration> Registration { get; set; }
     }

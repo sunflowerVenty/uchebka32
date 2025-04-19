@@ -123,7 +123,7 @@ namespace uchebka32.Pages
             charity.CharityName = NameTextBox.Text;
             charity.CharityDescription = DescriptionTextBox.Text;
             charity.CharityLogo = LogoPathTextBox.Text;
-            ConnnectionDB.buEntities.Charity.Add(charity);
+
             ConnnectionDB.buEntities.SaveChanges();
 
             NavigationService.GoBack();

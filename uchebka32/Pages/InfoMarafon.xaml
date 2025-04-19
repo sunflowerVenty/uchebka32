@@ -32,8 +32,9 @@
                     Orientation="Vertical"
                     VerticalAlignment="Bottom"
                     Margin="40">
-            <Button Width="480"
-                    Height="360">
+            <Button Width="439"
+                    Click="Button_Click"
+                    Height="329">
                 <TextBlock TextWrapping="Wrap" TextAlignment="Center">
                         <Run FontSize="45" Text="Карта марафона"/>
                         <LineBreak/>
@@ -41,39 +42,40 @@
                 </TextBlock>
             </Button>
             <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/Photo.png"
-                       Height="170"
-                       Margin="10, 15"/>
-                <Image Source="/Images/Photo.png"
-                       Height="170"
-                       Margin="10, 15"/>
+                <Image Source="/Resources/teatro-municipal.jpg"
+                       Height="154"
+                       Margin="10, 15" Width="227"/>
+                <Image Source="/Resources/ibirapuera-park-lake.jpg"
+                       Height="152"
+                       Margin="10, 15" Width="249"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/Photo.png"
+                <Image Source="/Resources/marathon-image.jpg"
                        Height="170"
                        Margin="10, 15"/>
-                <Image Source="/Images/Photo.png"
-                       Height="170"
-                       Margin="10, 15"/>
+                <Image Source="/Resources/banco-banespa.jpg"
+                       Height="287"
+                       Margin="10, 15" Width="205"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" 
                     Orientation="Vertical" 
                     HorizontalAlignment="Left">
 
-            <TextBlock Text="Информация о Навыках Марафона 2016 пойдет сюда. Информация может покрыть расположение, время, расстояние, рекордные времена, достопримечательности, и т.д." 
+            <TextBlock Text="Marathon Skills - фестиваль бега, проводимый каждый год в разных частях мира. Может быть три зачета: Полный Марафон, Полумарафон и забег для новичков - таким образом фестиваль подходит всем." 
                        FontSize="35" 
                        Width="1100 "
                        TextWrapping="Wrap"
                        TextAlignment="Left"
                        Style="{StaticResource TextPage}"/>
-            <TextBlock Text="Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. Дополнительные сведения."                       FontSize="35" 
+            <TextBlock Text="В прошлых годах марафон был проведен в Осаке, Япония (2014); Лейпциг, Германия (2013); Ханой, Вьетнам (2012) и Йорк, Англия (2011)."                       
+                       FontSize="35" 
                        Width="1100 "
                        TextWrapping="Wrap"
                        TextAlignment="Left"
                        Margin="20, 40"
                        Style="{StaticResource TextPage}"/>
-            <TextBlock Text="Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. Дополнительные сведения. " 
+            <TextBlock Text="В этом году, Marathon Skills очень зрелищно, продет в Сан-Паоло, Бразилия, он должен быть самым большим фестивалем бега. Это финансовый центр Бразилии и самый большой город в Южной Америке. Сан-Пауло увидят тысячи бегунов, которые будут бежать мимо небоскребов, зеленые парки и великолепная архитектура." 
                        FontSize="35" 
                        Width="1100"
                        TextWrapping="Wrap"

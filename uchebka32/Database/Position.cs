@@ -23,7 +23,7 @@ namespace uchebka32.Database
         public short PositionId { get; set; }
         public string PositionName { get; set; }
         public string PositionDescription { get; set; }
-        public string PayPeroid { get; set; }
+        public string PayPeriod { get; set; }
         public Nullable<decimal> Payrate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

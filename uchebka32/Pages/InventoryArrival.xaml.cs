@@ -22,13 +22,13 @@ namespace uchebka32.Pages
     /// </summary>
     public partial class InventoryArrival : Page
     {
-        BegunUchebkaEntities _db;
+        MarafonUchebkaEntities _db;
         public InventoryArrival()
         {
             try
             {
                 InitializeComponent();
-                _db = new BegunUchebkaEntities();
+                _db = new MarafonUchebkaEntities();
             }
             catch (Exception ex)
             {

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using uchebka32.Database;
+using uchebka32.Windows;
 
 namespace uchebka32.Pages
 {
@@ -91,7 +92,7 @@ namespace uchebka32.Pages
         {
             try
             {
-                var db = ConnectionClass.connect;
+                var db = ConnnectionDB.buEntities;
 
                 // Получаем данные из базы
                 var registrations = db.Registration.ToList();

@@ -41,18 +41,25 @@
                        Margin="20"/>
                 <StackPanel HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <CheckBox Margin="0, 5, 30, 0">
+                        <CheckBox Margin="0, 5, 30, 0"
+                                  x:Name="chk42km" 
+                                  Checked="CalculateCost"
+                                    Unchecked="CalculateCost">
                             <CheckBox.LayoutTransform>
                                 <ScaleTransform ScaleX="2" ScaleY="2"/>
                             </CheckBox.LayoutTransform>
                         </CheckBox>
                         <TextBlock Text="42km Полный марафон($145)" 
+                                   
                           FontSize="27"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" 
                             Margin="0, 10"
                             Orientation="Horizontal">
-                        <CheckBox Margin="0, 5, 30, 0">
+                        <CheckBox Margin="0, 5, 30, 0"
+                                  x:Name="chk21km" 
+                                  Checked="CalculateCost"
+                                    Unchecked="CalculateCost">
                             <CheckBox.LayoutTransform>
                                 <ScaleTransform ScaleX="2" ScaleY="2"/>
                             </CheckBox.LayoutTransform>
@@ -61,7 +68,10 @@
               FontSize="27"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                        <CheckBox Margin="0, 5, 30, 0">
+                        <CheckBox Margin="0, 5, 30, 0"
+                                  x:Name="chk5km" 
+                                  Checked="CalculateCost"
+                                    Unchecked="CalculateCost">
                             <CheckBox.LayoutTransform>
                                 <ScaleTransform ScaleX="2" ScaleY="2"/>
                             </CheckBox.LayoutTransform>
@@ -92,20 +102,29 @@
                                Style="{StaticResource TextPage}" 
                                HorizontalAlignment="Right"
                                Margin="10, 0"/>
-                    <TextBox Text="Фонд кошелек" Grid.Column="1" Width="400" Margin="10, 0"></TextBox>
-                    <Image Source="/Images/Info.png"
+                    <TextBox Text="Фонд кошелек" Grid.Column="1" Grid.Row="1" Width="400" Margin="10, 0"></TextBox>
+                    <Button x:Name="btnInfo" 
+                            Grid.Column="2"
+                            Background="{x:Null}"
+                            Click="btnInfo_Click">
+                        <Image Source="/Images/Info.png"
                            Grid.Column="2"
                            Width="50"
                            Height="50"/>
-                    <TextBlock Text="Сумма взноса:" FontSize="35" 
+                    </Button>
+
+                    <TextBlock x:Name="txtDonation" 
+                               Text="Сумма взноса:" FontSize="35" 
                                Style="{StaticResource TextPage}" 
                                Grid.Row="1"
                                Margin="10, 0"/>
                     <ComboBox Text="$500" 
+                              x:Name="cmbCharity"
+                              SelectionChanged="cmbCharity_SelectionChanged"
                               Background="White" 
                               Width="400" Height="60" 
                               Grid.Column="1"
-                              Grid.Row="1"
+                              Grid.Row="0"
                               Margin="10, 0"/>
                 </Grid>
             </StackPanel>
@@ -131,42 +150,26 @@
                        Style="{StaticResource TextPage}" 
                        Margin="20"/>
             <StackPanel>
-                <StackPanel HorizontalAlignment="Left" Width="500">
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                        <CheckBox Margin="0, 5, 30, 0">
-                            <CheckBox.LayoutTransform>
-                                <ScaleTransform ScaleX="2" ScaleY="2"/>
-                            </CheckBox.LayoutTransform>
-                        </CheckBox>
-                        <TextBlock Text="Вариант A ($0): Номер бегуна+ RFID браслет." 
-                                   TextWrapping="Wrap"
-                                   Width="440"
-                                   FontSize="27"/>
-                    </StackPanel>
-                    <StackPanel HorizontalAlignment="Left" 
-                    Margin="0, 10"
-                    Orientation="Horizontal">
-                        <CheckBox Margin="0, 5, 30, 0">
-                            <CheckBox.LayoutTransform>
-                                <ScaleTransform ScaleX="2" ScaleY="2"/>
-                            </CheckBox.LayoutTransform>
-                        </CheckBox>
-                        <TextBlock Text="Вариант B ($20): вариант A + бейсболка + бутылка воды." 
-                                   TextWrapping="Wrap"
-                                   Width="440"
-                                   FontSize="27"/>
-                    </StackPanel>
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                        <CheckBox Margin="0, 5, 30, 0">
-                            <CheckBox.LayoutTransform>
-                                <ScaleTransform ScaleX="2" ScaleY="2"/>
-                            </CheckBox.LayoutTransform>
-                        </CheckBox>
-                        <TextBlock Text="Вариант C ($45): Вариант B +футболка + сувенирный буклет." 
-                                   TextWrapping="Wrap"
-                                   Width="440"
-                                   FontSize="27"/>
-                    </StackPanel>
+                <StackPanel HorizontalAlignment="Left">
+                    <RadioButton x:Name="rbKitA" 
+                                       Content="Вариант A ($0): Номер бегуна + RFID браслет"
+                                       Margin="0,5"
+                                        FontSize="25"
+                                       IsChecked="True"
+                                       Checked="CalculateCost"/>
+
+                    <RadioButton x:Name="rbKitB" 
+                                       Content="Вариант B ($20): Вариант A + бейсболка + бутылка воды"
+                                       Margin="0,5"
+                                 FontSize="25"
+                                       Checked="CalculateCost"/>
+
+                    <RadioButton x:Name="rbKitC" 
+                                       Content="Вариант C ($45): Вариант B + футболка + сувенирный буклет"
+                                       Margin="0,5"
+                                 FontSize="25"
+                                       Checked="CalculateCost"/>
+
                 </StackPanel>
             </StackPanel>
             <StackPanel>
@@ -176,7 +179,8 @@
                            Style="{StaticResource TextPage}" 
                            Margin="0, 40, 0, 0"/>
 
-                <TextBlock Text="$0" 
+                <TextBlock x:Name="txtCost"
+                           Text="$0" 
                            FontWeight="Medium"
                            FontSize="100"
                            Style="{StaticResource TextPage}"/>

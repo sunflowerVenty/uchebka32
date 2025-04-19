@@ -50,7 +50,7 @@ namespace uchebka32.Pages
                             ConnnectionDB.user = us;
                             if (us.RoleId == "R") NavigationService.Navigate(new MenuRunner());
                             else if (us.RoleId == "C") NavigationService.Navigate(new MenuKoor());
-                            else if (us.RoleId == "A") { } /*NavigationService.Navigate();*/
+                            else if (us.RoleId == "A") NavigationService.Navigate(new MenuAdmin());
                         }
                     }
                     else if (ConnnectionDB.user == null)
@@ -65,11 +65,6 @@ namespace uchebka32.Pages
             {
 
             }
-        }
-
-        private void DopBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new EditCharity());
         }
     }
 }

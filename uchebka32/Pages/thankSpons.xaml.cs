@@ -21,9 +21,16 @@ namespace uchebka32.Pages
     /// </summary>
     public partial class thankSpons : Page
     {
-        public thankSpons()
+        public thankSpons(string runnerName, string bibNumber, string country, string charityName, decimal amount)
         {
             InitializeComponent();
+            RunnerInfoTextBlock.Text = $"{runnerName} ({bibNumber}) из {country}";
+            CharityTextBlock.Text = charityName;
+            AmountTextBlock.Text = $"${amount}";
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
         }
     }
 }

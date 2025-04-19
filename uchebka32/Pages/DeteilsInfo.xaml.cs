@@ -29,5 +29,32 @@ namespace uchebka32.Pages
         {
             NavigationService.Navigate(new ListCharity());
         }
+
+
+        private void MarathonDuration_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MarathonDuration());
+        }
+
+        private void PreviousResults_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PreviosPaseResults());
+        }
+
+        private void BMICalculator_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new BMICalculator());
+        }
+
+        private void MarathonSkillsInfo_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new InfoMarafon());
+        }
+
+        private void BMRCalculator_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new BMRCalculator());
+        }
+
     }
 }

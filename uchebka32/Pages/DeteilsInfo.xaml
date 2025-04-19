@@ -33,12 +33,15 @@
                         Margin="30, 0"
                         Width="600">
                 <Button Content="Marathon Skills 2016"
+                        Click="MarathonSkillsInfo_Click"
                         Height="120"
                         Margin="0, 20"/>
                 <Button Content="Предыдущие результаты"
+                         Click="PreviousResults_Click"
                         Height="120"
                         Margin="0, 20"/>
                 <Button Content="BMI калькулятор"
+                        Click="BMICalculator_Click"
                         Height="120"
                         Margin="0, 20"/>
             </StackPanel>
@@ -46,6 +49,7 @@
                         Margin="30, 0"
                         Width="600">
                 <Button Content="Насколько долгий марафон"
+                         Click="MarathonDuration_Click"
                         Height="120"
                         Margin="0, 20"/>
                 <Button Height="120"
@@ -58,6 +62,7 @@
                     </TextBlock>
                 </Button>
                 <Button Content="BMR калькулятор"
+                        Click="BMRCalculator_Click"
                         Height="120"
                         Margin="0, 20"/>
             </StackPanel>

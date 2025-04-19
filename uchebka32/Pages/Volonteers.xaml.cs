@@ -21,7 +21,7 @@ namespace uchebka32.Pages
     /// </summary>
     public partial class Volonteers : Page
     {
-        private readonly BegunUchebkaEntities _context;
+        private readonly MarafonUchebkaEntities _context;
         private List<Volunteer> volunteers = new List<Volunteer>();
         public Volonteers()
         {

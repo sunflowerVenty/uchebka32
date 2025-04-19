@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -12,172 +13,216 @@ namespace uchebka32.Pages
 {
     public partial class RegRunner : Page
     {
+        private string _photoPath;
         public RegRunner()
         {
             InitializeComponent();
-            LoadGenders();
-            LoadCountries();
+            LoadData();
         }
-        private void LoadGenders()
+
+        private void LoadData()
         {
-            foreach (var item in ConnnectionDB.buEntities.Gender.ToList())
+            try
             {
-                GenderComboBox.Items.Add(item.Gender1.ToString());
+                using (var db = new MarafonUchebkaEntities())
+                {
+                    cmbGender.ItemsSource = db.Gender.ToList();
+                    cmbCountry.ItemsSource = db.Country.ToList();
+                }
             }
-        }
-        private void LoadCountries()
-        {
-            foreach (var item in ConnnectionDB.buEntities.Country.ToList())
+            catch (Exception ex)
             {
-                CountryComboBox.Items.Add(item.CountryName.ToString());
+                MessageBox.Show($"Ошибка загрузки данных: {ex.Message}");
             }
         }
 
-        private void BrowsePhoto_Click(object sender, RoutedEventArgs e)
+        private string _photoFilePath;
+
+        private void BtnSelectPhoto_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new Microsoft.Win32.OpenFileDialog
+            var openFileDialog = new OpenFileDialog
             {
-                Filter = "Image Files|*.jpg;*.jpeg;*.png"
+                Title = "Выберите фотографию бегуна",
+                Filter = "Изображения (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png|Все файлы (*.*)|*.*",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                Multiselect = false
             };
-            if (dialog.ShowDialog() == true)
-            {
-                PhotoPathTextBox.Text = dialog.FileName;
-                BgPhotoPanel.Background = null;
-                RunnerPhotoImage.Source = new BitmapImage(new Uri(dialog.FileName));
-            }
-        }
 
-        private void BirthDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (BirthDatePicker.SelectedDate.HasValue)
+            if (openFileDialog.ShowDialog() == true)
             {
-                var age = DateTime.Now.Year - BirthDatePicker.SelectedDate.Value.Year;
-                if (age < 10)
+                try
                 {
-                    MessageBox.Show("Бегуну должно быть не менее 10 лет.");
-                    BirthDatePicker.SelectedDate = null;
+                    _photoFilePath = openFileDialog.FileName;
+
+                    // Загружаем изображение для предпросмотра
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(_photoFilePath);
+                    bitmap.DecodePixelWidth = 300; // Оптимизация для предпросмотра
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+                    bitmap.Freeze(); // Для безопасности в многопоточной среде
+
+                    imgRunnerPhoto.Source = bitmap;
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка загрузки изображения: {ex.Message}",
+                                  "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    ClearPhoto();
                 }
             }
         }
 
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private void BtnClearPhoto_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(EmailTextBox.Text) ||
-                string.IsNullOrWhiteSpace(PasswordTextBox.Text) ||
-                string.IsNullOrWhiteSpace(ConfirmPasswordTextBox.Text) ||
-                string.IsNullOrWhiteSpace(FirstNameTextBox.Text) ||
-                string.IsNullOrWhiteSpace(LastNameTextBox.Text) ||
-                GenderComboBox.SelectedItem == null ||
-                CountryComboBox.SelectedItem == null ||
-                BirthDatePicker.SelectedDate == null ||
-                string.IsNullOrWhiteSpace(PhotoPathTextBox.Text))
-            {
-                MessageBox.Show("Все поля обязательны для заполнения.");
-                return;
-            }
-
-            if (PasswordTextBox.Text != ConfirmPasswordTextBox.Text)
-            {
-                MessageBox.Show("Пароли не совпадают.");
-                return;
-            }
-
-            MessageBox.Show("Регистрация успешно завершена!");
+            ClearPhoto();
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void ClearPhoto()
         {
-            NavigationService.GoBack();
+            _photoFilePath = null;
+            imgRunnerPhoto.Source = new BitmapImage(
+                new Uri("pack://application:,,,/Resources/photo_placeholder.png"));
         }
 
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        private byte[] SaveRunnerPhoto(string email)
         {
-            var textBox = sender as TextBox;
-            if (textBox != null)
+            if (string.IsNullOrEmpty(_photoFilePath))
+                return null;
+
+            try
             {
-                if (textBox.Text == "Email" ||
-                    textBox.Text == "Пароль" ||
-                    textBox.Text == "Повторите пароль" ||
-                    textBox.Text == "Имя" ||
-                    textBox.Text == "Фамилия")
+                // Читаем файл как массив байтов
+                return File.ReadAllBytes(_photoFilePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось сохранить фотографию: {ex.Message}");
+                return null;
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            // Проверка email
+            if (string.IsNullOrWhiteSpace(txtEmail.Text) || !IsValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Введите корректный email (формат: x@x.x)");
+                return false;
+            }
+
+            // Проверка пароля
+            var password = txtPassword.Text;
+            if (password.Length < 6 ||
+                !password.Any(char.IsUpper) ||
+                !password.Any(char.IsDigit) ||
+                !password.Any(c => "!@#$%^".Contains(c)))
+            {
+                MessageBox.Show("Пароль должен содержать:\n- минимум 6 символов\n- минимум 1 заглавную букву\n- минимум 1 цифру\n- один из символов: !@#$%^");
+                return false;
+            }
+
+            if (password != txtConfirmPassword.Text)
+            {
+                MessageBox.Show("Пароли не совпадают");
+                return false;
+            }
+
+            // Проверка имени и фамилии
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text))
+            {
+                MessageBox.Show("Заполните имя и фамилию");
+                return false;
+            }
+
+            // Проверка даты рождения
+            if (dpBirthDate.SelectedDate == null ||
+                dpBirthDate.SelectedDate > DateTime.Now.AddYears(-10))
+            {
+                MessageBox.Show("Бегун должен быть старше 10 лет");
+                return false;
+            }
+
+            // Если все проверки пройдены
+            return true;
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void BtnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            if (!ValidateForm()) return;
+
+            //try
+            //{
+            using (var db = new MarafonUchebkaEntities())
+            {
+                // Проверка существующего email
+                if (db.User.Any(u => u.Email == txtEmail.Text))
                 {
-                    textBox.Text = "";
+                    MessageBox.Show("Пользователь с таким email уже существует");
+                    return;
                 }
-                textBox.Foreground = new SolidColorBrush(Colors.Black);
+
+                // Создание пользователя
+                var user = new User
+                {
+                    Email = txtEmail.Text,
+                    Password = txtPassword.Text, // Не забудьте реализовать хеширование
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    RoleId = db.Role.First(r => r.RoleName == "Runner").RoleId
+
+                };
+
+                db.User.Add(user);
+                db.SaveChanges();
+
+                // Создание бегуна
+                var runner = new Runner
+                {
+                    Email = txtEmail.Text, // Связь по email
+                    Gender = (cmbGender.SelectedItem as Gender).Gender1, // Или другой способ получения значения
+                    DateOfBirth = dpBirthDate.SelectedDate.Value,
+                    CountryCode = (cmbCountry.SelectedItem as Country).CountryCode // Предполагая, что это код страны     
+                };
+
+                if (!string.IsNullOrEmpty(_photoFilePath))
+                {
+                    runner.PhotoPath = SaveRunnerPhoto(user.Email);
+                }
+
+                db.Runner.Add(runner);
+                db.SaveChanges();
+
+                MessageBox.Show("Регистрация успешно завершена!");
+                NavigationService.Navigate(new RunnerRegistrationConfirmation());
             }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Ошибка регистрации: {ex.Message}");
+            //}
         }
 
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            var textBox = sender as TextBox;
-            if (textBox != null)
-            {
-                switch (textBox.Name)
-                {
-                    case "EmailTextBox":
-                        string email = EmailTextBox.Text;
-                        if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-                        {
-                            MessageBox.Show("Некорректный формат Email.");
-                        }
-                        break;
-                    case "PasswordTextBox":
-                        textBox.Text = "Пароль";
-                        break;
-                    case "ConfirmPasswordTextBox":
-                        textBox.Text = "Повторите пароль";
-                        break;
-                    case "FirstNameTextBox":
-                        textBox.Text = "Имя";
-                        break;
-                    case "LastNameTextBox":
-                        textBox.Text = "Фамилия";
-                        break;
-
-                    default:
-                        break;
-                }
-                
-                if (string.IsNullOrWhiteSpace(textBox.Text))
-                {
-                    switch (textBox.Name)
-                    {
-                        case "EmailTextBox":
-                            textBox.Text = "Email";
-                            break;
-                        case "PasswordTextBox":
-                            string password = PasswordTextBox.Text;
-                            if (password.Length < 6 || !password.Any(char.IsUpper) || !password.Any(char.IsDigit) ||
-                                !password.Any(c => "!@#$%^".Contains(c)))
-                            {
-                                MessageBox.Show("Пароль не соответствует требованиям.");
-                            }
-                            break;
-                        case "ConfirmPasswordTextBox":
-                            if (PasswordTextBox.Text != ConfirmPasswordTextBox.Text)
-                            {
-                                MessageBox.Show("Пароли не совпадают.");
-                            }
-                            break;
-                        case "FirstNameTextBox":
-                            if (!Regex.IsMatch(textBox.Text, @"^[a-zA-Zа-яА-Я\s]+$"))
-                            {
-                                e.Handled = true;
-                            }
-                            break;
-                        case "LastNameTextBox":
-                            if (!Regex.IsMatch(textBox.Text, @"^[a-zA-Zа-яА-Я\s]+$"))
-                            {
-                                e.Handled = true;
-                            }
-                            break;
-
-                        default:
-                            break;
-                    }
-                    textBox.Foreground = new SolidColorBrush(Colors.LightGray);
-                }
-            }
+            NavigationService?.GoBack();
         }
+
+
     }
 }

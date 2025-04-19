@@ -8,7 +8,7 @@ namespace uchebka32.Database
 {
     internal class ConnnectionDB
     {
-        public static BegunUchebkaEntities buEntities = new BegunUchebkaEntities();
+        public static MarafonUchebkaEntities buEntities = new MarafonUchebkaEntities();
         public static User user;
     }
 }
