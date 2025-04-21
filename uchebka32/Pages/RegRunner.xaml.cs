@@ -33,6 +33,13 @@ namespace uchebka32.Pages
 
         private string _photoFilePath;
 
+        private void NameTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, @"^[a-zA-Zа-яА-Я\s]+$"))
+            {
+                e.Handled = true;
+            }
+        }
         private void BtnSelectPhoto_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog
@@ -187,12 +194,14 @@ namespace uchebka32.Pages
                 db.SaveChanges();
 
                 // Создание бегуна
+                var c = ConnnectionDB.buEntities.Gender.FirstOrDefault(a => a.Gender1 == cmbGender.Text);
+                var d = ConnnectionDB.buEntities.Country.FirstOrDefault(a => a.CountryName == cmbCountry.Text);
                 var runner = new Runner
                 {
                     Email = txtEmail.Text, // Связь по email
-                    Gender = (cmbGender.SelectedItem as Gender).Gender1, // Или другой способ получения значения
+                    Gender = c.Gender1, // Или другой способ получения значения
                     DateOfBirth = dpBirthDate.SelectedDate.Value,
-                    CountryCode = (cmbCountry.SelectedItem as Country).CountryCode // Предполагая, что это код страны     
+                    CountryCode = d.CountryCode // Предполагая, что это код страны     
                 };
 
                 if (!string.IsNullOrEmpty(_photoFilePath))

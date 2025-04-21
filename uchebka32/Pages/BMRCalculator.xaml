@@ -137,19 +137,21 @@
                     <!-- Ввод данных -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
                         <TextBlock Text="Рост:" VerticalAlignment="Center"/>
-                        <TextBox x:Name="HeightTextBox" Text="180"/>
+                        <TextBox x:Name="HeightTextBox" Text="180"
+                                 PreviewTextInput="HeightTextBox_PreviewTextInput"/>
                         <TextBlock Text="см" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
                         <TextBlock Text="Вес:" VerticalAlignment="Center"/>
-                        <TextBox x:Name="WeightTextBox" Text="70"/>
+                        <TextBox x:Name="WeightTextBox" Text="70"
+                                 PreviewTextInput="WeightTextBox_PreviewTextInput"/>
                         <TextBlock Text="кг" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                         <TextBlock Text="Возраст:" VerticalAlignment="Center"/>
-                        <TextBox x:Name="AgeTextBox" Text="30"/>
+                        <TextBox x:Name="AgeTextBox" Text="30" PreviewTextInput="AgetextBox_PreviewTextInput"/>
                         <TextBlock Text="лет" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     </StackPanel>
 

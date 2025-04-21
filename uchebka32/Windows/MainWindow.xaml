@@ -13,19 +13,29 @@
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
         <Grid Background="{StaticResource HeaderColor}">
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0" Orientation="Horizontal">
-                <Button Content="Назад" 
-                        Name="BackBtn"
-                        Click="BackBtn_Click"
-                        Width="140" 
-                        MaxHeight="50"/>
-                <TextBlock Text="MARATHON SKILLS 2016" 
-                           Margin="40, 0" 
-                           FontSize="24" 
-                           Foreground="{StaticResource White}"
-                           FontWeight="Bold" 
-                           Style="{StaticResource TextHeader}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0" Orientation="Horizontal">
+                    <Button Content="Назад" 
+            Name="BackBtn"
+            Click="BackBtn_Click"
+            Width="140" 
+            MaxHeight="50"/>
+                    <TextBlock Text="MARATHON SKILLS 2016" 
+               Margin="40, 0" 
+               FontSize="24" 
+               Foreground="{StaticResource White}"
+               FontWeight="Bold" 
+               Style="{StaticResource TextHeader}"/>
+                </StackPanel>
+                
             </StackPanel>
+            <Button Content="Logout" 
+                    Name="LogoutBtn"
+                    Click="LogoutBtn_Click"
+                    HorizontalAlignment="Right"
+                    Margin="20, 0"
+                    Width="140" 
+                    MaxHeight="50"/>
         </Grid>
 
         <Grid Grid.Row="2" Background="{StaticResource FooterColor}">

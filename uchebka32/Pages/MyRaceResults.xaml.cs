@@ -166,5 +166,10 @@ namespace uchebka32.Pages
         {
             NavigationService.GoBack();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

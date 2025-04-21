@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using uchebka32.Database;
 using uchebka32.Pages;
 
 namespace uchebka32.Windows
@@ -39,6 +40,9 @@ namespace uchebka32.Windows
         private void UpdateBackButtonVisibility()
         {
             BackBtn.Visibility = MainFrame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
+
+            if (ConnnectionDB.user == null) LogoutBtn.Visibility = Visibility.Hidden;
+            else LogoutBtn.Visibility = Visibility.Visible;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -63,6 +67,12 @@ namespace uchebka32.Windows
                 _timer.Stop();
                 TimerText.Text = "Марафон начался!";
             }
+        }
+
+        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ConnnectionDB.user = null;
+            StartFrame.NavigationService.Navigate(new MainPage(MainFrame));
         }
     }
 }

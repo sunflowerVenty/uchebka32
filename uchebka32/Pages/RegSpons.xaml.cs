@@ -227,7 +227,7 @@ namespace uchebka32.Pages
             }
 
             DateTime now = DateTime.Now;
-            DateTime expiryDate = new DateTime(2000 + year, month, 1).AddMonths(1);
+            DateTime expiryDate = new DateTime(year, month, 1).AddMonths(1);
             if (expiryDate < now)
             {
                 MessageBox.Show("Срок действия карты истек",
@@ -273,12 +273,48 @@ namespace uchebka32.Pages
 
                 if (string.IsNullOrWhiteSpace(CardHolderTextBox.Text) || CardHolderTextBox.Foreground == Brushes.Gray)
                 {
-                    MessageBox.Show("Пожалуйста, введите имя владельца карты",
+                    MessageBox.Show("Пожалуйста, введите карту",
                                   "Ошибка",
                                   MessageBoxButton.OK,
                                   MessageBoxImage.Warning);
                     return;
                 }
+
+                if (string.IsNullOrWhiteSpace(CardNumberTextBox.Text) || CardNumberTextBox.Foreground == Brushes.Gray)
+                {
+                    MessageBox.Show("Пожалуйста, номер карты",
+                                  "Ошибка",
+                                  MessageBoxButton.OK,
+                                  MessageBoxImage.Warning);
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(ExpiryMonthTextBox.Text) || ExpiryMonthTextBox.Foreground == Brushes.Gray)
+                {
+                    MessageBox.Show("Пожалуйста, введите месяц срока карты",
+                                  "Ошибка",
+                                  MessageBoxButton.OK,
+                                  MessageBoxImage.Warning);
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(ExpiryYearTextBox.Text) || ExpiryYearTextBox.Foreground == Brushes.Gray)
+                {
+                    MessageBox.Show("Пожалуйста, введите год срока карты",
+                                  "Ошибка",
+                                  MessageBoxButton.OK,
+                                  MessageBoxImage.Warning);
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(CVCTextBox.Text) || ExpiryYearTextBox.Foreground == Brushes.Gray)
+                {
+                    MessageBox.Show("Пожалуйста, введите CVC код",
+                                  "Ошибка",
+                                  MessageBoxButton.OK,
+                                  MessageBoxImage.Warning);
+                    return;
+                }
+                
+                
+
 
                 if (!ValidateCardData())
                 {
@@ -313,10 +349,7 @@ namespace uchebka32.Pages
                     ConnnectionDB.buEntities.Sponsorship.Add(sponsorship);
                     ConnnectionDB.buEntities.SaveChanges();
 
-                    MessageBox.Show($"Спасибо за вашу спонсорскую поддержку в размере ${donationAmount}!",
-                                  "Спасибо",
-                                  MessageBoxButton.OK,
-                                  MessageBoxImage.Information);
+                    NavigationService.Navigate(new thankSpons(RunnerComboBox.Text, bibNumber.ToString(), sponsorship.SponsorName, donationAmount));
 
                     ClearForm();
                 }
@@ -367,23 +400,11 @@ namespace uchebka32.Pages
         {
             try
             {
-                if (NavigationService != null && NavigationService.CanGoBack)
-                {
-                    NavigationService.GoBack();
-                }
-                else
-                {
-                    // Альтернативное действие, если нельзя вернуться назад
-                    var mainWindow = Application.Current.MainWindow as MainWindow;
-                    mainWindow?.MainFrame.Navigate(new Uri("Pages/HomePage.xaml", UriKind.Relative));
-                }
+                NavigationService.GoBack();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при переходе назад: {ex.Message}",
-                              "Ошибка",
-                              MessageBoxButton.OK,
-                              MessageBoxImage.Error);
+                NavigationService.Navigate(new InfoMarafon());
             }
         }
 

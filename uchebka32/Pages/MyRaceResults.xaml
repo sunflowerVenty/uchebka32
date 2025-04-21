@@ -58,17 +58,19 @@
                 <ScrollViewer HorizontalScrollBarVisibility="Auto">
                     <DataGrid x:Name="ResultsDataGrid" AutoGenerateColumns="False" IsReadOnly="True" Width="Auto" Margin="0,20">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Марафон" Width="Auto"/>
-                            <DataGridTextColumn Header="Дистанция" Width="Auto"/>
-                            <DataGridTextColumn Header="Время" Width="Auto"/>
-                            <DataGridTextColumn Header="Общее место" Width="Auto"/>
-                            <DataGridTextColumn Header="Место по категории"  Width="Auto"/>
+                            <DataGridTextColumn Header="Марафон" Binding="{Binding Marathon}" Width="Auto" Foreground="Black"/>
+                            <DataGridTextColumn Header="Дистанция" Binding="{Binding Distance}" Width="Auto"/>
+                            <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="Auto"/>
+                            <DataGridTextColumn Header="Общее место" Binding="{Binding OverallRank}" Width="Auto"/>
+                            <DataGridTextColumn Header="Место по категории" Binding="{Binding CategoryRank}" Width="Auto"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </ScrollViewer>
 
                 <!-- Show All Results Button -->
-                <Button Content="Показать все результаты" Width="150" Height="30" Background="#FDC100" Margin="0,20"/>
+                <Button Content="Показать все результаты" 
+                        Click="MyRaceResultsPage_Loaded"
+                        Width="150" Height="30" Background="#FDC100" Margin="0,20"/>
             </StackPanel>
         </Grid>
     </DockPanel>

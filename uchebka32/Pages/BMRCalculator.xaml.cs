@@ -108,5 +108,34 @@ namespace uchebka32.Pages
         {
             NavigationService.GoBack();
         }
+
+        private void HeightTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!(Char.IsDigit(e.Text, 0) || (e.Text == ".")
+               && (!HeightTextBox.Text.Contains(".")
+               && HeightTextBox.Text.Length != 0)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void WeightTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!(Char.IsDigit(e.Text, 0) || (e.Text == ".")
+               && (!WeightTextBox.Text.Contains(".")
+               && WeightTextBox.Text.Length != 0)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AgetextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }

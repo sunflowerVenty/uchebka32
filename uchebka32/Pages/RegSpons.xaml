@@ -111,8 +111,7 @@
                                      Margin="10, 0"
                                      GotFocus="TextBox_GotFocus"
                                      LostFocus="TextBox_LostFocus"
-                                     PreviewTextInput="CardNumberTextBox_PreviewTextInput"
-                                     TextChanged="CardNumberTextBox_TextChanged"
+                                     PreviewTextInput="NameTextBox_PreviewTextInput"
                                      Foreground="Gray"/>
 
                             <TextBox x:Name="CardNumberTextBox"

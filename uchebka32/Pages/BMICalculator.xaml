@@ -20,19 +20,20 @@
                        FontSize="28" 
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
+                       Style="{StaticResource TextHeader}"
                        Margin="0,10,0,10"/>
             <TextBlock Text="BMI обозначает индекс массы тела. Он используется, чтобы дать вам представление о том, является ли Ваш вес- избыточным или идеальным для вашего роста. Это полезно знать, потому что если ваш вес увеличивается или уменьшается за пределами идеального диапазона, у вас повышается риск заболеть."
-                       FontSize="16" 
-                       Margin="100, 20" 
+                       FontSize="20" 
+                       Margin="100, 30" 
                        HorizontalAlignment="Center"
                        TextWrapping="Wrap"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,30">
                 <!-- Мужской -->
                 <Border x:Name="MaleBorder"
                         Width="120" 
                         Height="120"
                         BorderBrush="#B6B6B6" BorderThickness="2"
-                        Margin="0,0,18,0" 
+                        Margin="0,0,20,0" 
                         CornerRadius="3"
                         Background="White"
                         MouseDown="MaleBorder_MouseDown">
@@ -54,12 +55,26 @@ Margin="0,0,0,0" CornerRadius="3" Background="White" MouseDown="FemaleBorder_Mou
             <!-- Рост и вес -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
                 <TextBlock Text="Рост:" FontSize="18" VerticalAlignment="Center"/>
-                <TextBox x:Name="HeightTextBox" Width="60" Height="32" FontSize="18" Text="170" Margin="10,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="HeightTextBox"
+                         Width="60" Height="32" 
+                         PreviewTextInput="HeightTextBox_PreviewTextInput"
+                         FontSize="18" 
+                         Text="170"
+                         Margin="10,0,0,0" 
+                         VerticalContentAlignment="Center" 
+                         HorizontalContentAlignment="Center"/>
                 <TextBlock Text="см" FontSize="18" Margin="8,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                 <TextBlock Text="Вес:" FontSize="18" VerticalAlignment="Center"/>
-                <TextBox x:Name="WeightTextBox" Width="60" Height="32" FontSize="18" Text="70" Margin="18,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="WeightTextBox" 
+                         Width="60" Height="32" 
+                         PreviewTextInput="WeightTextBox_PreviewTextInput"
+                         FontSize="18" 
+                         Text="70" 
+                         Margin="18,0,0,0" 
+                         VerticalContentAlignment="Center" 
+                         HorizontalContentAlignment="Center"/>
                 <TextBlock Text="кг" FontSize="18" Margin="8,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
             <!-- Кнопки -->

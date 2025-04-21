@@ -44,35 +44,42 @@
                             <TextBlock Text="Email:" FontSize="35" 
                                        Style="{StaticResource TextPage}" 
                                        Margin="10, 0"/>
-                            <TextBox Text="Email" x:Name="txtEmail"
+                            <TextBox Text="" x:Name="txtEmail"
                                      Width="400" Margin="10, 0"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Пароль:" FontSize="35" 
                                         Style="{StaticResource TextPage}" 
                                         Margin="10, 0"/>
-                            <TextBox Text="Пароль"  x:Name="txtPassword"
+                            <TextBox Text="" 
+                                     x:Name="txtPassword"
                                      Width="400" Margin="10, 0"></TextBox>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
-                            <TextBlock Text="Повторите пароль:" FontSize="35" 
+                            <TextBlock Text="Повторите пароль"
+                                       FontSize="35" 
                                        Style="{StaticResource TextPage}" 
                                        Margin="10, 0"/>
-                            <TextBox Text="Повторите пароль" x:Name="txtConfirmPassword"
+                            <TextBox Text="" 
+                                     x:Name="txtConfirmPassword"
                                      Width="400" Margin="10, 0"></TextBox>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Имя:" FontSize="35" 
                                         Style="{StaticResource TextPage}" 
                                         Margin="10, 0"/>
-                            <TextBox Text="Имя" x:Name="txtFirstName"
+                            <TextBox Text=""
+PreviewTextInput="NameTextBox_PreviewTextInput"
+                                     x:Name="txtFirstName"
                                      Width="400" Margin="10, 0"></TextBox>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
                             <TextBlock Text="Фамилия:" FontSize="35" 
                                         Style="{StaticResource TextPage}" 
                                         Margin="10, 0"/>
-                            <TextBox Text="Фамилия" x:Name="txtLastName" 
+                            <TextBox Text="" 
+PreviewTextInput="NameTextBox_PreviewTextInput"
+                                     x:Name="txtLastName" 
                                      Width="400" Margin="10, 0"></TextBox>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Height="100" Orientation="Horizontal">
